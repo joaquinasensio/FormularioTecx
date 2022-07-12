@@ -1,0 +1,386 @@
+<MainWindow>:
+    name: "main"
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,102/255,204/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        Button:
+            text: "Líder de Desarrollo / Proyect Manager / SDM"
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)
+            on_release:
+                app.root.current = "perfil1"
+                root.manager.transition.direction = "left"
+        Button:
+            text: "Desarrollador de Software"
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)
+            on_release:
+                app.root.current = "perfil2"
+                root.manager.transition.direction = "left"  
+        Button:
+            text: "Arquitecto de Software"
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)
+            on_release:
+                app.root.current = "perfil3"
+                root.manager.transition.direction = "left"                
+        Button:
+            text: "Cerrar APP y Enviar Respuestas"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)     
+            on_release:
+                root.fin()
+
+<Perfil1>:
+    name: "perfil1"
+    
+    pm_actual: pm_actual
+    sdm_actual: sdm_actual
+    pm_prev: pm_prev
+    sdm_prev: sdm_prev
+
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,102/255,204/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Líder de Desarrollo / Proyect Manager / SDM"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+                
+            Label:
+                text: "Cant Actual"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.25, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Cant Prevista a 1 año "
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.55, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4        
+
+                        
+            Label:
+                text: "Gerente de proyectos: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.13}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+
+            TextInput:
+                id: pm_actual
+                pos_hint: {"x":0.3, "top":0.8-0.13}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: pm_prev
+                pos_hint: {"x":0.6, "top":0.8-0.13}                 
+                size_hint: 0.3, 0.12                               
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4    
+
+            Label:
+                text: "Gerente de Operaciones: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.13*2}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: sdm_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.13*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: sdm_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.13*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4                
+    
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()
+                
+
+
+<Perfil2>:
+    name: "perfil2"
+    
+    app_cs_actual: app_cs_actual
+    desar_web_actual: desar_web_actual
+    desar_juegos_actual: desar_juegos_actual
+    desar_app_mov_actual: desar_app_mov_actual
+    desar_sist_emb_actual: desar_sist_emb_actual
+    
+    app_cs_prev: app_cs_prev
+    desar_web_prev: desar_web_prev  
+    desar_juegos_prev: desar_juegos_prev
+    desar_app_mov_prev: desar_app_mov_prev 
+    desar_sist_emb_prev: desar_sist_emb_prev 
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,102/255,204/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Desarrollador de Software"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+                
+            Label:
+                text: "Cant Actual"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.25, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            Label:
+                text: "Cant Prevista a 1 año "
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.55, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4        
+    
+                        
+            Label:
+                text: "D. Apps cliente servidor:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+    
+            TextInput:
+                id: app_cs_actual
+                pos_hint: {"x":0.3, "top":0.8-0.12}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            TextInput:
+                id: app_cs_prev
+                pos_hint: {"x":0.6, "top":0.8-0.12}                 
+                size_hint: 0.3, 0.12                      
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4    
+    
+            Label:
+                text: "Desarrollador Web:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*2}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: desar_web_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.12*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            TextInput:
+                id: desar_web_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.12*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4   
+                 
+                
+            Label:
+                text: "Desarrollador juegos:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*3}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+    
+            TextInput:
+                id: desar_juegos_actual
+                pos_hint: {"x":0.3, "top":0.8-0.12*3}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            TextInput:
+                id: desar_juegos_prev
+                pos_hint: {"x":0.6, "top":0.8-0.12*3}                 
+                size_hint: 0.3, 0.12                               
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4    
+    
+            Label:
+                text: "D. Apps Móviles:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*4}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: desar_app_mov_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.12*4}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            TextInput:
+                id: desar_app_mov_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.12*4}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4 
+                
+            Label:
+                text: "D. Sits. Embedidos:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*5}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: desar_sist_emb_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.12*5}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            TextInput:
+                id: desar_sist_emb_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.12*5}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4                                                
+    
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1) 
+            on_release:            
+                root.manager.transition.direction = "right" 
+                root.submit()
+   
+<Perfil3>:
+    name: "perfil3"
+    
+    app_mov_actual: app_mov_actual
+    sist_em_actual: sist_em_actual
+    app_mov_prev: app_mov_prev
+    sist_em_prev: sist_em_prev
+
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,102/255,204/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Arquitecto de software"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+                
+            Label:
+                text: "Cant Actual"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.25, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Cant Prevista a 1 año "
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.55, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4        
+
+                        
+            Label:
+                text: "Aplicaciones móviles: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.13}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+
+            TextInput:
+                id: app_mov_actual
+                pos_hint: {"x":0.3, "top":0.8-0.13}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: app_mov_prev
+                pos_hint: {"x":0.6, "top":0.8-0.13}                 
+                size_hint: 0.3, 0.12                               
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4    
+
+            Label:
+                text: "Sistemas embebidos: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.13*2}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: sist_em_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.13*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: sist_em_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.13*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4                
+    
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()   

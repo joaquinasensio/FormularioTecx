@@ -1,0 +1,111 @@
+
+<MainWindow>:
+    name: "main"
+    link1: link1
+    link2: link2
+    link3: link3
+    link4: link4
+    link5: link5
+ 
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,102/255,204/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Ingrese los links que se le han asignado"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+                                                   
+            Label:
+                text: "Primer link"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+    
+            TextInput:
+                id: link1
+                pos_hint: {"x":0.3, "top":0.8-0.12}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+   
+    
+            Label:
+                text: "Segundo link"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*2}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: link2
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.12*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+                 
+                
+            Label:
+                text: "Tercer link"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*3}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+    
+            TextInput:
+                id: link3
+                pos_hint: {"x":0.3, "top":0.8-0.12*3}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+       
+    
+            Label:
+                text: "Cuarto link"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*4}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: link4
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.12*4}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+                
+            Label:
+                text: "Quinto link"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*5}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: link5
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.12*5}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4                                                
+    
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Guardar links y cerrar app"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1) 
+            on_release:            
+                root.manager.transition.direction = "right" 
+                root.submit()
+
