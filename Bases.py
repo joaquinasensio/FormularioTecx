@@ -24,7 +24,7 @@ def answers(driver, df, perfil_class, rta1, rta2, user_id):
     
     #definimos las posibles respuestas a la pregunta
     x1_11 = df["x1_11"][user_id] #busqueda activa
-    x1_21 = df["x1_21"][user_id] #busqueda activa
+    x1_12 = df["x1_12"][user_id] #busqueda activa
     
     #ingresamos los valores
     text_answers1 = str(x1_11) #send keys funciona con str, pero llegan al formulario como int
@@ -32,7 +32,7 @@ def answers(driver, df, perfil_class, rta1, rta2, user_id):
     text_questions1.send_keys(text_answers1)        
      
     #ingresamos los valores
-    text_answers2 = str(x1_21) #send keys funciona con str, pero llegan al formulario como int
+    text_answers2 = str(x1_12) #send keys funciona con str, pero llegan al formulario como int
     text_questions2 = driver.find_element(By.ID,rta2)
     text_questions2.send_keys(text_answers2)     
     
@@ -91,7 +91,7 @@ def answers3(driver, df, perfil3_class, rta3a, rta3b, user_id):
     driver.implicitly_wait(10)
     #definimos las posibles respuestas a la pregunta
     x3_11 = df["x3_11"][user_id] #busqueda activa
-    x3_21 = df["x3_21"][user_id] #busqueda activa
+    x3_12 = df["x3_12"][user_id] #busqueda activa
     
     #ingresamos los valores
     text_answers1 = str(x3_11) #send keys funciona con str, pero llegan al formulario como int
@@ -99,11 +99,45 @@ def answers3(driver, df, perfil3_class, rta3a, rta3b, user_id):
     text_questions1.send_keys(text_answers1)        
      
     #ingresamos los valores
-    text_answers2 = str(x3_21) #send keys funciona con str, pero llegan al formulario como int
+    text_answers2 = str(x3_12) #send keys funciona con str, pero llegan al formulario como int
     text_questions2 = driver.find_element(By.ID,rta3b)
     text_questions2.send_keys(text_answers2)     
     
     return driver
+
+perfil4_clase = 'button[data-target="#question16387"]'
+rta4_a = 'answer214733X505X16387SQ001_SQ001'
+rta4_b = 'answer214733X505X16387SQ002_SQ001'
+rta4_c = 'answer214733X505X16387SQ002_SQ001'
+
+def answers4(driver, df, perfil4_class, rta4a, rta4b, rta4c, user_id):
+    
+    #expandimos la pregunta
+    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil4_class) 
+    driver.execute_script("arguments[0].click();",titulo_click)
+    driver.implicitly_wait(10)
+    #definimos las posibles respuestas a la pregunta
+    x4_11 = df["x4_11"][user_id] #busqueda activa
+    x4_12 = df["x4_12"][user_id] #busqueda activa
+    x4_13 = df["x4_13"][user_id] #busqueda activa
+    
+    #ingresamos los valores
+    text_answers1 = str(x4_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta4a)
+    text_questions1.send_keys(text_answers1)        
+     
+    #ingresamos los valores
+    text_answers2 = str(x4_12) #send keys funciona con str, pero llegan al formulario como int
+    text_questions2 = driver.find_element(By.ID,rta4b)
+    text_questions2.send_keys(text_answers2)     
+
+    #ingresamos los valores
+    text_answers3 = str(x4_13) #send keys funciona con str, pero llegan al formulario como int
+    text_questions3 = driver.find_element(By.ID,rta4c)
+    text_questions3.send_keys(text_answers3)     
+        
+    return driver
+
 
 submit_class = 'button[id="ls-button-submit"]'
 

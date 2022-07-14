@@ -386,3 +386,117 @@
             on_release:
                 root.manager.transition.direction = "right"            
                 root.submit()   
+
+<Perfil4>:
+    name: "perfil4"
+    
+    desar_actual: desar_actual
+    esp_inf_actual: esp_inf_actual
+    analist_actual: analist_actual
+    desar_prev: desar_prev
+    esp_inf_prev: esp_inf_prev
+    analist_prev: analist_prev
+
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,102/255,204/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Consulto BI - Business Intelligence"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+                
+            Label:
+                text: "Cant Actual"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.25, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Cant Prevista a 1 año "
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.55, "top":0.8}
+                font_size: (root.width**2 + root.height**2) / 14**4        
+
+                        
+            Label:
+                text: "Desarrollador: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.13}
+                font_size: (root.width**2 + root.height**2) / 16**4                
+
+            TextInput:
+                id: desar_actual
+                pos_hint: {"x":0.3, "top":0.8-0.13}
+                size_hint: 0.4, 0.12
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: desar_prev
+                pos_hint: {"x":0.6, "top":0.8-0.13}                 
+                size_hint: 0.3, 0.12                               
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4    
+
+            Label:
+                text: "Especialista en informes: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.13*2}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: esp_inf_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.13*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: esp_inf_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.13*2}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4                
+
+            Label:
+                text: "Analista: "
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0, "top":0.8-0.12*3}                
+                font_size: (root.width**2 + root.height**2) / 16**4
+                
+            TextInput:
+                id: analist_actual
+                size_hint: 0.4, 0.12
+                pos_hint: {"x":0.3, "top":0.8-0.13*3}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            TextInput:
+                id: analist_prev
+                size_hint: 0.3, 0.12
+                pos_hint: {"x":0.6, "top":0.8-0.13*3}                
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4       
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()                  

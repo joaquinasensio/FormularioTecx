@@ -25,6 +25,7 @@ class MainWindow(Screen):
         p1 = pd.read_csv('perfil1.csv') #respuestas a la primera pregunta
         p2 = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
         p3 = pd.read_csv('perfil3.csv') #respuestas a la segunda pregunta
+        p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
         urls = pd.read_csv('LinksNoBorrar.csv')
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
@@ -39,6 +40,7 @@ class MainWindow(Screen):
             driver = answers2(driver = driver, df = p2, perfil_class = perfil2_clase, rta2a = rta2_a, rta2b = rta2_b,
                           rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
             driver = answers3(driver = driver, df = p3, perfil3_class = perfil3_clase, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
+            driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
         
         driver.close() # cerramos el web driver
@@ -82,9 +84,6 @@ class Perfil1(Screen):
         
         self.pm_prev.text = ""
         self.sdm_prev.text = ""
-
-        
-
 
 class Perfil2(Screen):
     app_cs_actual = ObjectProperty(None)
@@ -179,6 +178,54 @@ class Perfil3(Screen):
         self.app_mov_prev.text = ""
         self.sist_em_prev.text = ""
 
+class Perfil4(Screen):
+    desar_actual = ObjectProperty(None)
+    esp_inf_actual = ObjectProperty(None)
+    analist_actual = ObjectProperty(None)
+    
+    desar_prev = ObjectProperty(None)
+    esp_inf_prev = ObjectProperty(None)   
+    analist_prev = ObjectProperty(None) 
+
+    def submit(self):
+        if ((self.desar_actual.text in y or self.desar_actual.text.count("") == 1) and (self.esp_inf_actual.text in y or self.esp_inf_actual.text.count("") == 1)
+                and (self.analist_actual.text in y or self.analist_actual.text.count("") == 1) and (self.desar_prev.text in y or self.desar_prev.text.count("") == 1)
+                and (self.esp_inf_prev.text in y or self.esp_inf_prev.text.count("") == 1) and (self.analist_prev.text in y or self.analist_prev.text.count("") == 1)):
+            
+            x4_11 = fragmentar(self.desar_actual.text)
+            x4_12 = fragmentar(self.esp_inf_actual.text)
+            x4_13 = fragmentar(self.analist_actual.text)
+            
+            x4_21 = fragmentar(self.desar_prev.text)
+            x4_22 = fragmentar(self.esp_inf_prev.text)
+            x4_23 = fragmentar(self.analist_prev.text)
+
+            sm.current = "main"
+            
+            perfil4_dict = {'x4_11':x4_11, 'x4_12':x4_12, 'x4_13':x4_13,
+                        'x4_21':x4_21, 'x4_22':x4_22, 'x4_23':x4_23}
+            df_perfil4 = pd.DataFrame.from_dict(perfil4_dict)
+            df_perfil4.to_csv("perfil4.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil4"
+    
+            self.reset() 
+    
+            
+    def reset(self):
+        self.app_cs_actual.text = ""
+
+        desar_actual = ""
+        esp_inf_actual = ""
+        analist_actual = ""
+        
+        desar_prev = ""
+        esp_inf_prev = ""   
+        analist_prev = ""         
+
+
 class WindowManager(ScreenManager):
     pass
 
@@ -216,7 +263,7 @@ kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
 sm = WindowManager()
 
 screens = [MainWindow(name="main"), Perfil1(name="perfil1"),Perfil2(name="perfil2"),
-           Perfil3(name="perfil3")]
+           Perfil3(name="perfil3"), Perfil4(name="perfil4")]
 for screen in screens:
     sm.add_widget(screen)
 
