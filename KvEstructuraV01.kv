@@ -6,7 +6,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -53,7 +53,7 @@
             on_press: 
                 self.background_color = (0/255,51/255,102/255,1)
             on_release:
-                app.root.current = "perfil5"
+                app.root.current = "perfil6"
                 root.manager.transition.direction = "left"                                 
 
         Button:
@@ -77,7 +77,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -178,7 +178,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -332,7 +332,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -427,7 +427,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -437,7 +437,7 @@
             padding: 15
             
             Label:
-                text: "Consulto BI - Business Intelligence"
+                text: "Consultor BI - Business Intelligence"
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -541,7 +541,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -551,7 +551,7 @@
             padding: 15
             
             Label:
-                text: "Consulto BI - Business Intelligence"
+                text: "Analista de negocios"
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -647,7 +647,7 @@
     webd_actual: webd_actual
     mkt_actual: mkt_actual
     uxd_prev: uxd_prev
-    webd_prev: web_prev
+    webd_prev: webd_prev
     mkt_prev: mkt_prev
 
 
@@ -655,7 +655,7 @@
         cols:1
         canvas.before:
             Color:
-                rgba:(0/255,102/255,204/255,1)
+                rgba:(0/255,51/255,102/255,1)
             Rectangle:
                 pos:self.pos
                 size:self.size
@@ -710,14 +710,14 @@
                 font_size: (root.width**2 + root.height**2) / 16**4
                 
             TextInput:
-                id: web_actual
+                id: webd_actual
                 size_hint: 0.4, 0.12
                 pos_hint: {"x":0.3, "top":0.8-0.13*2}                
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
 
             TextInput:
-                id: web_prev
+                id: webd_prev
                 size_hint: 0.3, 0.12
                 pos_hint: {"x":0.6, "top":0.8-0.13*2}                
                 multiline: False
