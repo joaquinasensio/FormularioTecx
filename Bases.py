@@ -14,7 +14,6 @@ perfil1_clase = 'button[data-target="#question16379"]'
 rta1 = 'answer214733X505X16379SQ001_SQ001'
 rta2 = 'answer214733X505X16379SQ002_SQ001'
 
-
 def answers(driver, df, perfil_class, rta1, rta2, user_id):
     
     #expandimos la pregunta
@@ -44,7 +43,6 @@ rta2_b = 'answer214733X505X16389SQ002_SQ001'
 rta2_c = 'answer214733X505X16389SQ003_SQ001'
 rta2_d = 'answer214733X505X16389SQ004_SQ001'
 rta2_e = 'answer214733X505X16389SQ005_SQ001'
-
 
 def answers2(driver, df, perfil_class, rta2a, rta2b, rta2c, rta2d, rta2e, user_id):
     titulo_click = driver.find_element(By.CSS_SELECTOR,perfil_class) 
@@ -167,6 +165,39 @@ def answers5(driver, df, perfil5_class, rta5a, rta5b, rta5c, user_id):
     #ingresamos los valores
     text_answers3 = str(x5_13) #send keys funciona con str, pero llegan al formulario como int
     text_questions3 = driver.find_element(By.ID,rta5c)
+    text_questions3.send_keys(text_answers3)     
+        
+    return driver
+
+perfil6_clase = 'button[data-target="#question16390"]'
+rta6_a = 'answer214733X505X16390SQ001_SQ001'
+rta6_b = 'answer214733X505X16390SQ002_SQ001'
+rta6_c = 'answer214733X505X16390SQ003_SQ001'
+
+def answers6(driver, df, perfil6_class, rta6a, rta6b, rta6c, user_id):
+    
+    #expandimos la pregunta
+    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil6_class) 
+    driver.execute_script("arguments[0].click();",titulo_click)
+    driver.implicitly_wait(10)
+    #definimos las posibles respuestas a la pregunta
+    x6_11 = df["x6_11"][user_id] #busqueda activa
+    x6_12 = df["x6_12"][user_id] #busqueda activa
+    x6_13 = df["x6_13"][user_id] #busqueda activa
+    
+    #ingresamos los valores
+    text_answers1 = str(x6_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta6a)
+    text_questions1.send_keys(text_answers1)        
+     
+    #ingresamos los valores
+    text_answers2 = str(x6_12) #send keys funciona con str, pero llegan al formulario como int
+    text_questions2 = driver.find_element(By.ID,rta6b)
+    text_questions2.send_keys(text_answers2)     
+
+    #ingresamos los valores
+    text_answers3 = str(x6_13) #send keys funciona con str, pero llegan al formulario como int
+    text_questions3 = driver.find_element(By.ID,rta6c)
     text_questions3.send_keys(text_answers3)     
         
     return driver

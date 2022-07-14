@@ -27,6 +27,7 @@ class MainWindow(Screen):
         p3 = pd.read_csv('perfil3.csv') #respuestas a la segunda pregunta
         p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
         p5 = pd.read_csv('perfil5.csv') #respuestas a la segunda pregunta
+        p6 = pd.read_csv('perfil6.csv') #respuestas a la segunda pregunta
         urls = pd.read_csv('LinksNoBorrar.csv')
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
@@ -43,14 +44,16 @@ class MainWindow(Screen):
             driver = answers3(driver = driver, df = p3, perfil3_class = perfil3_clase, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
             driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
             driver = answers5(driver = driver, df = p5, perfil5_class = perfil5_clase, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
+            driver = answers6(driver = driver, df = p6, perfil6_class = perfil6_clase, rta6a = rta6_a, rta6b = rta6_b, rta6c = rta6_c, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
         
         driver.close() # cerramos el web driver
         os.remove("perfil1.csv") #borramos los archivos de la carpeta del usuario
-        os.remove("perfil2.csv") #borramos los archivos de la carpeta del usuario
-        os.remove("perfil3.csv") #borramos los archivos de la carpeta del usuario
-        os.remove("perfil4.csv") #borramos los archivos de la carpeta del usuario
-        os.remove("perfil5.csv") #borramos los archivos de la carpeta del usuario
+        os.remove("perfil2.csv") 
+        os.remove("perfil3.csv") 
+        os.remove("perfil4.csv") 
+        os.remove("perfil5.csv") 
+        os.remove("perfil6.csv") 
         MyMainApp.get_running_app().stop()
         #Window.close()
 
@@ -272,6 +275,50 @@ class Perfil5(Screen):
         self.esp_proc_prev.text = ""   
         self.esp_ind_prev.text = ""              
 
+class Perfil6(Screen):
+    uxd_actual = ObjectProperty(None)
+    webd_actual = ObjectProperty(None)
+    mkt_actual = ObjectProperty(None)
+    
+    uxd_prev = ObjectProperty(None)
+    webd_prev = ObjectProperty(None)   
+    mkt_prev = ObjectProperty(None)   
+
+    def submit(self):
+        if ((self.uxd_actual.text in y or self.uxd_actual.text.count("") == 1) and (self.webd_actual.text in y or self.webd_actual.text.count("") == 1)
+                and (self.mkt_actual.text in y or self.mkt_actual.text.count("") == 1) and (self.uxd_prev.text in y or self.uxd_prev.text.count("") == 1)
+                and (self.webd_prev.text in y or self.webd_prev.text.count("") == 1) and (self.mkt_prev.text in y or self.mkt_prev.text.count("") == 1)):
+            
+            x6_11 = fragmentar(self.uxd_actual.text)
+            x6_12 = fragmentar(self.webd_actual.text)
+            x6_13 = fragmentar(self.mkt_actual.text)
+            
+            x6_21 = fragmentar(self.uxd_prev.text)
+            x6_22 = fragmentar(self.webd_prev.text)
+            x6_23 = fragmentar(self.mkt_prev.text)
+
+            sm.current = "main"
+            
+            perfil6_dict = {'x6_11':x6_11, 'x6_12':x6_12, 'x6_13':x6_13,
+                        'x6_21':x6_21, 'x6_22':x6_22, 'x6_23':x6_23}
+            df_perfil6 = pd.DataFrame.from_dict(perfil6_dict)
+            df_perfil6.to_csv("perfil6.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil6"
+    
+            self.reset() 
+    
+            
+    def reset(self):
+        self.uxd_actual.text = ""
+        self.webd_actual.text = ""
+        self.mkt_actual.text = ""
+        
+        self.uxd_prev.text = ""
+        self.webd_prev.text = ""   
+        self.mkt_prev.text = ""   
 
 class WindowManager(ScreenManager):
     pass
@@ -310,7 +357,8 @@ kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
 sm = WindowManager()
 
 screens = [MainWindow(name="main"), Perfil1(name="perfil1"),Perfil2(name="perfil2"),
-           Perfil3(name="perfil3"), Perfil4(name="perfil4"), Perfil5(name="perfil5")]
+           Perfil3(name="perfil3"), Perfil4(name="perfil4"), Perfil5(name="perfil5"),
+           Perfil6(name="perfil6")]
 for screen in screens:
     sm.add_widget(screen)
 
