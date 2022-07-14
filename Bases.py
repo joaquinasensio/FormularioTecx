@@ -56,23 +56,23 @@ def answers2(driver, df, perfil_class, rta2a, rta2b, rta2c, rta2d, rta2e, user_i
     x2_15 = df["x2_15"][user_id] #busqueda activa
     
     text_answers1 = str(x2_11) # following the order in the form
-    text_questions1 = driver.find_element(By.ID,rta2_a)
+    text_questions1 = driver.find_element(By.ID,rta2a)
     text_questions1.send_keys(text_answers1)        
         
     text_answers2 = str(x2_12) # following the order in the form
-    text_questions2 = driver.find_element(By.ID,rta2_b)
+    text_questions2 = driver.find_element(By.ID,rta2b)
     text_questions2.send_keys(text_answers2)     
     
     text_answers3 = str(x2_13) # following the order in the form
-    text_questions3 = driver.find_element(By.ID,rta2_c)
+    text_questions3 = driver.find_element(By.ID,rta2c)
     text_questions3.send_keys(text_answers3)        
         
     text_answers4 = str(x2_14) # following the order in the form
-    text_questions4 = driver.find_element(By.ID,rta2_d)
+    text_questions4 = driver.find_element(By.ID,rta2d)
     text_questions4.send_keys(text_answers4)      
 
     text_answers5 = str(x2_15) # following the order in the form
-    text_questions5 = driver.find_element(By.ID,rta2_e)
+    text_questions5 = driver.find_element(By.ID,rta2e)
     text_questions5.send_keys(text_answers5)  
     
     return driver
@@ -202,6 +202,73 @@ def answers6(driver, df, perfil6_class, rta6a, rta6b, rta6c, user_id):
         
     return driver
 
+perfil7_clase = 'button[data-target="#question16386"]'
+rta7_a = 'answer214733X505X16386SQ001_SQ001'
+rta7_b = 'answer214733X505X16386SQ002_SQ001'
+rta7_c = 'answer214733X505X16386SQ003_SQ001'
+rta7_d = 'answer214733X505X16386SQ004_SQ001'
+
+def answers7(driver, df, perfil_class, rta7a, rta7b, rta7c, rta7d, user_id):
+    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil_class) 
+    driver.execute_script("arguments[0].click();",titulo_click)
+    driver.implicitly_wait(3)
+
+    x7_11 = df["x7_11"][user_id] #busqueda activa
+    x7_12 = df["x7_12"][user_id] #busqueda activa
+    x7_13 = df["x7_13"][user_id] #busqueda activa
+    x7_14 = df["x7_14"][user_id] #busqueda activa
+    
+    
+    text_answers1 = str(x7_11) # following the order in the form
+    text_questions1 = driver.find_element(By.ID,rta7a)
+    text_questions1.send_keys(text_answers1)        
+        
+    text_answers2 = str(x7_12) # following the order in the form
+    text_questions2 = driver.find_element(By.ID,rta7b)
+    text_questions2.send_keys(text_answers2)     
+    
+    text_answers3 = str(x7_13) # following the order in the form
+    text_questions3 = driver.find_element(By.ID,rta7c)
+    text_questions3.send_keys(text_answers3)        
+        
+    text_answers4 = str(x7_14) # following the order in the form
+    text_questions4 = driver.find_element(By.ID,rta7d)
+    text_questions4.send_keys(text_answers4)        
+    
+    return driver
+
+perfil8_clase = 'button[data-target="#question16396"]'
+rta8_a = 'answer214733X505X16396SQ001_SQ001'
+rta8_b = 'answer214733X505X16396SQ002_SQ001'
+rta8_c = 'answer214733X505X16396SQ003_SQ001'
+
+def answers8(driver, df, perfil8_class, rta8a, rta8b, rta8c, user_id):
+    
+    #expandimos la pregunta
+    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil8_class) 
+    driver.execute_script("arguments[0].click();",titulo_click)
+    driver.implicitly_wait(10)
+    #definimos las posibles respuestas a la pregunta
+    x8_11 = df["x8_11"][user_id] #busqueda activa
+    x8_12 = df["x8_12"][user_id] #busqueda activa
+    x8_13 = df["x8_13"][user_id] #busqueda activa
+    
+    #ingresamos los valores
+    text_answers1 = str(x8_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta8a)
+    text_questions1.send_keys(text_answers1)        
+     
+    #ingresamos los valores
+    text_answers2 = str(x8_12) #send keys funciona con str, pero llegan al formulario como int
+    text_questions2 = driver.find_element(By.ID,rta8b)
+    text_questions2.send_keys(text_answers2)     
+
+    #ingresamos los valores
+    text_answers3 = str(x8_13) #send keys funciona con str, pero llegan al formulario como int
+    text_questions3 = driver.find_element(By.ID,rta8c)
+    text_questions3.send_keys(text_answers3)     
+        
+    return driver
 
 submit_class = 'button[id="ls-button-submit"]'
 

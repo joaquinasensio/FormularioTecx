@@ -28,6 +28,8 @@ class MainWindow(Screen):
         p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
         p5 = pd.read_csv('perfil5.csv') #respuestas a la segunda pregunta
         p6 = pd.read_csv('perfil6.csv') #respuestas a la segunda pregunta
+        p7 = pd.read_csv('perfil7.csv') #respuestas a la segunda pregunta
+        p8 = pd.read_csv('perfil8.csv') #respuestas a la segunda pregunta
         urls = pd.read_csv('LinksNoBorrar.csv')
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
@@ -45,6 +47,9 @@ class MainWindow(Screen):
             driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
             driver = answers5(driver = driver, df = p5, perfil5_class = perfil5_clase, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
             driver = answers6(driver = driver, df = p6, perfil6_class = perfil6_clase, rta6a = rta6_a, rta6b = rta6_b, rta6c = rta6_c, user_id = user_id)
+            driver = answers7(driver = driver, df = p7, perfil_class = perfil7_clase, rta7a = rta7_a, rta7b = rta7_b,
+                          rta7c = rta7_c, rta7d = rta7_d, user_id = user_id)
+            driver = answers8(driver = driver, df = p8, perfil8_class = perfil8_clase, rta8a = rta8_a, rta8b = rta8_b, rta8c = rta8_c, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
         
         driver.close() # cerramos el web driver
@@ -54,6 +59,8 @@ class MainWindow(Screen):
         os.remove("perfil4.csv") 
         os.remove("perfil5.csv") 
         os.remove("perfil6.csv") 
+        os.remove("perfil7.csv") 
+        os.remove("perfil8.csv") 
         MyMainApp.get_running_app().stop()
         #Window.close()
 
@@ -320,6 +327,103 @@ class Perfil6(Screen):
         self.webd_prev.text = ""   
         self.mkt_prev.text = ""   
 
+class Perfil7(Screen):
+    research_actual = ObjectProperty(None)
+    analisis_actual = ObjectProperty(None)
+    prot_inter_actual = ObjectProperty(None)
+    test_us_actual = ObjectProperty(None)
+    
+    research_prev = ObjectProperty(None)
+    analisis_prev = ObjectProperty(None)   
+    prot_inter_prev = ObjectProperty(None) 
+    test_us_prev = ObjectProperty(None) 
+
+    def submit(self):
+        if ((self.research_actual.text in y or self.research_actual.text.count("") == 1) and (self.analisis_actual.text in y or self.analisis_actual.text.count("") == 1)
+                and (self.prot_inter_actual.text in y or self.prot_inter_actual.text.count("") == 1) and (self.test_us_actual.text in y or self.test_us_actual.text.count("") == 1)
+                and (self.research_prev.text in y or self.research_prev.text.count("") == 1) and (self.prot_inter_prev.text in y or self.prot_inter_prev.text.count("") == 1)
+                and (self.analisis_prev.text in y or self.analisis_prev.text.count("") == 1) and (self.test_us_prev.text in y or self.test_us_prev.text.count("") == 1)):
+
+            x7_11 = fragmentar(self.research_actual.text)
+            x7_12 = fragmentar(self.analisis_actual.text)
+            x7_13 = fragmentar(self.prot_inter_actual.text)
+            x7_14 = fragmentar(self.test_us_actual.text)
+            
+            x7_21 = fragmentar(self.research_prev.text)
+            x7_22 = fragmentar(self.analisis_prev.text)
+            x7_23 = fragmentar(self.prot_inter_prev.text)
+            x7_24 = fragmentar(self.test_us_prev.text)
+            
+            sm.current = "main"
+            
+            perfil7_dict = {'x7_11':x7_11, 'x7_12':x7_12, 'x7_13':x7_13, 'x7_14':x7_14,
+                        'x7_21':x7_21, 'x7_22':x7_22, 'x7_23':x7_23, 'x7_24':x7_24}
+            df_perfil7 = pd.DataFrame.from_dict(perfil7_dict)
+            df_perfil7.to_csv("perfil7.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil2"
+    
+            self.reset() 
+    
+            
+    def reset(self):
+        self.research_actual.text = ""
+        self.analisis_actual.text = ""
+        self.prot_inter_actual.text = ""
+        self.test_us_actual.text = ""  
+    
+        self.research_prev.text = ""
+        self.analisis_prev.text = ""
+        self.prot_inter_prev.text = ""
+        self.test_us_prev.text = ""  
+    
+class Perfil8(Screen):
+    orient_tec_actual = ObjectProperty(None)
+    orient_func_actual = ObjectProperty(None)
+    orient_seg_actual = ObjectProperty(None)
+    
+    orient_tec_prev = ObjectProperty(None)
+    orient_func_prev = ObjectProperty(None)   
+    orient_seg_prev = ObjectProperty(None)   
+
+    def submit(self):
+        if ((self.orient_tec_actual.text in y or self.orient_tec_actual.text.count("") == 1) and (self.orient_func_actual.text in y or self.orient_func_actual.text.count("") == 1)
+                and (self.orient_seg_actual.text in y or self.orient_seg_actual.text.count("") == 1) and (self.orient_tec_prev.text in y or self.orient_tec_prev.text.count("") == 1)
+                and (self.orient_func_prev.text in y or self.orient_func_prev.text.count("") == 1) and (self.orient_seg_prev.text in y or self.orient_seg_prev.text.count("") == 1)):
+            
+            x8_11 = fragmentar(self.orient_tec_actual.text)
+            x8_12 = fragmentar(self.orient_func_actual.text)
+            x8_13 = fragmentar(self.orient_seg_actual.text)
+            
+            x8_21 = fragmentar(self.orient_tec_prev.text)
+            x8_22 = fragmentar(self.orient_func_prev.text)
+            x8_23 = fragmentar(self.orient_seg_prev.text)
+
+            sm.current = "main"
+            
+            perfil8_dict = {'x8_11':x8_11, 'x8_12':x8_12, 'x8_13':x8_13,
+                        'x8_21':x8_21, 'x8_22':x8_22, 'x8_23':x8_23}
+            df_perfil8 = pd.DataFrame.from_dict(perfil8_dict)
+            df_perfil8.to_csv("perfil8.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil6"
+    
+            self.reset() 
+    
+            
+    def reset(self):
+        self.orient_tec_actual.text = ""
+        self.orient_func_actual.text = ""
+        self.orient_seg_actual.text = ""
+        
+        self.orient_tec_prev.text = ""
+        self.orient_func_prev.text = ""   
+        self.orient_seg_prev.text = ""   
+
 class WindowManager(ScreenManager):
     pass
 
@@ -356,9 +460,9 @@ kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
 
 sm = WindowManager()
 
-screens = [MainWindow(name="main"), Perfil1(name="perfil1"),Perfil2(name="perfil2"),
+screens = [MainWindow(name="main"), Perfil1(name="perfil1"), Perfil2(name="perfil2"),
            Perfil3(name="perfil3"), Perfil4(name="perfil4"), Perfil5(name="perfil5"),
-           Perfil6(name="perfil6")]
+           Perfil6(name="perfil6"), Perfil7(name="perfil7"), Perfil8(name="perfil8")]
 for screen in screens:
     sm.add_widget(screen)
 
