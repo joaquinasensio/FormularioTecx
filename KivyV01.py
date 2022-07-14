@@ -26,6 +26,7 @@ class MainWindow(Screen):
         p2 = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
         p3 = pd.read_csv('perfil3.csv') #respuestas a la segunda pregunta
         p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
+        p5 = pd.read_csv('perfil5.csv') #respuestas a la segunda pregunta
         urls = pd.read_csv('LinksNoBorrar.csv')
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
@@ -41,12 +42,15 @@ class MainWindow(Screen):
                           rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
             driver = answers3(driver = driver, df = p3, perfil3_class = perfil3_clase, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
             driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
+            driver = answers5(driver = driver, df = p5, perfil5_class = perfil5_clase, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
         
         driver.close() # cerramos el web driver
         os.remove("perfil1.csv") #borramos los archivos de la carpeta del usuario
         os.remove("perfil2.csv") #borramos los archivos de la carpeta del usuario
         os.remove("perfil3.csv") #borramos los archivos de la carpeta del usuario
+        os.remove("perfil4.csv") #borramos los archivos de la carpeta del usuario
+        os.remove("perfil5.csv") #borramos los archivos de la carpeta del usuario
         MyMainApp.get_running_app().stop()
         #Window.close()
 
@@ -62,9 +66,9 @@ class Perfil1(Screen):
         if ((self.pm_actual.text in y or self.pm_actual.text.count("") == 1) and (self.pm_prev.text in y or self.pm_prev.text.count("") == 1)
                 and (self.sdm_actual.text in y or self.sdm_actual.text.count("") == 1) and (self.sdm_prev.text in y or self.sdm_prev.text.count("") == 1)):
             x1_11 = fragmentar(self.pm_actual.text)
-            x1_12 = fragmentar(self.pm_prev.text)
+            x1_12 = fragmentar(self.sdm_actual.text)
             
-            x1_21 = fragmentar(self.sdm_actual.text)
+            x1_21 = fragmentar(self.pm_prev.text)
             x1_22 = fragmentar(self.sdm_prev.text)
             sm.current = "main"        
           
@@ -215,15 +219,58 @@ class Perfil4(Screen):
     
             
     def reset(self):
-        self.app_cs_actual.text = ""
-
-        desar_actual = ""
-        esp_inf_actual = ""
-        analist_actual = ""
+        self.desar_actual.text = ""
+        self.esp_inf_actual.text = ""
+        self.analist_actual.text = ""
         
-        desar_prev = ""
-        esp_inf_prev = ""   
-        analist_prev = ""         
+        self.desar_prev.text = ""
+        self.esp_inf_prev.text = ""   
+        self.analist_prev.text = ""         
+
+class Perfil5(Screen):
+    ap_erp_crm_actual = ObjectProperty(None)
+    esp_proc_actual = ObjectProperty(None)
+    esp_ind_actual = ObjectProperty(None)
+    
+    ap_erp_crm_prev = ObjectProperty(None)
+    esp_proc_prev = ObjectProperty(None)   
+    esp_ind_prev = ObjectProperty(None)   
+
+    def submit(self):
+        if ((self.ap_erp_crm_actual.text in y or self.ap_erp_crm_actual.text.count("") == 1) and (self.esp_proc_actual.text in y or self.esp_proc_actual.text.count("") == 1)
+                and (self.esp_ind_actual.text in y or self.esp_ind_actual.text.count("") == 1) and (self.ap_erp_crm_prev.text in y or self.ap_erp_crm_prev.text.count("") == 1)
+                and (self.esp_proc_prev.text in y or self.esp_proc_prev.text.count("") == 1) and (self.esp_ind_prev.text in y or self.esp_ind_prev.text.count("") == 1)):
+            
+            x5_11 = fragmentar(self.ap_erp_crm_actual.text)
+            x5_12 = fragmentar(self.esp_proc_actual.text)
+            x5_13 = fragmentar(self.esp_ind_actual.text)
+            
+            x5_21 = fragmentar(self.ap_erp_crm_prev.text)
+            x5_22 = fragmentar(self.esp_proc_prev.text)
+            x5_23 = fragmentar(self.esp_ind_prev.text)
+
+            sm.current = "main"
+            
+            perfil5_dict = {'x5_11':x5_11, 'x5_12':x5_12, 'x5_13':x5_13,
+                        'x5_21':x5_21, 'x5_22':x5_22, 'x5_23':x5_23}
+            df_perfil5 = pd.DataFrame.from_dict(perfil5_dict)
+            df_perfil5.to_csv("perfil5.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil5"
+    
+            self.reset() 
+    
+            
+    def reset(self):
+        self.ap_erp_crm_actual.text = ""
+        self.esp_proc_actual.text = ""
+        self.esp_ind_actual.text = ""
+        
+        self.ap_erp_crm_prev.text = ""
+        self.esp_proc_prev.text = ""   
+        self.esp_ind_prev.text = ""              
 
 
 class WindowManager(ScreenManager):
@@ -263,7 +310,7 @@ kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
 sm = WindowManager()
 
 screens = [MainWindow(name="main"), Perfil1(name="perfil1"),Perfil2(name="perfil2"),
-           Perfil3(name="perfil3"), Perfil4(name="perfil4")]
+           Perfil3(name="perfil3"), Perfil4(name="perfil4"), Perfil5(name="perfil5")]
 for screen in screens:
     sm.add_widget(screen)
 
