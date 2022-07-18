@@ -10,78 +10,145 @@
             Rectangle:
                 pos:self.pos
                 size:self.size
-                
-        Button:
-            text: "Líder de Desarrollo / Proyect Manager / SDM"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil1"
-                root.manager.transition.direction = "left"
-        Button:
-            text: "Desarrollador de Software"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil2"
-                root.manager.transition.direction = "left"  
-        Button:
-            text: "Arquitecto de Software"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil3"
-                root.manager.transition.direction = "left" 
-
-        Button:
-            text: "Consultor BI - Business Intelligence"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil4"
-                root.manager.transition.direction = "left" 
-
-        Button:
-            text: "Analista de negocios"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil5"
-                root.manager.transition.direction = "left"   
-
-        Button:
-            text: "Diseñador Web"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil6"
-                root.manager.transition.direction = "left"        
-
-        Button:
-            text: "Analista UX (usabilidad)"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil7"
-                root.manager.transition.direction = "left"      
-
-        Button:
-            text: "Tester / Analista tester"
-            on_press: 
-                self.background_color = (0/255,51/255,102/255,1)
-            on_release:
-                app.root.current = "perfil8"
-                root.manager.transition.direction = "left"                                                                       
+        GridLayout:
+            cols:2                
+            Button:
+                text: "Líder de Desarrollo / Proyect Manager / SDM"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil1"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "Desarrollador de Software"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil2"
+                    root.manager.transition.direction = "left"  
+            Button:
+                text: "Arquitecto de Software"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil3"
+                    root.manager.transition.direction = "left" 
+            Button:
+                text: "Consultor BI - Business Intelligence"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil4"
+                    root.manager.transition.direction = "left" 
+            Button:
+                text: "Analista de negocios"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil5"
+                    root.manager.transition.direction = "left"   
+            Button:
+                text: "Diseñador Web"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil6"
+                    root.manager.transition.direction = "left"        
+            Button:
+                text: "Analista UX (usabilidad)"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil7"
+                    root.manager.transition.direction = "left"      
+            Button:
+                text: "Tester / Analista tester"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil8"
+                    root.manager.transition.direction = "left"    
+            Button:
+                text: "Analista de Calidad"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil9"
+                    root.manager.transition.direction = "left"    
+            Button:
+                text: "IT Manager"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil10"
+                    root.manager.transition.direction = "left"    
+            Button:
+                text: "Administardor de Base de Datos (DBA)"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil11"
+                    root.manager.transition.direction = "left"        
+            Button:
+                text: "Analista Funcional"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil12"
+                    root.manager.transition.direction = "left"    
+            Button:
+                text: "Analista Big Data - Data Scientist"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil13"
+                    root.manager.transition.direction = "left"        
+            Button:
+                text: "Analista Middleware"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil14"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "Soporte Técnico"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil15"
+                    root.manager.transition.direction = "left"        
+            Button:
+                text: "Especialista en Seguridad de la Información"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil16"
+                    root.manager.transition.direction = "left"    
+            Button:
+                text: "Implementador Configuration Manager"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil17"
+                    root.manager.transition.direction = "left"        
+            Button:
+                text: "Implementador Software de Gestión"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil18"
+                    root.manager.transition.direction = "left"                                                                                                                                                                        
 
         Button:
             text: "Cerrar APP y Enviar Respuestas"
             font_size: (root.width**2 + root.height**2) / 14**4
+            size_hint: 0.2, 0.2
             on_press: 
                 self.background_color = (0/255,51/255,102/255,1)     
             on_release:
                 root.fin()
 
-<Perfil1>:
+<Perfil1>: #Líder de Desarrollo / Proyect Manager (PM)
     name: "perfil1"
     pm_actual: pm_actual
     sdm_actual: sdm_actual
@@ -141,14 +208,14 @@
             Label:
                 text: "Gerente de Proyectos o PM:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: pm_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -156,14 +223,14 @@
             Label:
                 text: "Gerente de Operaciones de un Cliente / Service Delivery Manager:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: sdm_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -179,7 +246,7 @@
                 root.manager.transition.direction = "right"            
                 root.submit()
                 
-<Perfil2>:
+<Perfil2>: #Desarrollador de Software
     name: "perfil2"
     app_cs_actual: app_cs_actual
     desar_web_actual: desar_web_actual
@@ -243,7 +310,7 @@
                 text: "Desarrollador de aplicaciones cliente-servidor:"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
@@ -258,7 +325,7 @@
                 text: "Desarrollador Web:"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
@@ -273,7 +340,7 @@
                 text: "Desarrollador de juegos / Aplicaciones lúdicas:"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0.1, "top":0.75-0.12*3}
-                font_size: (root.width**2 + root.height**2) / 16**4 
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
                 text_size: self.size
                 halign: 'left'               
     
@@ -288,7 +355,7 @@
                 text: "Desarrollador de Aplicaciones Móviles:"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0.1, "top":0.75-0.12*4}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
@@ -303,7 +370,7 @@
                 text: "Desarrollador de Sistemas Embebidos:"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0.1, "top":0.75-0.12*5}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
@@ -326,7 +393,7 @@
                 root.submit()
                 root.reset()
    
-<Perfil3>:
+<Perfil3>: #Arquitecto de Software
     name: "perfil3"    
     app_mov_actual: app_mov_actual
     sist_em_actual: sist_em_actual
@@ -387,14 +454,14 @@
             Label:
                 text: "Aplicaciones móviles:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: app_mov_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -402,14 +469,14 @@
             Label:
                 text: "Sistemas embebidos:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: sist_em_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -425,7 +492,7 @@
                 root.manager.transition.direction = "right"            
                 root.submit()
 
-<Perfil4>:
+<Perfil4>: #Consultor BI - Business Intelligence
     name: "perfil4"
     desar_actual: desar_actual
     esp_inf_actual: esp_inf_actual
@@ -486,14 +553,14 @@
             Label:
                 text: "Desarrollador:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: desar_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -501,14 +568,14 @@
             Label:
                 text: "Especialista en informes:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: esp_inf_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -516,14 +583,14 @@
             Label:
                 text: "Analista:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*3}
-                font_size: (root.width**2 + root.height**2) / 16**4 
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
                 text_size: self.size
                 halign: 'left'               
     
             TextInput:
                 id: analist_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*3}
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -539,7 +606,7 @@
                 root.manager.transition.direction = "right"            
                 root.submit()  
 
-<Perfil5>:
+<Perfil5>: #Analista de Negocios
     name: "perfil5"
     ap_erp_crm_actual: ap_erp_crm_actual
     esp_proc_actual: esp_proc_actual
@@ -600,14 +667,14 @@
             Label:
                 text: "Aplicaciones ERP / CRM:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: ap_erp_crm_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -615,14 +682,14 @@
             Label:
                 text: "Especialista en procesos: financieros, logísticos, producción:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: esp_proc_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -630,14 +697,14 @@
             Label:
                 text: "Especialista en industrias: consumo masivo, financieros, retail, etc.:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*3}
-                font_size: (root.width**2 + root.height**2) / 16**4 
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
                 text_size: self.size
                 halign: 'left'               
     
             TextInput:
                 id: esp_ind_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*3}
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -653,7 +720,7 @@
                 root.manager.transition.direction = "right"            
                 root.submit()                                  
 
-<Perfil6>:
+<Perfil6>: #Diseñador Web
     name: "perfil6"
     uxd_actual: uxd_actual
     webd_actual: webd_actual
@@ -714,14 +781,14 @@
             Label:
                 text: "UX Developer:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: uxd_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -729,14 +796,14 @@
             Label:
                 text: "WEBDeveloper:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: webd_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -744,14 +811,14 @@
             Label:
                 text: "Marketing Online:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*3}
-                font_size: (root.width**2 + root.height**2) / 16**4 
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
                 text_size: self.size
                 halign: 'left'               
     
             TextInput:
                 id: mkt_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*3}
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -767,7 +834,7 @@
                 root.manager.transition.direction = "right"            
                 root.submit()                     
 
-<Perfil7>:
+<Perfil7>: #Analista UX (Usabilidad)
     name: "perfil7"    
     research_actual: research_actual
     analisis_actual: analisis_actual
@@ -836,14 +903,14 @@
             Label:
                 text: "Research (en general o en técnica específica):"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: research_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -851,14 +918,14 @@
             Label:
                 text: "Análisis:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: analisis_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -866,14 +933,14 @@
             Label:
                 text: "Prototipado de interfaz de usuarios:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*3}
-                font_size: (root.width**2 + root.height**2) / 16**4 
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
                 text_size: self.size
                 halign: 'left'               
     
             TextInput:
                 id: prot_inter_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*3}
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -881,14 +948,14 @@
             Label:
                 text: "Test de usuarios / Test de usabilidad:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*4}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*4}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: test_us_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*4}
+                pos_hint: {"x":0.8, "top":0.75-0.155*4}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -904,7 +971,7 @@
                 root.manager.transition.direction = "right" 
                 root.submit()
 
-<Perfil8>:
+<Perfil8>: #Tester / Analista Tester
     name: "perfil8"
     orient_tec_actual: orient_tec_actual
     orient_func_actual: orient_func_actual
@@ -965,14 +1032,14 @@
             Label:
                 text: "Orientación técnica (stress, volumen, performance, etc.):"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'                
     
             TextInput:
                 id: orient_tec_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125}
+                pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -980,14 +1047,14 @@
             Label:
                 text: "Orientación funcional:"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
                 text_size: self.size
                 halign: 'left'
                 
             TextInput:
                 id: orient_func_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*2}
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -995,14 +1062,14 @@
             Label:
                 text: "Orientación seguridad (técnicas de hackeo, etc.):"
                 size_hint: 0.4,0.08
-                pos_hint: {"x":0.1, "top":0.75-0.12*3}
-                font_size: (root.width**2 + root.height**2) / 16**4 
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
                 text_size: self.size
                 halign: 'left'               
     
             TextInput:
                 id: orient_seg_actual
-                pos_hint: {"x":0.8, "top":0.75-0.125*3}
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
                 size_hint: 0.12, 0.09
                 multiline: False
                 font_size: (root.width**2 + root.height**2) / 14**4
@@ -1016,4 +1083,377 @@
                 self.background_color = (0/255,51/255,102/255,1)
             on_release:
                 root.manager.transition.direction = "right"            
-                root.submit()                                 
+                root.submit()
+                root.reset()  
+
+<Perfil9>: #Analista de Calidad
+    name: "perfil9"
+    iso: iso
+    itil: itil
+    cmmi: cmmi
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Analista de Calidad"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "[u]Otras denominaciones[/u]: QA / Analista de Procesos"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4       
+
+            Label:
+                text: "[u]Misión[/u]: Proveer un marco de metodología y estandarización a la Organización y sus Proyectos, en dos importantes ramas:"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "calidad en procesos y calidad en producto, detectando en forma temprana las causas de los defectos y evitando su propagación"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4                                    
+                
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "ISO 9001 - ISO 27001:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: iso
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+       
+            Label:
+                text: "Modelos de Calidad para servicios TI (ITIL / ISO 20000):"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'
+                
+            TextInput:
+                id: itil
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "CMMI:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
+                text_size: self.size
+                halign: 'left'               
+    
+            TextInput:
+                id: cmmi
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()
+                root.reset()  
+
+<Perfil10>: #IT Manager
+    name: "perfil10"
+    datcenter: datcenter
+    rout_switch: rout_switch
+    video: video
+    voice: voice
+    redes: redes
+    seg: seg
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "IT Manager: Administrador de Redes, Comunicaciones y Sistemas Operativos"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "[u]Otras denominaciones[/u]: Soporte de Infraestructura IT / Soporte de Redes / Especialista en Redes "
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4       
+
+            Label:
+                text: "/ Técnico en Redes / Ingeniero en Redes / Administrador de Redes, Comunicaciones y Sistemas Operativos"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "[u]Misión[/u]: Administrar la operación, seguridad y mantenimiento de la infraestructura"
+                markup: True                
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4                                    
+                
+            Label:
+                text: "de redes asegurando la calidad y performance de los servicios de la Organización"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.86}
+                font_size: (root.width**2 + root.height**2) / 17**4 
+
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "Data Center:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: datcenter
+                pos_hint: {"x":0.4, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Routing and Switching:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'
+
+            TextInput:
+                id: rout_switch
+                pos_hint: {"x":0.4, "top":0.75-0.155*2}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Video:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15*3}
+                font_size: (root.width**2 + root.height**2) / 15.5**4 
+                text_size: self.size
+                halign: 'left'    
+
+            TextInput:
+                id: video
+                pos_hint: {"x":0.4, "top":0.75-0.155*3}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Voice:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.55, "top":0.75-0.15}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'
+
+            TextInput:
+                id: voice
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+        
+            Label:
+                text: "Redes Wireless:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.55, "top":0.75-0.15*2}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'
+
+            TextInput:
+                id: redes
+                pos_hint: {"x":0.8, "top":0.75-0.155*2}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "Seguridad:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.55, "top":0.75-0.15*3}                
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'
+
+            TextInput:
+                id: seg
+                pos_hint: {"x":0.8, "top":0.75-0.155*3}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+                
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1) 
+            on_release:            
+                root.manager.transition.direction = "right" 
+                root.submit()
+                root.reset()                                                            
+
+<Perfil11>: #Administrador de Base de Datos (DBA)
+    name: "perfil11"
+    dba: dba
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Administrador de Base de Datos (DBA)"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "[u]Otras denominaciones[/u]: Analista de Bases de Datos / DBA (Database Administrator)"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4       
+
+            Label:
+                text: "[u]Misión[/u]: Garantizar y optimizar la seguridad, integridad y estabilidad de las bases de datos que"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "administran la información de las operaciones del negocio, para que siempre estén disponibles con tiempos de respuesta óptimos,"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4   
+
+            Label:
+                text: " según las diferentes áreas de la compañía. En términos tecnológicos: asegurar la continuidad operacional"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.86}
+                font_size: (root.width**2 + root.height**2) / 17**4                                                  
+                
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "Administrador de Base de Datos (DBA):"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: dba
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()                

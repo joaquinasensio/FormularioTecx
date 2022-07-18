@@ -64,7 +64,7 @@ class MainWindow(Screen):
         FormularioTecx.get_running_app().stop()
         #Window.close()
 
-class Perfil1(Screen):
+class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     pm_actual = ObjectProperty(None)
     sdm_actual = ObjectProperty(None)
     
@@ -89,7 +89,7 @@ class Perfil1(Screen):
         self.pm_actual.text = ""
         self.sdm_actual.text = ""
 
-class Perfil2(Screen):
+class Perfil2(Screen): #Desarrollador de Software
     app_cs_actual = ObjectProperty(None)
     desar_web_actual = ObjectProperty(None)
     desar_juegos_actual = ObjectProperty(None)
@@ -124,7 +124,7 @@ class Perfil2(Screen):
         self.desar_app_mov_actual.text = ""  
         self.desar_sist_emb_actual.text = ""          
 
-class Perfil3(Screen):
+class Perfil3(Screen): #Arquitecto de Software
     app_mov_actual = ObjectProperty(None)
     sist_em_actual = ObjectProperty(None)
 
@@ -148,7 +148,7 @@ class Perfil3(Screen):
         self.app_mov_actual.text = ""
         self.sist_em_actual.text = ""
 
-class Perfil4(Screen):
+class Perfil4(Screen): #Consultor BI - Business Intelligence
     desar_actual = ObjectProperty(None)
     esp_inf_actual = ObjectProperty(None)
     analist_actual = ObjectProperty(None)
@@ -177,7 +177,7 @@ class Perfil4(Screen):
         self.esp_inf_actual.text = ""
         self.analist_actual.text = ""
 
-class Perfil5(Screen):
+class Perfil5(Screen): #Analista de Negocios
     ap_erp_crm_actual = ObjectProperty(None)
     esp_proc_actual = ObjectProperty(None)
     esp_ind_actual = ObjectProperty(None)
@@ -206,7 +206,7 @@ class Perfil5(Screen):
         self.esp_proc_actual.text = ""
         self.esp_ind_actual.text = ""
 
-class Perfil6(Screen):
+class Perfil6(Screen): #Diseñador Web
     uxd_actual = ObjectProperty(None)
     webd_actual = ObjectProperty(None)
     mkt_actual = ObjectProperty(None)
@@ -235,7 +235,7 @@ class Perfil6(Screen):
         self.webd_actual.text = ""
         self.mkt_actual.text = ""  
 
-class Perfil7(Screen):
+class Perfil7(Screen): #Analista UX (Usabilidad)
     research_actual = ObjectProperty(None)
     analisis_actual = ObjectProperty(None)
     prot_inter_actual = ObjectProperty(None)
@@ -267,7 +267,7 @@ class Perfil7(Screen):
         self.prot_inter_actual.text = ""
         self.test_us_actual.text = ""  
 
-class Perfil8(Screen):
+class Perfil8(Screen): #Tester / Analista Tester
     orient_tec_actual = ObjectProperty(None)
     orient_func_actual = ObjectProperty(None)
     orient_seg_actual = ObjectProperty(None)
@@ -295,6 +295,116 @@ class Perfil8(Screen):
         self.orient_tec_actual.text = ""
         self.orient_func_actual.text = ""
         self.orient_seg_actual.text = ""
+
+class Perfil9(Screen): #Analista de Calidad
+    iso = ObjectProperty(None)
+    itil = ObjectProperty(None)
+    cmmi = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.iso.text in y or self.iso.text.count("") == 1) and (self.itil.text in y or self.itil.text.count("") == 1)
+                and (self.cmmi.text in y or self.cmmi.text.count("") == 1)):
+            
+            x9_11 = fragmentar(self.iso.text)
+            x9_12 = fragmentar(self.itil.text)
+            x9_13 = fragmentar(self.cmmi.text)
+
+            sm.current = "main"
+            
+            perfil9_dict = {'x9_11':x9_11, 'x9_12':x9_12, 'x9_13':x9_13}
+            df_perfil9 = pd.DataFrame.from_dict(perfil9_dict)
+            df_perfil9.to_csv("perfil9.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil6"
+            self.reset() 
+    
+    def reset(self):
+        self.iso.text = ""
+        self.itil.text = ""
+        self.cmmi.text = ""
+
+class Perfil10(Screen): #Desarrollador de Software
+    datcenter = ObjectProperty(None)
+    rout_switch = ObjectProperty(None)
+    video = ObjectProperty(None)
+    voice = ObjectProperty(None)
+    redes = ObjectProperty(None)
+    seg = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.datcenter.text in y or self.datcenter.text.count("") == 1) and (self.rout_switch.text in y or self.rout_switch.text.count("") == 1)
+                and (self.video.text in y or self.video.text.count("") == 1) and (self.voice.text in y or self.voice.text.count("") == 1)
+                and (self.redes.text in y or self.redes.text.count("") == 1) and (self.seg.text in y or self.seg.text.count("") == 1)):
+            x10_11 = fragmentar(self.datcenter.text)
+            x10_12 = fragmentar(self.rout_switch.text)
+            x10_13 = fragmentar(self.video.text)
+            x10_14 = fragmentar(self.voice.text)
+            x10_15 = fragmentar(self.redes.text)
+            x10_16 = fragmentar(self.seg.text)
+
+            sm.current = "main"
+            
+            perfil10_dict = {'x10_11':x10_11, 'x10_12':x10_12, 'x10_13':x10_13, 'x10_14':x10_14, 'x10_15':x10_15, 'x10_16':x10_16}
+            df_perfil10 = pd.DataFrame.from_dict(perfil10_dict)
+            df_perfil10.to_csv("perfil10.csv")
+            
+        else:
+            invalidForm()
+            sm.current = "perfil2"
+    
+            self.reset() 
+        
+    def reset(self):
+        self.datcenter.text = ""
+        self.rout_switch.text = ""
+        self.video.text = ""
+        self.voice.text = ""  
+        self.redes.text = ""
+        self.seg.text = ""    
+
+class Perfil11(Screen): #Administrador de Base de Datos (DBA)
+    dba = ObjectProperty(None)
+    
+    def submit(self):
+        if ((self.dba.text in y or self.dba.text.count("") == 1)):
+            x11_11 = fragmentar(self.dba.text)
+        
+            sm.current = "main"        
+          
+            perfil11_dict = {'x11_11':x11_11}
+            df_perfil11 = pd.DataFrame.from_dict(perfil11_dict)
+            df_perfil11.to_csv("perfil11.csv")
+            
+            self.reset() 
+        else:
+            invalidForm()
+            sm.current = "perfil1"
+
+    def reset(self):
+        self.dba.text = ""
+
+class Perfil12(Screen): #Analista Funcional
+    pass
+
+class Perfil13(Screen): #Analista Big Data - Data Scientist
+    pass
+
+class Perfil14(Screen): #Analista Middleware
+    pass
+
+class Perfil15(Screen): #Soporte Técnico
+    pass
+
+class Perfil16(Screen): #Especialista en Seguridad de la Información
+    pass
+
+class Perfil17(Screen): #Implementador Configuration Manager
+    pass
+
+class Perfil18(Screen): #Implementador Software de Gestión
+    pass
 
 class WindowManager(ScreenManager):
     pass
@@ -327,25 +437,25 @@ def fragmentar(numero): #funcion para dividir en cinco grupos las respuestas
             x = [div,div,div,div,div+2]            
     return x
 
-
 kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
 
 sm = WindowManager()
-
 screens = [MainWindow(name="main"), Perfil1(name="perfil1"), Perfil2(name="perfil2"),
            Perfil3(name="perfil3"), Perfil4(name="perfil4"), Perfil5(name="perfil5"),
-           Perfil6(name="perfil6"), Perfil7(name="perfil7"), Perfil8(name="perfil8")]
+           Perfil6(name="perfil6"), Perfil7(name="perfil7"), Perfil8(name="perfil8"),
+           Perfil9(name="perfil9"), Perfil10(name="perfil10"), Perfil11(name="perfil11"),
+           Perfil12(name="perfil12"), Perfil10(name="perfil13"), Perfil13(name="perfil13"),
+           Perfil4(name="perfil14"), Perfil15(name="perfil15"), Perfil16(name="perfil16"),
+           Perfil17(name="perfil17"), Perfil18(name="perfil18")]
 for screen in screens:
     sm.add_widget(screen)
 
 sm.current = "main"
 
-
 class FormularioTecx(App):
     def build(self):
         self.icon = 'TecX.png'
         return sm
-
 
 if __name__ == "__main__":
     FormularioTecx().run()
