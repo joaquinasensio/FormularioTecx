@@ -48,12 +48,9 @@ def InvalidForm():
                   size_hint=(None, None), size=(400, 400))   
     pop.open()
  
-def resource_path(relative_path):
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return os.path.join(os.path.abspath("."), relative_path)   
+  
  
-kv = Builder.load_file(resource_path("URLApp.KivyV01.kv")) #cargamos la estructura del app    
+kv = Builder.load_file("URLApp.KivyV01.kv") #cargamos la estructura del app    
 sm = WindowManager()
 
 

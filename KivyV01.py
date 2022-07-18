@@ -61,28 +61,22 @@ class MainWindow(Screen):
         os.remove("perfil6.csv") 
         os.remove("perfil7.csv") 
         os.remove("perfil8.csv") 
-        MyMainApp.get_running_app().stop()
+        FormularioTecx.get_running_app().stop()
         #Window.close()
 
 class Perfil1(Screen):
     pm_actual = ObjectProperty(None)
     sdm_actual = ObjectProperty(None)
     
-    pm_prev = ObjectProperty(None)
-    sdm_prev = ObjectProperty(None)
-
-
     def submit(self):
-        if ((self.pm_actual.text in y or self.pm_actual.text.count("") == 1) and (self.pm_prev.text in y or self.pm_prev.text.count("") == 1)
-                and (self.sdm_actual.text in y or self.sdm_actual.text.count("") == 1) and (self.sdm_prev.text in y or self.sdm_prev.text.count("") == 1)):
+        if ((self.pm_actual.text in y or self.pm_actual.text.count("") == 1) and (self.sdm_actual.text in y or self.sdm_actual.text.count("") == 1) ):
             x1_11 = fragmentar(self.pm_actual.text)
             x1_12 = fragmentar(self.sdm_actual.text)
             
-            x1_21 = fragmentar(self.pm_prev.text)
-            x1_22 = fragmentar(self.sdm_prev.text)
+
             sm.current = "main"        
           
-            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12, 'x1_21':x1_21, 'x1_22':x1_22}
+            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12}
             df_perfil1 = pd.DataFrame.from_dict(perfil1_dict)
             df_perfil1.to_csv("perfil1.csv")
             
@@ -105,35 +99,19 @@ class Perfil2(Screen):
     desar_juegos_actual = ObjectProperty(None)
     desar_app_mov_actual = ObjectProperty(None)
     desar_sist_emb_actual = ObjectProperty(None)
-    
-    app_cs_prev = ObjectProperty(None)
-    desar_web_prev = ObjectProperty(None)   
-    desar_juegos_prev = ObjectProperty(None) 
-    desar_app_mov_prev = ObjectProperty(None) 
-    desar_sist_emb_prev = ObjectProperty(None) 
-
 
     def submit(self):
         if ((self.app_cs_actual.text in y or self.app_cs_actual.text.count("") == 1) and (self.desar_web_actual.text in y or self.desar_web_actual.text.count("") == 1)
                 and (self.desar_juegos_actual.text in y or self.desar_juegos_actual.text.count("") == 1) and (self.desar_app_mov_actual.text in y or self.desar_app_mov_actual.text.count("") == 1)
-                and (self.desar_sist_emb_actual.text in y or self.desar_sist_emb_actual.text.count("") == 1) and (self.app_cs_prev.text in y or self.app_cs_prev.text.count("") == 1)
-                and (self.desar_web_prev.text in y or self.desar_web_prev.text.count("") == 1) and (self.desar_juegos_prev.text in y or self.desar_juegos_prev.text.count("") == 1)
-                and (self.desar_app_mov_prev.text in y or self.desar_app_mov_prev.text.count("") == 1) and (self.desar_sist_emb_prev.text in y or self.desar_sist_emb_prev.text.count("") == 1)):
+                and (self.desar_sist_emb_actual.text in y or self.desar_sist_emb_actual.text.count("") == 1)):
             x2_11 = fragmentar(self.app_cs_actual.text)
             x2_12 = fragmentar(self.desar_web_actual.text)
             x2_13 = fragmentar(self.desar_juegos_actual.text)
             x2_14 = fragmentar(self.desar_app_mov_actual.text)
             x2_15 = fragmentar(self.desar_sist_emb_actual.text)
-            
-            x2_21 = fragmentar(self.app_cs_prev.text)
-            x2_22 = fragmentar(self.desar_web_prev.text)
-            x2_23 = fragmentar(self.desar_juegos_prev.text)
-            x2_24 = fragmentar(self.desar_app_mov_prev.text)
-            x2_25 = fragmentar(self.desar_sist_emb_prev.text)
             sm.current = "main"
             
-            perfil2_dict = {'x2_11':x2_11, 'x2_12':x2_12, 'x2_13':x2_13, 'x2_14':x2_14, 'x2_15':x2_15,
-                        'x2_21':x2_21, 'x2_22':x2_22, 'x2_23':x2_23, 'x2_24':x2_24, 'x2_25':x2_25}
+            perfil2_dict = {'x2_11':x2_11, 'x2_12':x2_12, 'x2_13':x2_13, 'x2_14':x2_14, 'x2_15':x2_15}
             df_perfil2 = pd.DataFrame.from_dict(perfil2_dict)
             df_perfil2.to_csv("perfil2.csv")
             
@@ -142,21 +120,14 @@ class Perfil2(Screen):
             sm.current = "perfil2"
     
             self.reset() 
-    
-            
+        
     def reset(self):
         self.app_cs_actual.text = ""
         self.desar_web_actual.text = ""
         self.desar_juegos_actual.text = ""
         self.desar_app_mov_actual.text = ""  
         self.desar_sist_emb_actual.text = ""          
-        
-        self.app_cs_prev.text = ""
-        self.desar_web_prev.text = ""
-        self.desar_juegos_prev.text = ""
-        self.desar_app_mov_prev.text = ""  
-        self.desar_sist_emb_prev.text = ""  
-        
+
 class Perfil3(Screen):
     app_mov_actual = ObjectProperty(None)
     sist_em_actual = ObjectProperty(None)
@@ -469,10 +440,11 @@ for screen in screens:
 sm.current = "main"
 
 
-class MyMainApp(App):
+class FormularioTecx(App):
     def build(self):
+        self.icon = 'TecX.png'
         return sm
 
 
 if __name__ == "__main__":
-    MyMainApp().run()
+    FormularioTecx().run()
