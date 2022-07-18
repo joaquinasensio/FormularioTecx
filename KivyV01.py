@@ -72,8 +72,7 @@ class Perfil1(Screen):
         if ((self.pm_actual.text in y or self.pm_actual.text.count("") == 1) and (self.sdm_actual.text in y or self.sdm_actual.text.count("") == 1) ):
             x1_11 = fragmentar(self.pm_actual.text)
             x1_12 = fragmentar(self.sdm_actual.text)
-            
-
+        
             sm.current = "main"        
           
             perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12}
@@ -89,9 +88,6 @@ class Perfil1(Screen):
     def reset(self):
         self.pm_actual.text = ""
         self.sdm_actual.text = ""
-        
-        self.pm_prev.text = ""
-        self.sdm_prev.text = ""
 
 class Perfil2(Screen):
     app_cs_actual = ObjectProperty(None)
@@ -131,269 +127,174 @@ class Perfil2(Screen):
 class Perfil3(Screen):
     app_mov_actual = ObjectProperty(None)
     sist_em_actual = ObjectProperty(None)
-    
-    app_mov_prev = ObjectProperty(None)
-    sist_em_prev = ObjectProperty(None)
-
 
     def submit(self):
-        if ((self.app_mov_actual.text in y or self.app_mov_actual.text.count("") == 1) and (self.app_mov_prev.text in y or self.app_mov_prev.text.count("") == 1)
-                and (self.sist_em_actual.text in y or self.sist_em_actual.text.count("") == 1) and (self.sist_em_prev.text in y or self.sist_em_prev.text.count("") == 1)):
-            x3_11 = fragmentar(self.app_mov_actual.text)
-            x3_12 = fragmentar(self.app_mov_prev.text)
-            
-            x3_21 = fragmentar(self.sist_em_actual.text)
-            x3_22 = fragmentar(self.sist_em_prev.text)
+        if ((self.app_mov_actual.text in y or self.app_mov_actual.text.count("") == 1) and (self.sist_em_actual.text in y or self.sist_em_actual.text.count("") == 1)):
+            x3_11 = fragmentar(self.app_mov_actual.text)         
+            x3_12 = fragmentar(self.sist_em_actual.text)
+
             sm.current = "main"        
           
-            perfil3_dict = {'x3_11':x3_11, 'x3_12':x3_12, 'x3_21':x3_21, 'x3_22':x3_22}
+            perfil3_dict = {'x3_11':x3_11, 'x3_12':x3_12}
             df_perfil3 = pd.DataFrame.from_dict(perfil3_dict)
             df_perfil3.to_csv("perfil3.csv")
             
             self.reset() 
         else:
             invalidForm()
-            sm.current = "perfil1"
-
-        
+            sm.current = "perfil3"
+       
     def reset(self):
         self.app_mov_actual.text = ""
         self.sist_em_actual.text = ""
-        
-        self.app_mov_prev.text = ""
-        self.sist_em_prev.text = ""
 
 class Perfil4(Screen):
     desar_actual = ObjectProperty(None)
     esp_inf_actual = ObjectProperty(None)
     analist_actual = ObjectProperty(None)
-    
-    desar_prev = ObjectProperty(None)
-    esp_inf_prev = ObjectProperty(None)   
-    analist_prev = ObjectProperty(None) 
 
     def submit(self):
         if ((self.desar_actual.text in y or self.desar_actual.text.count("") == 1) and (self.esp_inf_actual.text in y or self.esp_inf_actual.text.count("") == 1)
-                and (self.analist_actual.text in y or self.analist_actual.text.count("") == 1) and (self.desar_prev.text in y or self.desar_prev.text.count("") == 1)
-                and (self.esp_inf_prev.text in y or self.esp_inf_prev.text.count("") == 1) and (self.analist_prev.text in y or self.analist_prev.text.count("") == 1)):
+                and (self.analist_actual.text in y or self.analist_actual.text.count("") == 1)):
             
             x4_11 = fragmentar(self.desar_actual.text)
             x4_12 = fragmentar(self.esp_inf_actual.text)
             x4_13 = fragmentar(self.analist_actual.text)
-            
-            x4_21 = fragmentar(self.desar_prev.text)
-            x4_22 = fragmentar(self.esp_inf_prev.text)
-            x4_23 = fragmentar(self.analist_prev.text)
 
             sm.current = "main"
             
-            perfil4_dict = {'x4_11':x4_11, 'x4_12':x4_12, 'x4_13':x4_13,
-                        'x4_21':x4_21, 'x4_22':x4_22, 'x4_23':x4_23}
+            perfil4_dict = {'x4_11':x4_11, 'x4_12':x4_12, 'x4_13':x4_13}
             df_perfil4 = pd.DataFrame.from_dict(perfil4_dict)
             df_perfil4.to_csv("perfil4.csv")
             
         else:
             invalidForm()
             sm.current = "perfil4"
-    
             self.reset() 
-    
             
     def reset(self):
         self.desar_actual.text = ""
         self.esp_inf_actual.text = ""
         self.analist_actual.text = ""
-        
-        self.desar_prev.text = ""
-        self.esp_inf_prev.text = ""   
-        self.analist_prev.text = ""         
 
 class Perfil5(Screen):
     ap_erp_crm_actual = ObjectProperty(None)
     esp_proc_actual = ObjectProperty(None)
     esp_ind_actual = ObjectProperty(None)
-    
-    ap_erp_crm_prev = ObjectProperty(None)
-    esp_proc_prev = ObjectProperty(None)   
-    esp_ind_prev = ObjectProperty(None)   
 
     def submit(self):
         if ((self.ap_erp_crm_actual.text in y or self.ap_erp_crm_actual.text.count("") == 1) and (self.esp_proc_actual.text in y or self.esp_proc_actual.text.count("") == 1)
-                and (self.esp_ind_actual.text in y or self.esp_ind_actual.text.count("") == 1) and (self.ap_erp_crm_prev.text in y or self.ap_erp_crm_prev.text.count("") == 1)
-                and (self.esp_proc_prev.text in y or self.esp_proc_prev.text.count("") == 1) and (self.esp_ind_prev.text in y or self.esp_ind_prev.text.count("") == 1)):
+                and (self.esp_ind_actual.text in y or self.esp_ind_actual.text.count("") == 1)):
             
             x5_11 = fragmentar(self.ap_erp_crm_actual.text)
             x5_12 = fragmentar(self.esp_proc_actual.text)
             x5_13 = fragmentar(self.esp_ind_actual.text)
-            
-            x5_21 = fragmentar(self.ap_erp_crm_prev.text)
-            x5_22 = fragmentar(self.esp_proc_prev.text)
-            x5_23 = fragmentar(self.esp_ind_prev.text)
 
             sm.current = "main"
             
-            perfil5_dict = {'x5_11':x5_11, 'x5_12':x5_12, 'x5_13':x5_13,
-                        'x5_21':x5_21, 'x5_22':x5_22, 'x5_23':x5_23}
+            perfil5_dict = {'x5_11':x5_11, 'x5_12':x5_12, 'x5_13':x5_13}
             df_perfil5 = pd.DataFrame.from_dict(perfil5_dict)
             df_perfil5.to_csv("perfil5.csv")
             
         else:
             invalidForm()
             sm.current = "perfil5"
-    
             self.reset() 
     
-            
     def reset(self):
         self.ap_erp_crm_actual.text = ""
         self.esp_proc_actual.text = ""
         self.esp_ind_actual.text = ""
-        
-        self.ap_erp_crm_prev.text = ""
-        self.esp_proc_prev.text = ""   
-        self.esp_ind_prev.text = ""              
 
 class Perfil6(Screen):
     uxd_actual = ObjectProperty(None)
     webd_actual = ObjectProperty(None)
     mkt_actual = ObjectProperty(None)
-    
-    uxd_prev = ObjectProperty(None)
-    webd_prev = ObjectProperty(None)   
-    mkt_prev = ObjectProperty(None)   
 
     def submit(self):
         if ((self.uxd_actual.text in y or self.uxd_actual.text.count("") == 1) and (self.webd_actual.text in y or self.webd_actual.text.count("") == 1)
-                and (self.mkt_actual.text in y or self.mkt_actual.text.count("") == 1) and (self.uxd_prev.text in y or self.uxd_prev.text.count("") == 1)
-                and (self.webd_prev.text in y or self.webd_prev.text.count("") == 1) and (self.mkt_prev.text in y or self.mkt_prev.text.count("") == 1)):
+                and (self.mkt_actual.text in y or self.mkt_actual.text.count("") == 1)):
             
             x6_11 = fragmentar(self.uxd_actual.text)
             x6_12 = fragmentar(self.webd_actual.text)
             x6_13 = fragmentar(self.mkt_actual.text)
-            
-            x6_21 = fragmentar(self.uxd_prev.text)
-            x6_22 = fragmentar(self.webd_prev.text)
-            x6_23 = fragmentar(self.mkt_prev.text)
 
             sm.current = "main"
             
-            perfil6_dict = {'x6_11':x6_11, 'x6_12':x6_12, 'x6_13':x6_13,
-                        'x6_21':x6_21, 'x6_22':x6_22, 'x6_23':x6_23}
+            perfil6_dict = {'x6_11':x6_11, 'x6_12':x6_12, 'x6_13':x6_13}
             df_perfil6 = pd.DataFrame.from_dict(perfil6_dict)
             df_perfil6.to_csv("perfil6.csv")
             
         else:
             invalidForm()
             sm.current = "perfil6"
-    
             self.reset() 
     
-            
     def reset(self):
         self.uxd_actual.text = ""
         self.webd_actual.text = ""
-        self.mkt_actual.text = ""
-        
-        self.uxd_prev.text = ""
-        self.webd_prev.text = ""   
-        self.mkt_prev.text = ""   
+        self.mkt_actual.text = ""  
 
 class Perfil7(Screen):
     research_actual = ObjectProperty(None)
     analisis_actual = ObjectProperty(None)
     prot_inter_actual = ObjectProperty(None)
     test_us_actual = ObjectProperty(None)
-    
-    research_prev = ObjectProperty(None)
-    analisis_prev = ObjectProperty(None)   
-    prot_inter_prev = ObjectProperty(None) 
-    test_us_prev = ObjectProperty(None) 
 
     def submit(self):
         if ((self.research_actual.text in y or self.research_actual.text.count("") == 1) and (self.analisis_actual.text in y or self.analisis_actual.text.count("") == 1)
-                and (self.prot_inter_actual.text in y or self.prot_inter_actual.text.count("") == 1) and (self.test_us_actual.text in y or self.test_us_actual.text.count("") == 1)
-                and (self.research_prev.text in y or self.research_prev.text.count("") == 1) and (self.prot_inter_prev.text in y or self.prot_inter_prev.text.count("") == 1)
-                and (self.analisis_prev.text in y or self.analisis_prev.text.count("") == 1) and (self.test_us_prev.text in y or self.test_us_prev.text.count("") == 1)):
+                and (self.prot_inter_actual.text in y or self.prot_inter_actual.text.count("") == 1) and (self.test_us_actual.text in y or self.test_us_actual.text.count("") == 1)):
 
             x7_11 = fragmentar(self.research_actual.text)
             x7_12 = fragmentar(self.analisis_actual.text)
             x7_13 = fragmentar(self.prot_inter_actual.text)
             x7_14 = fragmentar(self.test_us_actual.text)
-            
-            x7_21 = fragmentar(self.research_prev.text)
-            x7_22 = fragmentar(self.analisis_prev.text)
-            x7_23 = fragmentar(self.prot_inter_prev.text)
-            x7_24 = fragmentar(self.test_us_prev.text)
-            
+
             sm.current = "main"
             
-            perfil7_dict = {'x7_11':x7_11, 'x7_12':x7_12, 'x7_13':x7_13, 'x7_14':x7_14,
-                        'x7_21':x7_21, 'x7_22':x7_22, 'x7_23':x7_23, 'x7_24':x7_24}
+            perfil7_dict = {'x7_11':x7_11, 'x7_12':x7_12, 'x7_13':x7_13, 'x7_14':x7_14}
             df_perfil7 = pd.DataFrame.from_dict(perfil7_dict)
             df_perfil7.to_csv("perfil7.csv")
             
         else:
             invalidForm()
             sm.current = "perfil2"
-    
             self.reset() 
     
-            
     def reset(self):
         self.research_actual.text = ""
         self.analisis_actual.text = ""
         self.prot_inter_actual.text = ""
         self.test_us_actual.text = ""  
-    
-        self.research_prev.text = ""
-        self.analisis_prev.text = ""
-        self.prot_inter_prev.text = ""
-        self.test_us_prev.text = ""  
-    
+
 class Perfil8(Screen):
     orient_tec_actual = ObjectProperty(None)
     orient_func_actual = ObjectProperty(None)
     orient_seg_actual = ObjectProperty(None)
-    
-    orient_tec_prev = ObjectProperty(None)
-    orient_func_prev = ObjectProperty(None)   
-    orient_seg_prev = ObjectProperty(None)   
 
     def submit(self):
         if ((self.orient_tec_actual.text in y or self.orient_tec_actual.text.count("") == 1) and (self.orient_func_actual.text in y or self.orient_func_actual.text.count("") == 1)
-                and (self.orient_seg_actual.text in y or self.orient_seg_actual.text.count("") == 1) and (self.orient_tec_prev.text in y or self.orient_tec_prev.text.count("") == 1)
-                and (self.orient_func_prev.text in y or self.orient_func_prev.text.count("") == 1) and (self.orient_seg_prev.text in y or self.orient_seg_prev.text.count("") == 1)):
+                and (self.orient_seg_actual.text in y or self.orient_seg_actual.text.count("") == 1)):
             
             x8_11 = fragmentar(self.orient_tec_actual.text)
             x8_12 = fragmentar(self.orient_func_actual.text)
             x8_13 = fragmentar(self.orient_seg_actual.text)
-            
-            x8_21 = fragmentar(self.orient_tec_prev.text)
-            x8_22 = fragmentar(self.orient_func_prev.text)
-            x8_23 = fragmentar(self.orient_seg_prev.text)
 
             sm.current = "main"
             
-            perfil8_dict = {'x8_11':x8_11, 'x8_12':x8_12, 'x8_13':x8_13,
-                        'x8_21':x8_21, 'x8_22':x8_22, 'x8_23':x8_23}
+            perfil8_dict = {'x8_11':x8_11, 'x8_12':x8_12, 'x8_13':x8_13}
             df_perfil8 = pd.DataFrame.from_dict(perfil8_dict)
             df_perfil8.to_csv("perfil8.csv")
             
         else:
             invalidForm()
             sm.current = "perfil6"
-    
             self.reset() 
     
-            
     def reset(self):
         self.orient_tec_actual.text = ""
         self.orient_func_actual.text = ""
         self.orient_seg_actual.text = ""
-        
-        self.orient_tec_prev.text = ""
-        self.orient_func_prev.text = ""   
-        self.orient_seg_prev.text = ""   
 
 class WindowManager(ScreenManager):
     pass
