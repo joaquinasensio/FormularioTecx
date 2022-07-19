@@ -8,4 +8,4 @@ El repositorio cuenta de dos ejecutables kivy (cada uno con su código .py y su 
 - selenium
 - kivy
 - os
-- sys
+- random
