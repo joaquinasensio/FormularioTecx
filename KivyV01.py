@@ -30,7 +30,17 @@ class MainWindow(Screen):
         p6 = pd.read_csv('perfil6.csv') #respuestas a la segunda pregunta
         p7 = pd.read_csv('perfil7.csv') #respuestas a la segunda pregunta
         p8 = pd.read_csv('perfil8.csv') #respuestas a la segunda pregunta
-        urls = pd.read_csv('LinksNoBorrar.csv')
+        p9 = pd.read_csv('perfil9.csv') #respuestas a la primera pregunta
+        p10 = pd.read_csv('perfil10.csv') #respuestas a la segunda pregunta
+        p11 = pd.read_csv('perfil11.csv') #respuestas a la segunda pregunta
+        p12 = pd.read_csv('perfil12.csv') #respuestas a la segunda pregunta
+        p13 = pd.read_csv('perfil13.csv') #respuestas a la segunda pregunta
+        p14 = pd.read_csv('perfil14.csv') #respuestas a la segunda pregunta
+        p15 = pd.read_csv('perfil15.csv') #respuestas a la segunda pregunta
+        p16 = pd.read_csv('perfil16.csv') #respuestas a la segunda pregunta    
+        p17 = pd.read_csv('perfil17.csv') #respuestas a la segunda pregunta
+        p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta     
+        urls = pd.read_excel('LinksNoBorrar.xlsx')
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
         
@@ -40,27 +50,36 @@ class MainWindow(Screen):
         #loopeamos por la cantidad de respuestas en el df
         for user_id in range(len(urls)):
             driver.get(urls.links[user_id])
-            driver = answers(driver = driver, df = p1, perfil_class = perfil1_clase, rta1 = rta1, rta2 = rta2, user_id = user_id)
-            driver = answers2(driver = driver, df = p2, perfil_class = perfil2_clase, rta2a = rta2_a, rta2b = rta2_b,
+            driver = answers(driver = driver, df = p1, perfil1_class = perfil1_clase, rta1 = rta1, rta2 = rta2, user_id = user_id)
+            driver = answers2(driver = driver, df = p2, perfil2_class = perfil2_clase, rta2a = rta2_a, rta2b = rta2_b,
                           rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
             driver = answers3(driver = driver, df = p3, perfil3_class = perfil3_clase, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
             driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
             driver = answers5(driver = driver, df = p5, perfil5_class = perfil5_clase, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
             driver = answers6(driver = driver, df = p6, perfil6_class = perfil6_clase, rta6a = rta6_a, rta6b = rta6_b, rta6c = rta6_c, user_id = user_id)
-            driver = answers7(driver = driver, df = p7, perfil_class = perfil7_clase, rta7a = rta7_a, rta7b = rta7_b,
+            driver = answers7(driver = driver, df = p7, perfil7_class = perfil7_clase, rta7a = rta7_a, rta7b = rta7_b,
                           rta7c = rta7_c, rta7d = rta7_d, user_id = user_id)
             driver = answers8(driver = driver, df = p8, perfil8_class = perfil8_clase, rta8a = rta8_a, rta8b = rta8_b, rta8c = rta8_c, user_id = user_id)
+            driver = answers9(driver = driver, df = p9, perfil9_class = perfil9_clase, rta9a = rta9_a, rta9b = rta9_b, rta9c = rta9_c, user_id = user_id)
+            driver = answers10(driver = driver, df = p10, perfil10_class = perfil10_clase, rta10a = rta10_a, rta10b = rta10_b,
+                          rta10c = rta10_c, rta10d = rta10_d, rta10e = rta10_e, rta10f = rta10_f, user_id = user_id)
+            driver = answers11(driver = driver, df = p11, perfil11_class = perfil11_clase, rta11a = rta11_a, user_id = user_id)
+            driver = answers12(driver = driver, df = p12, perfil12_class = perfil12_clase, rta12a = rta12_a, user_id = user_id)
+            driver = answers13(driver = driver, df = p13, perfil13_class = perfil13_clase, rta13a = rta13_a, user_id = user_id)
+            driver = answers14(driver = driver, df = p14, perfil14_class = perfil14_clase, rta14a = rta14_a, user_id = user_id)
+            driver = answers15(driver = driver, df = p15, perfil15_class = perfil15_clase, rta15a = rta15_a, user_id = user_id)
+            driver = answers16(driver = driver, df = p16, perfil16_class = perfil16_clase, rta16a = rta16_a, user_id = user_id)
+            driver = answers17(driver = driver, df = p17, perfil17_class = perfil17_clase, rta17a = rta17_a, user_id = user_id)
+            driver = answers18(driver = driver, df = p18, perfil18_class = perfil18_clase, rta18a = rta18_a, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
-        
+
         driver.close() # cerramos el web driver
-        os.remove("perfil1.csv") #borramos los archivos de la carpeta del usuario
-        os.remove("perfil2.csv") 
-        os.remove("perfil3.csv") 
-        os.remove("perfil4.csv") 
-        os.remove("perfil5.csv") 
-        os.remove("perfil6.csv") 
-        os.remove("perfil7.csv") 
-        os.remove("perfil8.csv") 
+        perfiles = ["perfil1.csv", "perfil2.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv", "perfil6.csv",
+                    "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
+                    "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv"]
+        for perfil in perfiles:
+            os.remove(perfil)
+
         FormularioTecx.get_running_app().stop()
         #Window.close()
 
@@ -314,7 +333,7 @@ class Perfil9(Screen): #Analista de Calidad
         self.itil.text = ""
         self.cmmi.text = ""
 
-class Perfil10(Screen): #Desarrollador de Software
+class Perfil10(Screen): #IT Manager
     datcenter = ObjectProperty(None)
     rout_switch = ObjectProperty(None)
     video = ObjectProperty(None)
