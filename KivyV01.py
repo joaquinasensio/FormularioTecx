@@ -547,7 +547,7 @@ def invalidForm():
 def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco grupos las respuestas
     if (numero == "" or numero == "0"):
         x = [0] * cant_url
-    elif numero != "" and int(numero) >= cant_url: #falta cuando el numero es menor a la cant de links
+    elif numero != "":
         # Paso1, generamos una lista de numeros aleatorios n=cantidad de urls
         # Paso2, sumamos todos los valores de la lista
         # Paso3, dividimos los valores de la lista por la suma y luego multiplicamos por el número a fragmentar
