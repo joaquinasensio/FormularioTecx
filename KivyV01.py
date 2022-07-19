@@ -12,6 +12,7 @@ from kivy.uix.label import Label
 #importamos archivo con funciones de web scraping
 from Bases import *
 import os # para borrar archivos
+import random
     
 #lista para chequear que se ingresen valores númericos en los inputs de la app
 x = range(9999)
@@ -19,7 +20,7 @@ y = []
 for n in x:
     y.append(str(n))
 
-
+urls = pd.read_excel('LinksNoBorrar.xlsx')
 class MainWindow(Screen):
     def fin(self):
         p1 = pd.read_csv('perfil1.csv') #respuestas a la primera pregunta
@@ -40,7 +41,7 @@ class MainWindow(Screen):
         p16 = pd.read_csv('perfil16.csv') #respuestas a la segunda pregunta    
         p17 = pd.read_csv('perfil17.csv') #respuestas a la segunda pregunta
         p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta     
-        urls = pd.read_excel('LinksNoBorrar.xlsx')
+        urls = pd.read_excel('LinksNoBorrar.xlsx') 
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
         
@@ -81,8 +82,7 @@ class MainWindow(Screen):
             os.remove(perfil)
 
         FormularioTecx.get_running_app().stop()
-        #Window.close()
-
+       
 class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     pm = ObjectProperty(None)
     sdm = ObjectProperty(None)
@@ -544,21 +544,27 @@ def invalidForm():
                   size_hint=(None, None), size=(400, 400))   
     pop.open()
 
-def fragmentar(numero): #funcion para dividir en cinco grupos las respuestas
+def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco grupos las respuestas
     if (numero == "" or numero == "0"):
-        x = [0,0,0,0,0]
-    elif numero != "": 
-        div = round(int(numero)/5)
-        if div*5 == int(numero):
-            x = [div,div,div,div,div]
-        elif ((div*4) + (div-1)) == int(numero):
-            x = [div,div,div,div,div-1]
-        elif ((div*4) + (div-2)) == int(numero):
-            x = [div,div,div,div,div-2]            
-        elif ((div*4) + (div+1)) == int(numero):
-            x = [div,div,div,div,div+1]
-        elif ((div*4) + (div+2)) == int(numero):
-            x = [div,div,div,div,div+2]            
+        x = [0] * cant_url
+    elif numero != "" and int(numero) >= cant_url: #falta cuando el numero es menor a la cant de links
+        # Paso1, generamos una lista de numeros aleatorios n=cantidad de urls
+        # Paso2, sumamos todos los valores de la lista
+        # Paso3, dividimos los valores de la lista por la suma y luego multiplicamos por el número a fragmentar
+        # Paso4, chequeamos que la suma de los nuevos valores sean = a numero a fragmentar
+        rand_x = [random.randrange(1, 9, 1) for i in range(cant_url)]
+        suma = sum(rand_x)
+        x = []
+        for i in rand_x:
+            x.append(round((i/suma)*int(numero)))
+            random.shuffle(x)
+        if sum(x) == int(numero):
+            uno = 1
+        if sum(x) != int(numero):
+            if sum(x)-1 == int(numero):
+                x[1] = (x[1])-1
+            elif sum(x)+1 == int(numero):
+                x[1] = (x[1])+1
     return x
 
 kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
