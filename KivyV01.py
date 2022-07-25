@@ -22,65 +22,19 @@ for n in x:
 
 urls = pd.read_excel('LinksNoBorrar.xlsx')
 class MainWindow(Screen):
-    def fin(self):
-        p1 = pd.read_csv('perfil1.csv') #respuestas a la primera pregunta
-        p2 = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
-        p3 = pd.read_csv('perfil3.csv') #respuestas a la segunda pregunta
-        p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
-        p5 = pd.read_csv('perfil5.csv') #respuestas a la segunda pregunta
-        p6 = pd.read_csv('perfil6.csv') #respuestas a la segunda pregunta
-        p7 = pd.read_csv('perfil7.csv') #respuestas a la segunda pregunta
-        p8 = pd.read_csv('perfil8.csv') #respuestas a la segunda pregunta
-        p9 = pd.read_csv('perfil9.csv') #respuestas a la primera pregunta
-        p10 = pd.read_csv('perfil10.csv') #respuestas a la segunda pregunta
-        p11 = pd.read_csv('perfil11.csv') #respuestas a la segunda pregunta
-        p12 = pd.read_csv('perfil12.csv') #respuestas a la segunda pregunta
-        p13 = pd.read_csv('perfil13.csv') #respuestas a la segunda pregunta
-        p14 = pd.read_csv('perfil14.csv') #respuestas a la segunda pregunta
-        p15 = pd.read_csv('perfil15.csv') #respuestas a la segunda pregunta
-        p16 = pd.read_csv('perfil16.csv') #respuestas a la segunda pregunta    
-        p17 = pd.read_csv('perfil17.csv') #respuestas a la segunda pregunta
-        p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta     
-        urls = pd.read_excel('LinksNoBorrar.xlsx') 
-        urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
-        urls = urls.to_frame() 
-        
-        driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver.set_window_position(-10000,0) # escondemos el web driver
-        
-        #loopeamos por la cantidad de respuestas en el df
-        for user_id in range(len(urls)):
-            driver.get(urls.links[user_id])
-            driver = answers(driver = driver, df = p1, perfil1_class = perfil1_clase, rta1 = rta1, rta2 = rta2, user_id = user_id)
-            driver = answers2(driver = driver, df = p2, perfil2_class = perfil2_clase, rta2a = rta2_a, rta2b = rta2_b,
-                          rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
-            driver = answers3(driver = driver, df = p3, perfil3_class = perfil3_clase, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
-            driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
-            driver = answers5(driver = driver, df = p5, perfil5_class = perfil5_clase, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
-            driver = answers6(driver = driver, df = p6, perfil6_class = perfil6_clase, rta6a = rta6_a, rta6b = rta6_b, rta6c = rta6_c, user_id = user_id)
-            driver = answers7(driver = driver, df = p7, perfil7_class = perfil7_clase, rta7a = rta7_a, rta7b = rta7_b,
-                          rta7c = rta7_c, rta7d = rta7_d, user_id = user_id)
-            driver = answers8(driver = driver, df = p8, perfil8_class = perfil8_clase, rta8a = rta8_a, rta8b = rta8_b, rta8c = rta8_c, user_id = user_id)
-            driver = answers9(driver = driver, df = p9, perfil9_class = perfil9_clase, rta9a = rta9_a, rta9b = rta9_b, rta9c = rta9_c, user_id = user_id)
-            driver = answers10(driver = driver, df = p10, perfil10_class = perfil10_clase, rta10a = rta10_a, rta10b = rta10_b,
-                          rta10c = rta10_c, rta10d = rta10_d, rta10e = rta10_e, rta10f = rta10_f, user_id = user_id)
-            driver = answers11(driver = driver, df = p11, perfil11_class = perfil11_clase, rta11a = rta11_a, user_id = user_id)
-            driver = answers12(driver = driver, df = p12, perfil12_class = perfil12_clase, rta12a = rta12_a, user_id = user_id)
-            driver = answers13(driver = driver, df = p13, perfil13_class = perfil13_clase, rta13a = rta13_a, user_id = user_id)
-            driver = answers14(driver = driver, df = p14, perfil14_class = perfil14_clase, rta14a = rta14_a, user_id = user_id)
-            driver = answers15(driver = driver, df = p15, perfil15_class = perfil15_clase, rta15a = rta15_a, user_id = user_id)
-            driver = answers16(driver = driver, df = p16, perfil16_class = perfil16_clase, rta16a = rta16_a, user_id = user_id)
-            driver = answers17(driver = driver, df = p17, perfil17_class = perfil17_clase, rta17a = rta17_a, user_id = user_id)
-            driver = answers18(driver = driver, df = p18, perfil18_class = perfil18_clase, rta18a = rta18_a, user_id = user_id)
-            driver = submit(driver = driver, element_class = submit_class)            
+    def mensaje_final(self):  
+        pop_final = Popup(title='Envío de respuestas',
+                    content= Label(text='''
+                        A continuación se hará el envío de sus\n
+                        respuestas. Esto puede demorar entre 1 y 2\n
+                        minutos, por favor no cierre el aplicativo\n
+                    Para empezar el proceso haga click afuera del recuadro
+                                    '''),
+                    size_hint=(None, None), size=(400, 400))   
+        pop_final.open()   
+        fin() 
 
-        driver.close() # cerramos el web driver
-        perfiles = ["perfil1.csv", "perfil2.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv", "perfil6.csv",
-                    "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
-                    "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv"]
-        for perfil in perfiles:
-            os.remove(perfil)
-
+    
         FormularioTecx.get_running_app().stop()
        
 class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
@@ -548,6 +502,7 @@ def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco gru
     if (numero == "" or numero == "0"):
         x = [0] * cant_url
     elif numero != "":
+        # Primera funcion de fragmentar
         # Paso1, generamos una lista de numeros aleatorios n=cantidad de urls
         # Paso2, sumamos todos los valores de la lista
         # Paso3, dividimos los valores de la lista por la suma y luego multiplicamos por el número a fragmentar
@@ -558,14 +513,72 @@ def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco gru
         for i in rand_x:
             x.append(round((i/suma)*int(numero)))
             random.shuffle(x)
-        if sum(x) == int(numero):
-            uno = 1
         if sum(x) != int(numero):
-            if sum(x)-1 == int(numero):
-                x[1] = (x[1])-1
-            elif sum(x)+1 == int(numero):
-                x[1] = (x[1])+1
+            if sum(x)+1 == int(numero):
+                x[0] = (x[0])+1
+            elif sum(x)-1 == int(numero):
+                x[0] = (x[0])-1            
     return x
+
+def fin():
+        p1 = pd.read_csv('perfil1.csv') #respuestas a la primera pregunta
+        p2 = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
+        p3 = pd.read_csv('perfil3.csv') #respuestas a la segunda pregunta
+        p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
+        p5 = pd.read_csv('perfil5.csv') #respuestas a la segunda pregunta
+        p6 = pd.read_csv('perfil6.csv') #respuestas a la segunda pregunta
+        p7 = pd.read_csv('perfil7.csv') #respuestas a la segunda pregunta
+        p8 = pd.read_csv('perfil8.csv') #respuestas a la segunda pregunta
+        p9 = pd.read_csv('perfil9.csv') #respuestas a la primera pregunta
+        p10 = pd.read_csv('perfil10.csv') #respuestas a la segunda pregunta
+        p11 = pd.read_csv('perfil11.csv') #respuestas a la segunda pregunta
+        p12 = pd.read_csv('perfil12.csv') #respuestas a la segunda pregunta
+        p13 = pd.read_csv('perfil13.csv') #respuestas a la segunda pregunta
+        p14 = pd.read_csv('perfil14.csv') #respuestas a la segunda pregunta
+        p15 = pd.read_csv('perfil15.csv') #respuestas a la segunda pregunta
+        p16 = pd.read_csv('perfil16.csv') #respuestas a la segunda pregunta    
+        p17 = pd.read_csv('perfil17.csv') #respuestas a la segunda pregunta
+        p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta     
+        urls = pd.read_excel('LinksNoBorrar.xlsx') 
+        urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
+        urls = urls.to_frame() 
+        
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+        driver.set_window_position(-10000,0) # escondemos el web driver
+        
+        #loopeamos por la cantidad de respuestas en el df
+        for user_id in range(len(urls)):
+            driver.get(urls.links[user_id])
+            driver = answers(driver = driver, df = p1, perfil1_class = perfil1_clase, rta1 = rta1, rta2 = rta2, user_id = user_id)
+            driver = answers2(driver = driver, df = p2, perfil2_class = perfil2_clase, rta2a = rta2_a, rta2b = rta2_b,
+                        rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
+            driver = answers3(driver = driver, df = p3, perfil3_class = perfil3_clase, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
+            driver = answers4(driver = driver, df = p4, perfil4_class = perfil4_clase, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
+            driver = answers5(driver = driver, df = p5, perfil5_class = perfil5_clase, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
+            driver = answers6(driver = driver, df = p6, perfil6_class = perfil6_clase, rta6a = rta6_a, rta6b = rta6_b, rta6c = rta6_c, user_id = user_id)
+            driver = answers7(driver = driver, df = p7, perfil7_class = perfil7_clase, rta7a = rta7_a, rta7b = rta7_b,
+                        rta7c = rta7_c, rta7d = rta7_d, user_id = user_id)
+            driver = answers8(driver = driver, df = p8, perfil8_class = perfil8_clase, rta8a = rta8_a, rta8b = rta8_b, rta8c = rta8_c, user_id = user_id)
+            driver = answers9(driver = driver, df = p9, perfil9_class = perfil9_clase, rta9a = rta9_a, rta9b = rta9_b, rta9c = rta9_c, user_id = user_id)
+            driver = answers10(driver = driver, df = p10, perfil10_class = perfil10_clase, rta10a = rta10_a, rta10b = rta10_b,
+                        rta10c = rta10_c, rta10d = rta10_d, rta10e = rta10_e, rta10f = rta10_f, user_id = user_id)
+            driver = answers11(driver = driver, df = p11, perfil11_class = perfil11_clase, rta11a = rta11_a, user_id = user_id)
+            driver = answers12(driver = driver, df = p12, perfil12_class = perfil12_clase, rta12a = rta12_a, user_id = user_id)
+            driver = answers13(driver = driver, df = p13, perfil13_class = perfil13_clase, rta13a = rta13_a, user_id = user_id)
+            driver = answers14(driver = driver, df = p14, perfil14_class = perfil14_clase, rta14a = rta14_a, user_id = user_id)
+            driver = answers15(driver = driver, df = p15, perfil15_class = perfil15_clase, rta15a = rta15_a, user_id = user_id)
+            driver = answers16(driver = driver, df = p16, perfil16_class = perfil16_clase, rta16a = rta16_a, user_id = user_id)
+            driver = answers17(driver = driver, df = p17, perfil17_class = perfil17_clase, rta17a = rta17_a, user_id = user_id)
+            driver = answers18(driver = driver, df = p18, perfil18_class = perfil18_clase, rta18a = rta18_a, user_id = user_id)
+            driver = submit(driver = driver, element_class = submit_class)            
+
+        driver.close() # cerramos el web driver
+        perfiles = ["perfil1.csv", "perfil2.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv", "perfil6.csv",
+                    "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
+                    "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv"]
+        for perfil in perfiles:
+            os.remove(perfil)
+
 
 kv = Builder.load_file("KvEstructuraV01.kv") #cargamos la estructura del app
 
