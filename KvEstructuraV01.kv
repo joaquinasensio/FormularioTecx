@@ -144,9 +144,10 @@
             font_size: (root.width**2 + root.height**2) / 14**4
             size_hint: 0.2, 0.2
             on_press: 
-                self.background_color = (0/255,51/255,102/255,1)     
+                self.background_color = (0/255,51/255,102/255,1)   
             on_release:
-                root.fin()
+                root.mensaje_final()  
+                #root.fin()
 
 <Perfil1>: #Líder de Desarrollo / Proyect Manager (PM)
     name: "perfil1"
