@@ -11,7 +11,7 @@ from kivy.properties import ObjectProperty
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 
-class MainWindow(Screen):
+class PantallaPrincipal(Screen):
     link1 = ObjectProperty(None)
     link2 = ObjectProperty(None)
     link3 = ObjectProperty(None)
@@ -54,7 +54,7 @@ kv = Builder.load_file("URLApp.KivyV01.kv") #cargamos la estructura del app
 sm = WindowManager()
 
 
-screens = [MainWindow(name="main")]
+screens = [PantallaPrincipal(name="main")]
 for screen in screens:
     sm.add_widget(screen)
 

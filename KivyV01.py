@@ -35,7 +35,7 @@ class MainWindow(Screen):
         fin() 
 
     
-        FormularioTecx.get_running_app().stop()
+        FormularioTECx.get_running_app().stop()
        
 class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     pm = ObjectProperty(None)
@@ -595,10 +595,10 @@ for screen in screens:
 
 sm.current = "main"
 
-class FormularioTecx(App):
+class FormularioTECx(App):
     def build(self):
         self.icon = 'TecX.png'
         return sm
 
 if __name__ == "__main__":
-    FormularioTecx().run()
+    FormularioTECx().run()

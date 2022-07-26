@@ -22,6 +22,25 @@ for n in x:
     y.append(str(n))
 
 urls = pd.read_excel('LinksNoBorrar.xlsx')
+
+class Introduccion(Screen):
+    def perfil_csv(self):
+    #Creamos .csv de perfiles
+        #perfil 1
+        data1 = {'x1_11': [0], 'x1_12': [0]}
+        perfil1 = pd.DataFrame.from_dict(data1)
+        perfil1.to_csv()
+
+        #perfil 2
+        data2 = {'x2_11': [0], 'x2_12': [0], 'x2_13': [0], 'x2_14': [0], 'x2_15': [0]}
+        perfil2 = pd.DataFrame.from_dict(data2)
+        perfil2.to_csv()
+
+        #perfil 3
+        data3 = {'x3_11': [0], 'x3_12': [0]}
+        perfil3 = pd.DataFrame.from_dict(data3)
+        perfil3.to_csv()
+
 class MainWindow(Screen):
     def btn(self):
         mensaje_final()
@@ -86,7 +105,7 @@ class Popups(FloatLayout):
         for perfil in perfiles:
             os.remove(perfil)
 
-        FormularioTecx.get_running_app().stop()
+        FormularioTECx.get_running_app().stop()
        
 class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     pm = ObjectProperty(None)
@@ -538,6 +557,7 @@ class Perfil18(Screen): #Implementador Software de Gestión
 class WindowManager(ScreenManager):
     pass
 
+### Funciones
 def invalidForm():
     
     pop = Popup(title='Información incorrecta',
@@ -585,22 +605,22 @@ def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco gru
 kv = Builder.load_file("KvEstructuraV02.kv") #cargamos la estructura del app
 
 sm = WindowManager()
-screens = [MainWindow(name="main"), Perfil1(name="perfil1"), Perfil2(name="perfil2"),
-           Perfil3(name="perfil3"), Perfil4(name="perfil4"), Perfil5(name="perfil5"),
-           Perfil6(name="perfil6"), Perfil7(name="perfil7"), Perfil8(name="perfil8"),
-           Perfil9(name="perfil9"), Perfil10(name="perfil10"), Perfil11(name="perfil11"),
-           Perfil12(name="perfil12"), Perfil13(name="perfil13"), Perfil14(name="perfil14"),
-           Perfil15(name="perfil15"), Perfil16(name="perfil16"), Perfil17(name="perfil17"),
-           Perfil18(name="perfil18")]
+screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="perfil1"), 
+            Perfil2(name="perfil2"), Perfil3(name="perfil3"), Perfil4(name="perfil4"), 
+            Perfil5(name="perfil5"), Perfil6(name="perfil6"), Perfil7(name="perfil7"), 
+            Perfil8(name="perfil8"), Perfil9(name="perfil9"), Perfil10(name="perfil10"), 
+            Perfil11(name="perfil11"), Perfil12(name="perfil12"), Perfil13(name="perfil13"), 
+            Perfil14(name="perfil14"), Perfil15(name="perfil15"), Perfil16(name="perfil16"), 
+            Perfil17(name="perfil17"), Perfil18(name="perfil18")]
 for screen in screens:
     sm.add_widget(screen)
 
-sm.current = "main"
+sm.current = "intro"
 
-class FormularioTecx(App):
+class FormularioTECx(App):
     def build(self):
-        self.icon = 'TecX.png'
+        self.icon = 'TECx.png'
         return sm
 
 if __name__ == "__main__":
-    FormularioTecx().run()
+    FormularioTECx().run()
