@@ -1,4 +1,5 @@
 # main.py
+from operator import index
 import pandas as pd
 from kivy.app import App
 
@@ -27,19 +28,77 @@ class Introduccion(Screen):
     def perfil_csv(self):
     #Creamos .csv de perfiles
         #perfil 1
-        data1 = {'x1_11': [0], 'x1_12': [0]}
-        perfil1 = pd.DataFrame.from_dict(data1)
-        perfil1.to_csv()
-
+        data1 = {'x1_11':([0]*len(urls)), 'x1_12':([0]*len(urls))}
+        df_data1 = pd.DataFrame.from_dict(data1)
+        df_data1.to_csv("perfil1.csv")
         #perfil 2
-        data2 = {'x2_11': [0], 'x2_12': [0], 'x2_13': [0], 'x2_14': [0], 'x2_15': [0]}
-        perfil2 = pd.DataFrame.from_dict(data2)
-        perfil2.to_csv()
-
-        #perfil 3
-        data3 = {'x3_11': [0], 'x3_12': [0]}
-        perfil3 = pd.DataFrame.from_dict(data3)
-        perfil3.to_csv()
+        data2 = {'x2_11':([0]*len(urls)), 'x2_12':([0]*len(urls)), 'x2_13':([0]*len(urls)), 'x2_14':([0]*len(urls)), 'x2_15':([0]*len(urls))}
+        df_data2 = pd.DataFrame.from_dict(data2)
+        df_data2.to_csv("perfil2.csv")
+        #perfil3
+        data3 = {'x3_11':([0]*len(urls)), 'x3_12':([0]*len(urls))}
+        df_data3 = pd.DataFrame.from_dict(data3)
+        df_data3.to_csv("perfil3.csv")
+        #perfil4
+        data4 = {'x4_11':([0]*len(urls)), 'x4_12':([0]*len(urls)), 'x4_13':([0]*len(urls))}
+        df_data4 = pd.DataFrame.from_dict(data4)
+        df_data4.to_csv("perfil4.csv")
+        #perfil5
+        data5 = {'x5_11':([0]*len(urls)), 'x5_12':([0]*len(urls)), 'x5_13':([0]*len(urls))}
+        df_data5 = pd.DataFrame.from_dict(data5)
+        df_data5.to_csv("perfil5.csv")
+        #perfil6
+        data6 = {'x6_11':([0]*len(urls)), 'x6_12':([0]*len(urls)), 'x6_13':([0]*len(urls))}
+        df_data6 = pd.DataFrame.from_dict(data6)
+        df_data6.to_csv("perfil6.csv")
+        #perfil7
+        data7 = {'x7_11':([0]*len(urls)), 'x7_12':([0]*len(urls)), 'x7_13':([0]*len(urls)), 'x7_14':([0]*len(urls))}
+        df_data7 = pd.DataFrame.from_dict(data7)
+        df_data7.to_csv("perfil7.csv")
+        #perfil8
+        data8 = {'x8_11':([0]*len(urls)), 'x8_12':([0]*len(urls)), 'x8_13':([0]*len(urls))}
+        df_data8 = pd.DataFrame.from_dict(data8)
+        df_data8.to_csv("perfil8.csv")
+        #perfil9
+        data9 = {'x9_11':([0]*len(urls)), 'x9_12':([0]*len(urls)), 'x9_13':([0]*len(urls))}
+        df_data9 = pd.DataFrame.from_dict(data9)
+        df_data9.to_csv("perfil9.csv")
+        #perfil10
+        data10 = {'x10_11':([0]*len(urls)), 'x10_12':([0]*len(urls)), 'x10_13':([0]*len(urls)), 'x10_14':([0]*len(urls)), 'x10_15':([0]*len(urls)), 'x10_16':([0]*len(urls))}
+        df_data10 = pd.DataFrame.from_dict(data10)
+        df_data10.to_csv("perfil10.csv")
+        #perfil11
+        data11 = {'x11_11':([0]*len(urls))}
+        df_data11 = pd.DataFrame.from_dict(data11)
+        df_data11.to_csv("perfil11.csv")
+        #perfil12
+        data12 = {'x12_11':([0]*len(urls))}
+        df_data12 = pd.DataFrame.from_dict(data12)
+        df_data12.to_csv("perfil12.csv")
+        #perfil13
+        data13 = {'x13_11':([0]*len(urls))}
+        df_data13 = pd.DataFrame.from_dict(data13)
+        df_data13.to_csv("perfil13.csv")
+        #perfil14
+        data14 = {'x14_11':([0]*len(urls))}
+        df_data14 = pd.DataFrame.from_dict(data14)
+        df_data14.to_csv("perfil14.csv")
+        #perfil15
+        data15 = {'x15_11':([0]*len(urls))}
+        df_data15 = pd.DataFrame.from_dict(data15)
+        df_data15.to_csv("perfil15.csv")
+        #perfil16
+        data16 = {'x16_11':([0]*len(urls))}
+        df_data16 = pd.DataFrame.from_dict(data16)
+        df_data16.to_csv("perfil16.csv")
+        #perfil17
+        data17 = {'x17_11':([0]*len(urls))}
+        df_data17 = pd.DataFrame.from_dict(data17)
+        df_data17.to_csv("perfil17.csv")
+        #perfil18
+        data18 = {'x18_11':([0]*len(urls))}
+        df_data18 = pd.DataFrame.from_dict(data18)
+        df_data18.to_csv("perfil18.csv")
 
 class MainWindow(Screen):
     def btn(self):
