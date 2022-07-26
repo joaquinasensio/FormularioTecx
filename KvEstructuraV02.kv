@@ -1,5 +1,66 @@
 #:kivy 1.0
 
+<Introduccion>:
+    name: "intro"
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Líder de Desarrollo / Proyect Manager (PM)"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "[u]Otras denominaciones[/u]: SDM (Service Delivery Manager)"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4       
+
+            Label:
+                text: "[u]Misión[/u]: Lograr que el proyecto se desarrolle dentro de los alcances, costos y calidad establecidos en los plazos previstos con la menor"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "cantidad de inconvenientes, anticipando posibles problemas o desvíos y tomando decisiones correctivas o proponiendo alternativas a la gerencia"
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4                                    
+                
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Continuar al formulario"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+                root.perfil_csv()            
+            on_release:
+                app.root.current = "main"                  
+                root.manager.transition.direction = "left"   
+
+
 <MainWindow>:
     name: "main"
     GridLayout:
@@ -782,7 +843,7 @@
                 font_size: (root.width**2 + root.height**2) / 17**4             
 
             Label:
-                text: "y una interfaz de usuario responsiba, seleccionando los elementos que la componen y codificando los diseños en lenguajes HTML, CSS y JS"
+                text: "y una interfaz de usuario responsiva, seleccionando los elementos que la componen y codificando los diseños en lenguajes HTML, CSS y JS"
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.89}
                 font_size: (root.width**2 + root.height**2) / 17**4                                    
@@ -1837,7 +1898,7 @@
                 font_size: (root.width**2 + root.height**2) / 17**4             
 
             Label:
-                text: "detectando en forma temprana causas de desvíos, implementando y administrado sistemas, políticas y normatividad de seguridad informática"
+                text: "detectando en forma temprana causas de desvíos, implementando y administrando sistemas, políticas y normatividad de seguridad informática"
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.89}
                 font_size: (root.width**2 + root.height**2) / 17**4   
