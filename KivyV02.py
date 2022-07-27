@@ -15,6 +15,7 @@ from kivy.uix.label import Label
 from Bases import *
 import os # para borrar archivos
 import random
+import sys
     
 #lista para chequear que se ingresen valores númericos en los inputs de la app
 x = range(9999)
@@ -662,6 +663,18 @@ def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco gru
     return x
 
 kv = Builder.load_file("KvEstructuraV02.kv") #cargamos la estructura del app
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+Logo = resource_path("TECx.png")
 
 sm = WindowManager()
 screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="perfil1"), 
