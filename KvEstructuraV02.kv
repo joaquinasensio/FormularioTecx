@@ -16,37 +16,51 @@
             padding: 15
             
             Label:
-                text: "Monitor estadístico TECx"
+                text: "[u]Monitor Estadístico TECx[/u]"
+                markup: True
                 #color: (0/255 ,0/255, 0/255,1)
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
             Label:
-                text: "[u]Otras denominaciones[/u]: SDM (Service Delivery Manager)"
+                text: "Este formulario trabaja con un algoritmo de fragentacion para asegurar"
                 markup: True
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.9}
-                font_size: (root.width**2 + root.height**2) / 17**4       
+                font_size: (root.width**2 + root.height**2) / 15.5**4       
 
             Label:
-                text: "[u]Misión[/u]: Lograr que el proyecto se desarrolle dentro de los alcances, costos y calidad establecidos en los plazos previstos con la menor"
+                text: "el anonimato de sus respuestas"
                 markup: True
                 size_hint: 0.8, 0.2
-                pos_hint: {"x":0.1, "top":0.8}
-                font_size: (root.width**2 + root.height**2) / 17**4             
-
-            Label:
-                text: "cantidad de inconvenientes, anticipando posibles problemas o desvíos y tomando decisiones correctivas o proponiendo alternativas a la gerencia"
-                size_hint: 0.8, 0.2
-                pos_hint: {"x":0.1, "top":0.7}
-                font_size: (root.width**2 + root.height**2) / 17**4                                    
+                pos_hint: {"x":0.1, "top":0.85}
+                font_size: (root.width**2 + root.height**2) / 15.5**4             
+                                   
                 
             Label:
-                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                text: "Al seleccionar la opción continuar, observará una botonera con cada perfil a completar"
                 size_hint: 0.4,0.1
                 pos_hint: {"x":0.3, "top":0.6}
-                font_size: (root.width**2 + root.height**2) / 14.5**4
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+
+            Label:
+                text: "En la misma podrá ingresar sus respuestas y volver a entrar en caso de necesitar cambiarlas."
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.5}
+                font_size: (root.width**2 + root.height**2) / 15.5**4              
+
+            Label:
+                text: "Relleno"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.4}
+                font_size: (root.width**2 + root.height**2) / 15.5**4       
+
+            Label:
+                text: "Desarrollado por EconomicTrends y DoctaCoding"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.1}
+                font_size: (root.width**2 + root.height**2) / 17**4    
 
         Button:
             pos_hint:{"x":0.2,"y":0.05}
