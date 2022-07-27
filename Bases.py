@@ -10,17 +10,10 @@ from selenium.webdriver.common.by import By
 # url = "https://economictrends.limequery.com/214733?token=1234&lang=es"
 # driver = webdriver.Chrome(ChromeDriverManager().install())
 
-perfil1_clase = 'button[data-target="#question16379"]'
-rta1 = 'answer214733X505X16379SQ001_SQ001'
-rta2 = 'answer214733X505X16379SQ002_SQ001'
-
-def answers(driver, df, perfil1_class, rta1, rta2, user_id):
-    
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil1_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P1 Líder de Desarrollo / Proyect Manager (PM)
+rta1 = 'answer661992X506X16497SQ001_SQ001'
+rta2 = 'answer661992X506X16497SQ002_SQ001'
+def answers(driver, df, rta1, rta2, user_id):     
     #definimos las posibles respuestas a la pregunta
     x1_11 = df["x1_11"][user_id] #busqueda activa
     x1_12 = df["x1_12"][user_id] #busqueda activa
@@ -37,18 +30,13 @@ def answers(driver, df, perfil1_class, rta1, rta2, user_id):
     
     return driver
 
-perfil2_clase = 'button[data-target="#question16389"]'
-rta2_a = 'answer214733X505X16389SQ001_SQ001'
-rta2_b = 'answer214733X505X16389SQ002_SQ001'
-rta2_c = 'answer214733X505X16389SQ003_SQ001'
-rta2_d = 'answer214733X505X16389SQ004_SQ001'
-rta2_e = 'answer214733X505X16389SQ005_SQ001'
-
-def answers2(driver, df, perfil2_class, rta2a, rta2b, rta2c, rta2d, rta2e, user_id):
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil2_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-
+#P2 Desarrollador de Software
+rta2_a = 'answer661992X506X16507SQ001_SQ001'
+rta2_b = 'answer661992X506X16507SQ002_SQ001'
+rta2_c = 'answer661992X506X16507SQ003_SQ001'
+rta2_d = 'answer661992X506X16507SQ004_SQ001'
+rta2_e = 'answer661992X506X16507SQ005_SQ001'
+def answers2(driver, df, rta2a, rta2b, rta2c, rta2d, rta2e, user_id):
     x2_11 = df["x2_11"][user_id] #busqueda activa
     x2_12 = df["x2_12"][user_id] #busqueda activa
     x2_13 = df["x2_13"][user_id] #busqueda activa
@@ -77,16 +65,10 @@ def answers2(driver, df, perfil2_class, rta2a, rta2b, rta2c, rta2d, rta2e, user_
     
     return driver
 
-perfil3_clase = 'button[data-target="#question16387"]'
-rta3_a = 'answer214733X505X16387SQ001_SQ001'
-rta3_b = 'answer214733X505X16387SQ002_SQ001'
-
-def answers3(driver, df, perfil3_class, rta3a, rta3b, user_id):
-    
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil3_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P3 Arquitecto de Software
+rta3_a = 'answer661992X506X16505SQ001_SQ001'
+rta3_b = 'answer661992X506X16505SQ002_SQ001'
+def answers3(driver, df, rta3a, rta3b, user_id):
     #definimos las posibles respuestas a la pregunta
     x3_11 = df["x3_11"][user_id] #busqueda activa
     x3_12 = df["x3_12"][user_id] #busqueda activa
@@ -103,17 +85,11 @@ def answers3(driver, df, perfil3_class, rta3a, rta3b, user_id):
     
     return driver
 
-perfil4_clase = 'button[data-target="#question16388"]'
-rta4_a = 'answer214733X505X16388SQ001_SQ001'
-rta4_b = 'answer214733X505X16388SQ002_SQ001'
-rta4_c = 'answer214733X505X16388SQ003_SQ001'
-
-def answers4(driver, df, perfil4_class, rta4a, rta4b, rta4c, user_id):
-    
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil4_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P4 Consultor BI - Business Intelligence
+rta4_a = 'answer661992X506X16506SQ001_SQ001'
+rta4_b = 'answer661992X506X16506SQ002_SQ001'
+rta4_c = 'answer661992X506X16506SQ003_SQ001'
+def answers4(driver, df, rta4a, rta4b, rta4c, user_id):
     #definimos las posibles respuestas a la pregunta
     x4_11 = df["x4_11"][user_id] #busqueda activa
     x4_12 = df["x4_12"][user_id] #busqueda activa
@@ -136,17 +112,11 @@ def answers4(driver, df, perfil4_class, rta4a, rta4b, rta4c, user_id):
         
     return driver
 
-perfil5_clase = 'button[data-target="#question16383"]'
-rta5_a = 'answer214733X505X16383SQ001_SQ001'
-rta5_b = 'answer214733X505X16383SQ002_SQ001'
-rta5_c = 'answer214733X505X16383SQ003_SQ001'
-
-def answers5(driver, df, perfil5_class, rta5a, rta5b, rta5c, user_id):
-    
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil5_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P5 Analista de Negocios
+rta5_a = 'answer661992X506X16501SQ001_SQ001'
+rta5_b = 'answer661992X506X16501SQ002_SQ001'
+rta5_c = 'answer661992X506X16501SQ003_SQ001'
+def answers5(driver, df, rta5a, rta5b, rta5c, user_id):
     #definimos las posibles respuestas a la pregunta
     x5_11 = df["x5_11"][user_id] #busqueda activa
     x5_12 = df["x5_12"][user_id] #busqueda activa
@@ -169,17 +139,11 @@ def answers5(driver, df, perfil5_class, rta5a, rta5b, rta5c, user_id):
         
     return driver
 
-perfil6_clase = 'button[data-target="#question16390"]'
-rta6_a = 'answer214733X505X16390SQ001_SQ001'
-rta6_b = 'answer214733X505X16390SQ002_SQ001'
-rta6_c = 'answer214733X505X16390SQ003_SQ001'
-
-def answers6(driver, df, perfil6_class, rta6a, rta6b, rta6c, user_id):
-    
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil6_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P6 Diseñador Web
+rta6_a = 'answer661992X506X16508SQ001_SQ001'
+rta6_b = 'answer661992X506X16508SQ002_SQ001'
+rta6_c = 'answer661992X506X16508SQ003_SQ001'
+def answers6(driver, df, rta6a, rta6b, rta6c, user_id):
     #definimos las posibles respuestas a la pregunta
     x6_11 = df["x6_11"][user_id] #busqueda activa
     x6_12 = df["x6_12"][user_id] #busqueda activa
@@ -202,17 +166,12 @@ def answers6(driver, df, perfil6_class, rta6a, rta6b, rta6c, user_id):
         
     return driver
 
-perfil7_clase = 'button[data-target="#question16386"]'
-rta7_a = 'answer214733X505X16386SQ001_SQ001'
-rta7_b = 'answer214733X505X16386SQ002_SQ001'
-rta7_c = 'answer214733X505X16386SQ003_SQ001'
-rta7_d = 'answer214733X505X16386SQ004_SQ001'
-
-def answers7(driver, df, perfil7_class, rta7a, rta7b, rta7c, rta7d, user_id):
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil7_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-
+#P7 Analista UX (Usabilidad)
+rta7_a = 'answer661992X506X16504SQ001_SQ001'
+rta7_b = 'answer661992X506X16504SQ002_SQ001'
+rta7_c = 'answer661992X506X16504SQ003_SQ001'
+rta7_d = 'answer661992X506X16504SQ004_SQ001'
+def answers7(driver, df, rta7a, rta7b, rta7c, rta7d, user_id):
     x7_11 = df["x7_11"][user_id] #busqueda activa
     x7_12 = df["x7_12"][user_id] #busqueda activa
     x7_13 = df["x7_13"][user_id] #busqueda activa
@@ -237,17 +196,11 @@ def answers7(driver, df, perfil7_class, rta7a, rta7b, rta7c, rta7d, user_id):
     
     return driver
 
-perfil8_clase = 'button[data-target="#question16396"]'
-rta8_a = 'answer214733X505X16396SQ001_SQ001'
-rta8_b = 'answer214733X505X16396SQ002_SQ001'
-rta8_c = 'answer214733X505X16396SQ003_SQ001'
-
-def answers8(driver, df, perfil8_class, rta8a, rta8b, rta8c, user_id):
-    
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil8_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P8 Tester / Analista Tester
+rta8_a = 'answer661992X506X16514SQ001_SQ001'
+rta8_b = 'answer661992X506X16514SQ002_SQ001'
+rta8_c = 'answer661992X506X16514SQ003_SQ001'
+def answers8(driver, df, rta8a, rta8b, rta8c, user_id):
     #definimos las posibles respuestas a la pregunta
     x8_11 = df["x8_11"][user_id] #busqueda activa
     x8_12 = df["x8_12"][user_id] #busqueda activa
@@ -270,16 +223,11 @@ def answers8(driver, df, perfil8_class, rta8a, rta8b, rta8c, user_id):
         
     return driver
 
-perfil9_clase = 'button[data-target="#question16382"]'
-rta9_a = 'answer214733X505X16382SQ001_SQ001'
-rta9_b = 'answer214733X505X16382SQ002_SQ001'
-rta9_c = 'answer214733X505X16382SQ003_SQ001'
-
-def answers9(driver, df, perfil9_class, rta9a, rta9b, rta9c, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil9_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P9 Analista de Calidad
+rta9_a = 'answer661992X506X16500SQ001_SQ001'
+rta9_b = 'answer661992X506X16500SQ002_SQ001'
+rta9_c = 'answer661992X506X16500SQ003_SQ001'
+def answers9(driver, df, rta9a, rta9b, rta9c, user_id):
     #definimos las posibles respuestas a la pregunta
     x9_11 = df["x9_11"][user_id] #busqueda activa
     x9_12 = df["x9_12"][user_id] #busqueda activa
@@ -302,19 +250,14 @@ def answers9(driver, df, perfil9_class, rta9a, rta9b, rta9c, user_id):
         
     return driver
 
-perfil10_clase = 'button[data-target="#question16394"]'
-rta10_a = 'answer214733X505X16394SQ001_SQ001'
-rta10_b = 'answer214733X505X16394SQ002_SQ001'
-rta10_c = 'answer214733X505X16394SQ003_SQ001'
-rta10_d = 'answer214733X505X16394SQ004_SQ001'
-rta10_e = 'answer214733X505X16394SQ005_SQ001'
-rta10_f = 'answer214733X505X16394SQ006_SQ001'
-
-def answers10(driver, df, perfil10_class, rta10a, rta10b, rta10c, rta10d, rta10e, rta10f, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil10_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
+#P10 IT Manager
+rta10_a = 'answer661992X506X16512SQ001_SQ001'
+rta10_b = 'answer661992X506X16512SQ002_SQ001'
+rta10_c = 'answer661992X506X16512SQ003_SQ001'
+rta10_d = 'answer661992X506X16512SQ004_SQ001'
+rta10_e = 'answer661992X506X16512SQ005_SQ001'
+rta10_f = 'answer661992X506X16512SQ006_SQ001'
+def answers10(driver, df, rta10a, rta10b, rta10c, rta10d, rta10e, rta10f, user_id):
     #definimos las posibles respuestas a la pregunta
     x10_11 = df["x10_11"][user_id] #busqueda activa
     x10_12 = df["x10_12"][user_id] #busqueda activa
@@ -355,15 +298,9 @@ def answers10(driver, df, perfil10_class, rta10a, rta10b, rta10c, rta10d, rta10e
         
     return driver
 
-perfil11_clase = 'button[data-target="#question16380"]'
-rta11_a = 'answer214733X505X16380'
-
-def answers11(driver, df, perfil11_class, rta11a, user_id):
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil11_class) 
-    driver.implicitly_wait(10)
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P11 Administrador de Base de Datos (DBA)
+rta11_a = 'answer661992X506X16498'
+def answers11(driver, df, rta11a, user_id):
     #definimos las posibles respuestas a la pregunta
     x11_11 = df["x11_11"][user_id] #busqueda activa
     
@@ -374,15 +311,9 @@ def answers11(driver, df, perfil11_class, rta11a, user_id):
          
     return driver
 
-perfil12_clase = 'button[data-target="#question16384"]'
-rta12_a = 'answer214733X505X16384'
-
-def answers12(driver, df, perfil12_class, rta12a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil12_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P12 Analista Funcional
+rta12_a = 'answer661992X506X16502'
+def answers12(driver, df, rta12a, user_id):
     #definimos las posibles respuestas a la pregunta
     x12_11 = df["x12_11"][user_id] #busqueda activa
     
@@ -393,15 +324,9 @@ def answers12(driver, df, perfil12_class, rta12a, user_id):
          
     return driver
 
-perfil13_clase = 'button[data-target="#question16381"]'
-rta13_a = 'answer214733X505X16381'
-
-def answers13(driver, df, perfil13_class, rta13a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil13_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P13 Analista Big Data - Data Scientist
+rta13_a = 'answer661992X506X16499'
+def answers13(driver, df, rta13a, user_id):
     #definimos las posibles respuestas a la pregunta
     x13_11 = df["x13_11"][user_id] #busqueda activa
     
@@ -412,15 +337,9 @@ def answers13(driver, df, perfil13_class, rta13a, user_id):
          
     return driver
 
-perfil14_clase = 'button[data-target="#question16385"]'
-rta14_a = 'answer214733X505X16385'
-
-def answers14(driver, df, perfil14_class, rta14a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil14_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P14 Analista Middleware
+rta14_a = 'answer661992X506X16503'
+def answers14(driver, df, rta14a, user_id):
     #definimos las posibles respuestas a la pregunta
     x14_11 = df["x14_11"][user_id] #busqueda activa
     
@@ -431,15 +350,9 @@ def answers14(driver, df, perfil14_class, rta14a, user_id):
          
     return driver
 
-perfil15_clase = 'button[data-target="#question16395"]'
-rta15_a = 'answer214733X505X16395'
-
-def answers15(driver, df, perfil15_class, rta15a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil15_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P15 Soporte Técnico
+rta15_a = 'answer661992X506X16513'
+def answers15(driver, df, rta15a, user_id):
     #definimos las posibles respuestas a la pregunta
     x15_11 = df["x15_11"][user_id] #busqueda activa
     
@@ -450,15 +363,9 @@ def answers15(driver, df, perfil15_class, rta15a, user_id):
          
     return driver
 
-perfil16_clase = 'button[data-target="#question16391"]'
-rta16_a = 'answer214733X505X16391'
-
-def answers16(driver, df, perfil16_class, rta16a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil16_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P16 Especialista en Seguridad de la Información
+rta16_a = 'answer661992X506X16509'
+def answers16(driver, df, rta16a, user_id):
     #definimos las posibles respuestas a la pregunta
     x16_11 = df["x16_11"][user_id] #busqueda activa
     
@@ -469,15 +376,9 @@ def answers16(driver, df, perfil16_class, rta16a, user_id):
          
     return driver
 
-perfil17_clase = 'button[data-target="#question16392"]'
-rta17_a = 'answer214733X505X16392'
-
-def answers17(driver, df, perfil17_class, rta17a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil17_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P17 Implementador Configuration Manager
+rta17_a = 'answer661992X506X16510'
+def answers17(driver, df, rta17a, user_id):
     #definimos las posibles respuestas a la pregunta
     x17_11 = df["x17_11"][user_id] #busqueda activa
     
@@ -488,15 +389,9 @@ def answers17(driver, df, perfil17_class, rta17a, user_id):
          
     return driver
 
-perfil18_clase = 'button[data-target="#question16393"]'
-rta18_a = 'answer214733X505X16393SQ001_SQ001'
-
-def answers18(driver, df, perfil18_class, rta18a, user_id):
-    #expandimos la pregunta
-    titulo_click = driver.find_element(By.CSS_SELECTOR,perfil18_class) 
-    driver.execute_script("arguments[0].click();",titulo_click)
-    driver.implicitly_wait(3)
-    
+#P18 Implementador Software de Gestión
+rta18_a = 'answer661992X506X16511SQ001_SQ001'
+def answers18(driver, df, rta18a, user_id):
     #definimos las posibles respuestas a la pregunta
     x18_11 = df["x18_11"][user_id] #busqueda activa
     
@@ -508,7 +403,6 @@ def answers18(driver, df, perfil18_class, rta18a, user_id):
     return driver
 
 submit_class = 'button[id="ls-button-submit"]'
-
 def submit(driver, element_class):
     #enviamos las respuestas
     enviar = driver.find_element(By.CSS_SELECTOR,element_class) 
