@@ -642,24 +642,32 @@ def fragmentar(numero, cant_url = len(urls)): #funcion para dividir en cinco gru
     if (numero == "" or numero == "0"):
         x = [0] * cant_url
     elif numero != "":
-        raiz = 1/cant_url
-        aleatorios = [random.uniform(3, -3) for i in range(cant_url)]
+        raiz = int(numero) / cant_url # len(cant_url)
+        if raiz < 10:
+            aleatorios = [random.uniform(raiz, -raiz) for i in range(cant_url)]
+        else:
+            aleatorios = [random.uniform(10, -10) for i in range(cant_url)]
+        num_fragmentado = [0] * cant_url # len(cant_url)
         for i in range(0,len(aleatorios)):
-            aleatorios[i] = raiz*(1+aleatorios[i]/100)
-        pond_suma = sum(aleatorios)
-        exced_falt = (1 - pond_suma) / cant_url
-        for i in range(0,len(aleatorios)):
-            aleatorios[i] = round((aleatorios[i] + exced_falt) * int(numero))
-        x = aleatorios
-        if sum(x) != int(numero):
-            if sum(x)-2 == int(numero):
-                x[0] = (x[0])-2
-            elif sum(x)+2 == int(numero):
-                x[0] = (x[0])+2
-            elif sum(x)+1 == int(numero):
-                x[0] = (x[0])+1
-            elif sum(x)-1 == int(numero):
-                x[0] = (x[0])-1            
+            num_fragmentado[i] = round(raiz + aleatorios[i])
+        suma_fragmentada = sum(num_fragmentado)
+        exced_falt = (int(numero) - suma_fragmentada) 
+        if exced_falt >= 0:
+            num_fragmentado[0] = num_fragmentado[0] + exced_falt
+        elif exced_falt < 0:
+            if abs(exced_falt) <= num_fragmentado[0]:
+                num_fragmentado[0] = num_fragmentado[0] + exced_falt
+            else:
+                exced_falt = exced_falt + num_fragmentado[0]
+                num_fragmentado[0] = 0
+                if (abs(exced_falt) <= num_fragmentado[1]) and (abs(exced_falt) != 0):
+                    num_fragmentado[1] = num_fragmentado[1] + exced_falt
+                elif abs(exced_falt) > num_fragmentado[1]:
+                    exced_falt = exced_falt + num_fragmentado[1]
+                    num_fragmentado[1] = 0
+        x = []
+        for i in range(0,cant_url):
+            x.append(num_fragmentado[i])
     return x
 
 kv = Builder.load_file("KvEstructuraV02.kv") #cargamos la estructura del app
