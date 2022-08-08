@@ -108,6 +108,14 @@ class Introduccion(Screen):
         data18 = {'x18_11':([0]*len(urls))}
         df_data18 = pd.DataFrame.from_dict(data18)
         df_data18.to_csv("perfil18.csv")
+        #perfil19
+        data19 = {'x19_11':([0]*len(urls))}
+        df_data19 = pd.DataFrame.from_dict(data19)
+        df_data19.to_csv("perfil19.csv") 
+        #perfil20
+        data20 = {'x20_11':([0]*len(urls))}
+        df_data20 = pd.DataFrame.from_dict(data20)
+        df_data20.to_csv("perfil20.csv")                
 
 class MainWindow(Screen):
     def btn(self):
@@ -226,7 +234,7 @@ class Perfil2a(Screen): #Desarrollador de Software Back End
 
         else:
             invalidForm()
-            sm.current = "perfil2"
+            sm.current = "perfil2a"
             self.reset() 
     def reset(self):
         self.app_cs.text = ""
@@ -299,7 +307,7 @@ class Perfil2c(Screen): #Desarrollador de Software Full Stack
         self.desar_web_c.text = ""
         self.desar_juegos_c.text = ""
         self.desar_app_mov_c.text = ""  
-        self.desar_sist_embc.text = ""  
+        self.desar_sist_emb_c.text = ""  
 
 class Perfil3(Screen): #Arquitecto de Software
     app_mov = ObjectProperty(None)
@@ -408,7 +416,7 @@ class Perfil6(Screen): #Diseñador Web
         self.webd.text = ""
         self.mkt.text = ""  
 
-class Perfil7(Screen): #Analista UX (Usabilidad)
+class Perfil7(Screen): #Analista UI/UX (Usabilidad)
     research = ObjectProperty(None)
     analisis = ObjectProperty(None)
     prot_inter = ObjectProperty(None)
@@ -466,6 +474,26 @@ class Perfil8(Screen): #Tester / Analista Tester
         self.orient_tec.text = ""
         self.orient_func.text = ""
         self.orient_seg.text = ""
+
+class Perfil19(Screen): #QA Automation
+    qa = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.qa.text in y or self.qa.text.count("") == 1)):
+            x19_11 = fragmentar(self.qa.text)
+        
+            sm.current = "main"        
+          
+            perfil19_dict = {'x19_11':x19_11}
+            df_perfil19= pd.DataFrame.from_dict(perfil19_dict)
+            df_perfil19.to_csv("perfil19.csv")
+
+        else:
+            invalidForm()
+            sm.current = "perfil19"
+            self.reset() 
+    def reset(self):
+        self.qa.text = ""        
 
 class Perfil9(Screen): #Analista de Calidad
     iso = ObjectProperty(None)
@@ -692,6 +720,26 @@ class Perfil18(Screen): #Implementador Software de Gestión
     def reset(self):
         self.soft_gest.text = ""
 
+class Perfil20(Screen): #DevOps
+    devops = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.devops.text in y or self.devops.text.count("") == 1)):
+            x20_11 = fragmentar(self.devops.text)
+        
+            sm.current = "main"        
+          
+            perfil20_dict = {'x20_11':x20_11}
+            df_perfil20= pd.DataFrame.from_dict(perfil20_dict)
+            df_perfil20.to_csv("perfil20.csv")
+
+        else:
+            invalidForm()
+            sm.current = "perfil20"
+            self.reset() 
+    def reset(self):
+        self.devops.text = ""
+
 class WindowManager(ScreenManager):
     pass
 
@@ -770,7 +818,8 @@ screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="p
             Perfil8(name="perfil8"), Perfil9(name="perfil9"), Perfil10(name="perfil10"), 
             Perfil11(name="perfil11"), Perfil12(name="perfil12"), Perfil13(name="perfil13"), 
             Perfil14(name="perfil14"), Perfil15(name="perfil15"), Perfil16(name="perfil16"), 
-            Perfil17(name="perfil17"), Perfil18(name="perfil18")]
+            Perfil17(name="perfil17"), Perfil18(name="perfil18"), Perfil19(name="perfil19"),
+            Perfil20(name="perfil20")]
 for screen in screens:
     sm.add_widget(screen)
 

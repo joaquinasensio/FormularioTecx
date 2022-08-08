@@ -102,12 +102,26 @@
                     app.root.current = "perfil1"
                     root.manager.transition.direction = "left"
             Button:
-                text: "Desarrollador de Software"
+                text: "Desarrollador de Software Back End"
                 on_press: 
                     self.background_color = (0/255,51/255,102/255,1)
                 on_release:
-                    app.root.current = "perfil2"
+                    app.root.current = "perfil2a"
                     root.manager.transition.direction = "left"  
+            Button:
+                text: "Desarrollador de Software Front End"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil2b"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "Desarrollador de Software Full Stack"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil2c"
+                    root.manager.transition.direction = "left"                                        
             Button:
                 text: "Arquitecto de Software"
                 on_press: 
@@ -137,7 +151,7 @@
                     app.root.current = "perfil6"
                     root.manager.transition.direction = "left"        
             Button:
-                text: "Analista UX (usabilidad)"
+                text: "Analista UI/UX (usabilidad)"
                 on_press: 
                     self.background_color = (0/255,51/255,102/255,1)
                 on_release:
@@ -150,6 +164,13 @@
                 on_release:
                     app.root.current = "perfil8"
                     root.manager.transition.direction = "left"    
+            Button:
+                text: "QA Automation"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil19"
+                    root.manager.transition.direction = "left"                        
             Button:
                 text: "Analista de Calidad"
                 on_press: 
@@ -219,7 +240,15 @@
                     self.background_color = (0/255,51/255,102/255,1)
                 on_release:
                     app.root.current = "perfil18"
-                    root.manager.transition.direction = "left"                                                                                                                                                                        
+                    root.manager.transition.direction = "left"      
+
+            Button:
+                text: "DevOps"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil20"
+                    root.manager.transition.direction = "left"                                                                                                                                                                                       
 
         Button:
             text: "Cerrar APP y Enviar Respuestas"
@@ -1245,7 +1274,7 @@
                 root.manager.transition.direction = "right"            
                 root.submit()                     
 
-<Perfil7>: #Analista UX (Usabilidad)
+<Perfil7>: #Analista UI/UX (Usabilidad)
     name: "perfil7"    
     research: research
     analisis: analisis
@@ -1266,21 +1295,21 @@
             padding: 15
             
             Label:
-                text: "Analista UX (Usabilidad)"
+                text: "Analista UI/UX (Usabilidad)"
                 #color: (0/255 ,0/255, 0/255,1)
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
 
             Label:
-                text: "[u]Otras denominaciones[/u]: Analista de Usabilidad / Analista UX / Analista de Experiencia de Usuario / Consultor de Usabilidad "
+                text: "[u]Otras denominaciones[/u]: Analista de Usabilidad / Analista UI/UX / Analista de Experiencia de Usuario / Consultor de Usabilidad"
                 markup: True
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.95}
                 font_size: (root.width**2 + root.height**2) / 17**4       
 
             Label:
-                text: "/ Consultor UX / Diseñador UX / User Insight Analyst / Experience Designer / User Experience Analyst"
+                text: "/ Consultor UI/UX / Diseñador UI/UX / User Insight Analyst / Experience Designer / User Experience Analyst."
                 markup: True
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.92}
@@ -1495,6 +1524,75 @@
             on_release:
                 root.manager.transition.direction = "right"            
                 root.submit()
+
+<Perfil19>: #QA Automation
+    name: "perfil19"
+    qa: qa
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "QA Automation"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            Label:
+                text: "[u]Misión[/u]: Decide cuáles de las pruebas detalladas en el plan de pruebas tiene prioridad para automatizarse."
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "QA Automation:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: qa
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit() 
 
 <Perfil9>: #Analista de Calidad
     name: "perfil9"
@@ -2412,6 +2510,89 @@
     
             TextInput:
                 id: soft_gest
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit() 
+
+<Perfil20>: #DevOps
+    name: "perfil20"
+    devops: devops
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "DevOps"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+    
+            Label:
+                text: "[u]Misión[/u]: Desarrollo de infraestructura de trabajo acorde con las necesidades de la empresa, apoyo a los usuarios finales para"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "facilitarles la ayuda necesaria para que saquen el máximo partido de la infraestructura, garantía de que las aplicaciones y los sistemas sean seguros,"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4   
+
+            Label:
+                text: "responsabilidad de todos los aspectos DevOps, incluida la gestión de datos, el desarrollo de aplicaciones y la prestación de servicios."
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4  
+
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "DevOps:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: devops
                 pos_hint: {"x":0.8, "top":0.75-0.155}
                 size_hint: 0.12, 0.09
                 multiline: False
