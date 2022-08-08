@@ -32,10 +32,18 @@ class Introduccion(Screen):
         data1 = {'x1_11':([0]*len(urls)), 'x1_12':([0]*len(urls))}
         df_data1 = pd.DataFrame.from_dict(data1)
         df_data1.to_csv("perfil1.csv")
-        #perfil 2
+        #perfil 2a
         data2 = {'x2_11':([0]*len(urls)), 'x2_12':([0]*len(urls)), 'x2_13':([0]*len(urls)), 'x2_14':([0]*len(urls)), 'x2_15':([0]*len(urls))}
         df_data2 = pd.DataFrame.from_dict(data2)
         df_data2.to_csv("perfil2.csv")
+        #perfil 2b
+        data2b = {'x2b_11':([0]*len(urls)), 'x2b_12':([0]*len(urls)), 'x2b_13':([0]*len(urls)), 'x2b_14':([0]*len(urls)), 'x2b_15':([0]*len(urls))}
+        df_data2b = pd.DataFrame.from_dict(data2b)
+        df_data2b.to_csv("perfil2b.csv")
+        #perfil 2c
+        data2c = {'x2c_11':([0]*len(urls)), 'x2c_12':([0]*len(urls)), 'x2c_13':([0]*len(urls)), 'x2c_14':([0]*len(urls)), 'x2c_15':([0]*len(urls))}
+        df_data2c = pd.DataFrame.from_dict(data2c)
+        df_data2c.to_csv("perfil2c.csv")
         #perfil3
         data3 = {'x3_11':([0]*len(urls)), 'x3_12':([0]*len(urls))}
         df_data3 = pd.DataFrame.from_dict(data3)
@@ -170,15 +178,18 @@ class Popups(FloatLayout):
 class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     pm = ObjectProperty(None)
     sdm = ObjectProperty(None)
+    scr = ObjectProperty(None)
     
     def submit(self):
-        if ((self.pm.text in y or self.pm.text.count("") == 1) and (self.sdm.text in y or self.sdm.text.count("") == 1) ):
+        if ((self.pm.text in y or self.pm.text.count("") == 1) and (self.sdm.text in y or self.sdm.text.count("") == 1) 
+        and (self.scr.text in y or self.scr.text.count("") == 1)):
             x1_11 = fragmentar(self.pm.text)
             x1_12 = fragmentar(self.sdm.text)
+            x1_13 = fragmentar(self.scr.text)
         
             sm.current = "main"        
           
-            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12}
+            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12, 'x1_13':x1_13}
             df_perfil1 = pd.DataFrame.from_dict(perfil1_dict)
             df_perfil1.to_csv("perfil1.csv")
 
@@ -189,8 +200,9 @@ class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     def reset(self):
         self.pm.text = ""
         self.sdm.text = ""
+        self.scr.text = ""        
 
-class Perfil2(Screen): #Desarrollador de Software
+class Perfil2a(Screen): #Desarrollador de Software Back End
     app_cs = ObjectProperty(None)
     desar_web = ObjectProperty(None)
     desar_juegos = ObjectProperty(None)
@@ -222,6 +234,72 @@ class Perfil2(Screen): #Desarrollador de Software
         self.desar_juegos.text = ""
         self.desar_app_mov.text = ""  
         self.desar_sist_emb.text = ""          
+
+class Perfil2b(Screen): #Desarrollador de Software Front End
+    app_cs_b = ObjectProperty(None)
+    desar_web_b = ObjectProperty(None)
+    desar_juegos_b = ObjectProperty(None)
+    desar_app_mov_b = ObjectProperty(None)
+    desar_sist_emb_b = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.app_cs_b.text in y or self.app_cs_b.text.count("") == 1) and (self.desar_web_b.text in y or self.desar_web_b.text.count("") == 1)
+                and (self.desar_juegos_b.text in y or self.desar_juegos_b.text.count("") == 1) and (self.desar_app_mov_b.text in y or self.desar_app_mov_b.text.count("") == 1)
+                and (self.desar_sist_emb_b.text in y or self.desar_sist_emb_b.text.count("") == 1)):
+            x2b_11 = fragmentar(self.app_cs_b.text)
+            x2b_12 = fragmentar(self.desar_web_b.text)
+            x2b_13 = fragmentar(self.desar_juegos_b.text)
+            x2b_14 = fragmentar(self.desar_app_mov_b.text)
+            x2b_15 = fragmentar(self.desar_sist_emb_b.text)
+            sm.current = "main"
+            
+            perfil2b_dict = {'x2_11':x2b_11, 'x2_12':x2b_12, 'x2_13':x2b_13, 'x2_14':x2b_14, 'x2_15':x2b_15}
+            df_perfil2b = pd.DataFrame.from_dict(perfil2b_dict)
+            df_perfil2b.to_csv("perfil2b.csv")
+
+        else:
+            invalidForm()
+            sm.current = "perfil2b"
+            self.reset() 
+    def reset(self):
+        self.app_cs_b.text = ""
+        self.desar_web_b.text = ""
+        self.desar_juegos_b.text = ""
+        self.desar_app_mov_b.text = ""  
+        self.desar_sist_emb_b.text = ""  
+
+class Perfil2c(Screen): #Desarrollador de Software Full Stack
+    app_cs_c = ObjectProperty(None)
+    desar_web_c = ObjectProperty(None)
+    desar_juegos_c = ObjectProperty(None)
+    desar_app_mov_c = ObjectProperty(None)
+    desar_sist_emb_c = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.app_cs_c.text in y or self.app_cs_c.text.count("") == 1) and (self.desar_web_c.text in y or self.desar_web_c.text.count("") == 1)
+                and (self.desar_juegos_c.text in y or self.desar_juegos_c.text.count("") == 1) and (self.desar_app_mov_c.text in y or self.desar_app_mov_c.text.count("") == 1)
+                and (self.desar_sist_emb_c.text in y or self.desar_sist_emb_c.text.count("") == 1)):
+            x2c_11 = fragmentar(self.app_cs_c.text)
+            x2c_12 = fragmentar(self.desar_web_c.text)
+            x2c_13 = fragmentar(self.desar_juegos_c.text)
+            x2c_14 = fragmentar(self.desar_app_mov_c.text)
+            x2c_15 = fragmentar(self.desar_sist_emb_c.text)
+            sm.current = "main"
+            
+            perfil2c_dict = {'x2_11':x2c_11, 'x2_12':x2c_12, 'x2_13':x2c_13, 'x2_14':x2c_14, 'x2_15':x2c_15}
+            df_perfil2c = pd.DataFrame.from_dict(perfil2c_dict)
+            df_perfil2c.to_csv("perfil2c.csv")
+
+        else:
+            invalidForm()
+            sm.current = "perfil2c"
+            self.reset() 
+    def reset(self):
+        self.app_cs_c.text = ""
+        self.desar_web_c.text = ""
+        self.desar_juegos_c.text = ""
+        self.desar_app_mov_c.text = ""  
+        self.desar_sist_embc.text = ""  
 
 class Perfil3(Screen): #Arquitecto de Software
     app_mov = ObjectProperty(None)
@@ -686,7 +764,8 @@ Logo = resource_path("TECx.png")
 
 sm = WindowManager()
 screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="perfil1"), 
-            Perfil2(name="perfil2"), Perfil3(name="perfil3"), Perfil4(name="perfil4"), 
+            Perfil2a(name="perfil2a"), Perfil2b(name="perfil2b"), Perfil2c(name="perfil2c"),
+            Perfil3(name="perfil3"), Perfil4(name="perfil4"), 
             Perfil5(name="perfil5"), Perfil6(name="perfil6"), Perfil7(name="perfil7"), 
             Perfil8(name="perfil8"), Perfil9(name="perfil9"), Perfil10(name="perfil10"), 
             Perfil11(name="perfil11"), Perfil12(name="perfil12"), Perfil13(name="perfil13"), 
