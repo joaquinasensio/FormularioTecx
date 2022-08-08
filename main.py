@@ -16,6 +16,7 @@ from Bases import *
 import os # para borrar archivos
 import random
 import sys
+import glob
     
 #lista para chequear que se ingresen valores númericos en los inputs de la app
 x = range(9999)
@@ -23,15 +24,22 @@ y = []
 for n in x:
     y.append(str(n))
 
-urls = pd.read_excel('LinksNoBorrar.xlsx')
+path = os.getcwd()
+f_list  = glob.glob(os.path.join(path, "*.xlsx"))
+my_path = f_list[0]
+urls = pd.read_excel(my_path)
 
 class Introduccion(Screen):
     def perfil_csv(self):
     #Creamos .csv de perfiles
-        #perfil 1
+        #perfil 1a
         data1 = {'x1_11':([0]*len(urls)), 'x1_12':([0]*len(urls))}
         df_data1 = pd.DataFrame.from_dict(data1)
         df_data1.to_csv("perfil1.csv")
+        #perfil 1b
+        data1b = {'x1b_11':([0]*len(urls))}
+        df_data1b = pd.DataFrame.from_dict(data1b)
+        df_data1b.to_csv("perfil1b.csv")        
         #perfil 2a
         data2 = {'x2_11':([0]*len(urls)), 'x2_12':([0]*len(urls)), 'x2_13':([0]*len(urls)), 'x2_14':([0]*len(urls)), 'x2_15':([0]*len(urls))}
         df_data2 = pd.DataFrame.from_dict(data2)
@@ -127,7 +135,8 @@ class MainWindow(Screen):
 
 class Popups(FloatLayout):
     def fin(self):
-        p1 = pd.read_csv('perfil1.csv') #respuestas a la primera pregunta
+        p1 = pd.read_csv('perfil1.csv')
+        p1b = pd.read_csv('perfil1b.csv') #respuestas a la primera pregunta
         p2a = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
         p2b = pd.read_csv('perfil2b.csv')
         p2c = pd.read_csv('perfil2c.csv')
@@ -150,7 +159,12 @@ class Popups(FloatLayout):
         p19 = pd.read_csv('perfil19.csv') #respuestas a la segunda pregunta
         p20 = pd.read_csv('perfil20.csv') #respuestas a la segunda pregunta  
         p21 = pd.read_csv('perfil21.csv')   
-        urls = pd.read_excel('LinksNoBorrar.xlsx') 
+
+        path = os.getcwd()
+        f_list  = glob.glob(os.path.join(path, "*.xlsx"))
+        my_path = f_list[0]
+        urls = pd.read_excel(my_path)
+
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
         
@@ -160,7 +174,8 @@ class Popups(FloatLayout):
         #loopeamos por la cantidad de respuestas en el df
         for user_id in range(len(urls)):
             driver.get(urls.links[user_id])
-            driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, rta3 = rta3, user_id = user_id)
+            driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, user_id = user_id)
+            driver = answers1b(driver = driver, df = p1, rta1ba = rta1b_a, user_id = user_id)
             driver = answers2(driver = driver, df = p2a, rta2a = rta2_a, rta2b = rta2_b,
                         rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
             driver = answers2b(driver = driver, df = p2b, rta2ba = rta2b_a, rta2bb = rta2b_b,
@@ -191,7 +206,7 @@ class Popups(FloatLayout):
             driver = submit(driver = driver, element_class = submit_class)            
 
         driver.close() # cerramos el web driver
-        perfiles = ["perfil1.csv", "perfil2.csv", "perfil2b.csv", "perfil2c.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv",
+        perfiles = ["perfil1.csv", "perfil1b.csv", "perfil2.csv", "perfil2b.csv", "perfil2c.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv",
                     "perfil6.csv", "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
                     "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv", "perfil19.csv",
                     "perfil20.csv", "perfil21.csv"]
@@ -203,18 +218,15 @@ class Popups(FloatLayout):
 class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
     pm = ObjectProperty(None)
     sdm = ObjectProperty(None)
-    scr = ObjectProperty(None)
     
     def submit(self):
-        if ((self.pm.text in y or self.pm.text.count("") == 1) and (self.sdm.text in y or self.sdm.text.count("") == 1) 
-        and (self.scr.text in y or self.scr.text.count("") == 1)):
+        if ((self.pm.text in y or self.pm.text.count("") == 1) and (self.sdm.text in y or self.sdm.text.count("") == 1)):
             x1_11 = fragmentar(self.pm.text)
             x1_12 = fragmentar(self.sdm.text)
-            x1_13 = fragmentar(self.scr.text)
         
             sm.current = "main"        
           
-            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12, 'x1_13':x1_13}
+            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12}
             df_perfil1 = pd.DataFrame.from_dict(perfil1_dict)
             df_perfil1.to_csv("perfil1.csv")
 
@@ -224,8 +236,27 @@ class Perfil1(Screen): #Líder de Desarrollo / Proyect Manager (PM)
             self.reset()
     def reset(self):
         self.pm.text = ""
-        self.sdm.text = ""
-        self.scr.text = ""        
+        self.sdm.text = ""     
+
+class Perfil1b(Screen): #Scrum Master
+    scr = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.scr.text in y or self.scr.text.count("") == 1)):
+            x1b_11 = fragmentar(self.scr.text)
+        
+            sm.current = "main"        
+          
+            perfil1b_dict = {'x1b_11':x1b_11}
+            df_perfil1b= pd.DataFrame.from_dict(perfil1b_dict)
+            df_perfil1b.to_csv("perfil1b.csv")
+
+        else:
+            invalidForm()
+            sm.current = "perfil1b"
+            self.reset() 
+    def reset(self):
+        self.scr.text = ""
 
 class Perfil2a(Screen): #Desarrollador de Software Back End
     app_cs = ObjectProperty(None)
@@ -848,7 +879,7 @@ def resource_path(relative_path):
 Logo = resource_path("TECx.png")
 
 sm = WindowManager()
-screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="perfil1"), 
+screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="perfil1"), Perfil1b(name="perfil1b"),
             Perfil2a(name="perfil2a"), Perfil2b(name="perfil2b"), Perfil2c(name="perfil2c"),
             Perfil3(name="perfil3"), Perfil4(name="perfil4"), 
             Perfil5(name="perfil5"), Perfil6(name="perfil6"), Perfil7(name="perfil7"), 

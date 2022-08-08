@@ -13,12 +13,10 @@ from selenium.webdriver.common.by import By
 #P1 Líder de Desarrollo / Proyect Manager (PM)
 rta1 = 'answer661992X506X16497SQ001_SQ001'
 rta2 = 'answer661992X506X16497SQ002_SQ001'
-rta3 = 'answer661992X506X16497SQ003_SQ001'
-def answers(driver, df, rta1, rta2, rta3, user_id):     
+def answers(driver, df, rta1, rta2, user_id):     
     #definimos las posibles respuestas a la pregunta
     x1_11 = df["x1_11"][user_id] #busqueda activa
     x1_12 = df["x1_12"][user_id] #busqueda activa
-    x1_13 = df["x1_13"][user_id] #busqueda activa
     
     #ingresamos los valores
     text_answers1 = str(x1_11) #send keys funciona con str, pero llegan al formulario como int
@@ -30,11 +28,19 @@ def answers(driver, df, rta1, rta2, rta3, user_id):
     text_questions2 = driver.find_element(By.ID,rta2)
     text_questions2.send_keys(text_answers2)
 
-    #ingresamos los valores
-    text_answers3 = str(x1_13) #send keys funciona con str, pero llegan al formulario como int
-    text_questions3 = driver.find_element(By.ID,rta3)
-    text_questions3.send_keys(text_answers3)     
+    return driver
+
+#P1 Scrum Master / Agile Coach
+rta1b_a = 'answer661992X506X16497SQ001_SQ001'
+def answers1b(driver, df, rta1ba, user_id):     
+    #definimos las posibles respuestas a la pregunta
+    x1b_11 = df["x1b_11"][user_id] #busqueda activa
     
+    #ingresamos los valores
+    text_answers1 = str(x1b_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta1ba)
+    text_questions1.send_keys(text_answers1)        
+         
     return driver
 
 #P2 Desarrollador de Software Back End

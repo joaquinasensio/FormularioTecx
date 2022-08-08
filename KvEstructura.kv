@@ -102,6 +102,13 @@
                     app.root.current = "perfil1"
                     root.manager.transition.direction = "left"
             Button:
+                text: "Scrum Master / Agile Coach"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil1b"
+                    root.manager.transition.direction = "left"                    
+            Button:
                 text: "Desarrollador de Software Back End"
                 on_press: 
                     self.background_color = (0/255,51/255,102/255,1)
@@ -407,6 +414,96 @@
                 root.manager.transition.direction = "right"            
                 root.submit()
                 
+<Perfil1b>: #Scrum Master / Agile Coach
+    name: "perfil1b"
+    scr: scr
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Scrum Master / Agile Coach"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "[u]Otras denominaciones[/u]: "
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4                       
+    
+            Label:
+                text: "[u]Misión[/u]: Liderar los equipos en la gestión ágil de proyectos. Lograr que los equipos de trabajo alcancen sus objetivos hasta"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "llegar a la fase de sprint final, eliminando cualquier dificultad que puedan encontrar en el camino. Pero transmite un enfoque proactivo"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4   
+
+            Label:
+                text: "y de vanguardia para llevar a cabo proyectos y ejectuar procesos con el objetivo de que la empresa gane adaptabilidad."
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.86}
+                font_size: (root.width**2 + root.height**2) / 17**4                   
+
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "Scrum Master / Agile Coach:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: scr
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()                 
+
 <Perfil2a>: #Desarrollador de Software Back End
     name: "perfil2a"
     app_cs: app_cs
