@@ -115,7 +115,11 @@ class Introduccion(Screen):
         #perfil20
         data20 = {'x20_11':([0]*len(urls))}
         df_data20 = pd.DataFrame.from_dict(data20)
-        df_data20.to_csv("perfil20.csv")                
+        df_data20.to_csv("perfil20.csv")  
+        #perfil21
+        data21 = {'x21_11':([0]*len(urls))}
+        df_data21 = pd.DataFrame.from_dict(data21)
+        df_data21.to_csv("perfil21.csv")               
 
 class MainWindow(Screen):
     def btn(self):
@@ -144,7 +148,8 @@ class Popups(FloatLayout):
         p17 = pd.read_csv('perfil17.csv') #respuestas a la segunda pregunta
         p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta
         p19 = pd.read_csv('perfil19.csv') #respuestas a la segunda pregunta
-        p20 = pd.read_csv('perfil20.csv') #respuestas a la segunda pregunta     
+        p20 = pd.read_csv('perfil20.csv') #respuestas a la segunda pregunta  
+        p21 = pd.read_csv('perfil21.csv')   
         urls = pd.read_excel('LinksNoBorrar.xlsx') 
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
@@ -182,13 +187,14 @@ class Popups(FloatLayout):
             driver = answers17(driver = driver, df = p17, rta17a = rta17_a, user_id = user_id)
             driver = answers18(driver = driver, df = p18, rta18a = rta18_a, user_id = user_id)
             driver = answers20(driver = driver, df = p20, rta20a = rta20_a, user_id = user_id)
+            driver = answers21(driver = driver, df = p21, rta21a = rta21_a, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
 
         driver.close() # cerramos el web driver
         perfiles = ["perfil1.csv", "perfil2.csv", "perfil2b.csv", "perfil2c.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv",
                     "perfil6.csv", "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
                     "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv", "perfil19.csv",
-                    "perfil20.csv"]
+                    "perfil20.csv", "perfil21.csv"]
         for perfil in perfiles:
             os.remove(perfil)
 
@@ -631,6 +637,26 @@ class Perfil13(Screen): #Analista Big Data - Data Scientist
     def reset(self):
         self.dscience.text = ""
 
+class Perfil21(Screen): #Experto en Machine Learning
+    malearn = ObjectProperty(None)
+
+    def submit(self):
+        if ((self.malearn.text in y or self.malearn.text.count("") == 1)):
+            x21_11 = fragmentar(self.malearn.text)
+        
+            sm.current = "main"        
+          
+            perfil21_dict = {'x21_11':x21_11}
+            df_perfil21= pd.DataFrame.from_dict(perfil21_dict)
+            df_perfil21.to_csv("perfil21.csv")
+
+        else:
+            invalidForm()
+            sm.current = "perfil21"
+            self.reset() 
+    def reset(self):
+        self.malearn.text = ""
+
 class Perfil14(Screen): #Analista Middleware
     midd = ObjectProperty(None)
     
@@ -830,7 +856,7 @@ screens = [Introduccion(name="intro") , MainWindow(name="main"), Perfil1(name="p
             Perfil11(name="perfil11"), Perfil12(name="perfil12"), Perfil13(name="perfil13"), 
             Perfil14(name="perfil14"), Perfil15(name="perfil15"), Perfil16(name="perfil16"), 
             Perfil17(name="perfil17"), Perfil18(name="perfil18"), Perfil19(name="perfil19"),
-            Perfil20(name="perfil20")]
+            Perfil20(name="perfil20"), Perfil21(name="perfil21")]
 for screen in screens:
     sm.add_widget(screen)
 

@@ -205,7 +205,14 @@
                     self.background_color = (0/255,51/255,102/255,1)
                 on_release:
                     app.root.current = "perfil13"
-                    root.manager.transition.direction = "left"        
+                    root.manager.transition.direction = "left"  
+            Button:
+                text: "Experto en Machine Learning"
+                on_press: 
+                    self.background_color = (0/255,51/255,102/255,1)
+                on_release:
+                    app.root.current = "perfil21"
+                    root.manager.transition.direction = "left"                           
             Button:
                 text: "Analista Middleware"
                 on_press: 
@@ -241,14 +248,13 @@
                 on_release:
                     app.root.current = "perfil18"
                     root.manager.transition.direction = "left"      
-
             Button:
                 text: "DevOps"
                 on_press: 
                     self.background_color = (0/255,51/255,102/255,1)
                 on_release:
                     app.root.current = "perfil20"
-                    root.manager.transition.direction = "left"                                                                                                                                                                                       
+                    root.manager.transition.direction = "left" 
 
         Button:
             text: "Cerrar APP y Enviar Respuestas"
@@ -2549,27 +2555,27 @@
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
                 font_size: (root.width**2 + root.height**2) / 14**4
-    
+
             Label:
-                text: "[u]Misión[/u]: Desarrollo de infraestructura de trabajo acorde con las necesidades de la empresa, apoyo a los usuarios finales para"
+                text: "[u]Otras denominaciones[/u]: Site Reliability Engineer / Devops Consultant"
                 markup: True
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.95}
-                font_size: (root.width**2 + root.height**2) / 17**4             
-
+                font_size: (root.width**2 + root.height**2) / 17**4                       
+    
             Label:
-                text: "facilitarles la ayuda necesaria para que saquen el máximo partido de la infraestructura, garantía de que las aplicaciones y los sistemas sean seguros,"
+                text: "[u]Misión[/u]: Transformar culturalmente el área de development. Hacer que todo"
                 markup: True
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.92}
-                font_size: (root.width**2 + root.height**2) / 17**4   
+                font_size: (root.width**2 + root.height**2) / 17**4             
 
             Label:
-                text: "responsabilidad de todos los aspectos DevOps, incluida la gestión de datos, el desarrollo de aplicaciones y la prestación de servicios."
+                text: "el ciclo de vida de la aplicación sea mejor y tenga menores errores cuando llegue a producción."
                 markup: True
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":0.89}
-                font_size: (root.width**2 + root.height**2) / 17**4  
+                font_size: (root.width**2 + root.height**2) / 17**4   
 
             Label:
                 text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
@@ -2608,3 +2614,86 @@
             on_release:
                 root.manager.transition.direction = "right"            
                 root.submit() 
+
+<Perfil21>: #Experto en Machine Learning
+    name: "perfil21"
+    malearn: malearn
+
+    GridLayout:
+        cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
+        
+        FloatLayout:
+            size: root.width, root.height/2
+            padding: 15
+            
+            Label:
+                text: "Experto en Machine Learning"
+                #color: (0/255 ,0/255, 0/255,1)
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+            Label:
+                text: "[u]Otras denominaciones[/u]: - "
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.95}
+                font_size: (root.width**2 + root.height**2) / 17**4                       
+    
+            Label:
+                text: "[u]Misión[/u]: Diseño de software de ejecución automática para automatizar modelos predictivos,"
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.92}
+                font_size: (root.width**2 + root.height**2) / 17**4             
+
+            Label:
+                text: "incluyendo modelos de árboles de decisión, random forest, redes neuronales, entre otros."
+                markup: True
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":0.89}
+                font_size: (root.width**2 + root.height**2) / 17**4   
+
+            Label:
+                text: "Indique, para cada especialidad, la cantidad de búsquedas activas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.75}
+                font_size: (root.width**2 + root.height**2) / 14.5**4
+
+            Label:
+                text: "Puede dejar en blanco las especialidades sin búsquedas actuales"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3, "top":0.7}
+                font_size: (root.width**2 + root.height**2) / 17**4                
+                            
+            Label:
+                text: "Experto en Machine Learning:"
+                size_hint: 0.4,0.08
+                pos_hint: {"x":0.1, "top":0.75-0.15}
+                font_size: (root.width**2 + root.height**2) / 15.5**4
+                text_size: self.size
+                halign: 'left'                
+    
+            TextInput:
+                id: malearn
+                pos_hint: {"x":0.8, "top":0.75-0.155}
+                size_hint: 0.12, 0.09
+                multiline: False
+                font_size: (root.width**2 + root.height**2) / 14**4
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.15
+            text: "Ingresar valores y volver al menú anterior"
+            font_size: (root.width**2 + root.height**2) / 14**4
+            on_press: 
+                self.background_color = (0/255,51/255,102/255,1)   
+            on_release:
+                root.manager.transition.direction = "right"            
+                root.submit()                 

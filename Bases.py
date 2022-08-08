@@ -505,6 +505,18 @@ def answers20(driver, df, rta20a, user_id):
          
     return driver
 
+#P21 Experto en Machine Learning
+rta21_a = 'answer661992X506X16511SQ001_SQ001'
+def answers21(driver, df, rta21a, user_id):
+    #definimos las posibles respuestas a la pregunta
+    x21_11 = df["x21_11"][user_id] #busqueda activa
+    
+    #ingresamos los valores
+    text_answers1 = str(x21_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta21a)
+    text_questions1.send_keys(text_answers1)        
+         
+    return driver
 
 submit_class = 'button[id="ls-button-submit"]'
 def submit(driver, element_class):
