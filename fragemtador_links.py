@@ -69,11 +69,11 @@ Builder.load_string("""
 """)
 
 class MainWindow(Screen):
+    empresas10 = ObjectProperty(None)
+    empresas5 = ObjectProperty(None)
     def archivos(self):
-        empresas10 = ObjectProperty(None)
-        emp10 = int(empresas10.text)
-        empresas5 = ObjectProperty(None)
-        emp5 = int(empresas5.text)
+        emp10 = int(self.empresas10.text)
+        emp5 = int(self.empresas5.text)
 
         links = pd.read_excel("links.xlsx")
         links = links.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
@@ -87,6 +87,8 @@ class MainWindow(Screen):
             links.iloc[0:5].to_excel('links - empresa '+str(j+1+emp10)+'.xlsx')
             links = links.iloc[5: , :]
 
+        links_empresas.get_running_app().stop()
+        
 class WindowManager(ScreenManager):
     pass
 
