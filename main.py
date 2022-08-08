@@ -124,7 +124,9 @@ class MainWindow(Screen):
 class Popups(FloatLayout):
     def fin(self):
         p1 = pd.read_csv('perfil1.csv') #respuestas a la primera pregunta
-        p2 = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
+        p2a = pd.read_csv('perfil2.csv') #respuestas a la segunda pregunta
+        p2b = pd.read_csv('perfil2b.csv')
+        p2c = pd.read_csv('perfil2c.csv')
         p3 = pd.read_csv('perfil3.csv') #respuestas a la segunda pregunta
         p4 = pd.read_csv('perfil4.csv') #respuestas a la segunda pregunta
         p5 = pd.read_csv('perfil5.csv') #respuestas a la segunda pregunta
@@ -140,7 +142,9 @@ class Popups(FloatLayout):
         p15 = pd.read_csv('perfil15.csv') #respuestas a la segunda pregunta
         p16 = pd.read_csv('perfil16.csv') #respuestas a la segunda pregunta    
         p17 = pd.read_csv('perfil17.csv') #respuestas a la segunda pregunta
-        p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta     
+        p18 = pd.read_csv('perfil18.csv') #respuestas a la segunda pregunta
+        p19 = pd.read_csv('perfil19.csv') #respuestas a la segunda pregunta
+        p20 = pd.read_csv('perfil20.csv') #respuestas a la segunda pregunta     
         urls = pd.read_excel('LinksNoBorrar.xlsx') 
         urls = urls.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         urls = urls.to_frame() 
@@ -151,9 +155,13 @@ class Popups(FloatLayout):
         #loopeamos por la cantidad de respuestas en el df
         for user_id in range(len(urls)):
             driver.get(urls.links[user_id])
-            driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, user_id = user_id)
-            driver = answers2(driver = driver, df = p2, rta2a = rta2_a, rta2b = rta2_b,
+            driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, rta3 = rta3, user_id = user_id)
+            driver = answers2(driver = driver, df = p2a, rta2a = rta2_a, rta2b = rta2_b,
                         rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
+            driver = answers2b(driver = driver, df = p2b, rta2ba = rta2b_a, rta2bb = rta2b_b,
+                        rta2bc = rta2b_c, rta2bd = rta2b_d, rta2be = rta2b_e, user_id = user_id)
+            driver = answers2c(driver = driver, df = p2c, rta2ca = rta2c_a, rta2cb = rta2c_b,
+                        rta2cc = rta2c_c, rta2cd = rta2c_d, rta2ce = rta2c_e, user_id = user_id)                        
             driver = answers3(driver = driver, df = p3, rta3a = rta3_a, rta3b = rta3_b, user_id = user_id)
             driver = answers4(driver = driver, df = p4, rta4a = rta4_a, rta4b = rta4_b, rta4c = rta4_c, user_id = user_id)
             driver = answers5(driver = driver, df = p5, rta5a = rta5_a, rta5b = rta5_b, rta5c = rta5_c, user_id = user_id)
@@ -161,6 +169,7 @@ class Popups(FloatLayout):
             driver = answers7(driver = driver, df = p7, rta7a = rta7_a, rta7b = rta7_b,
                         rta7c = rta7_c, rta7d = rta7_d, user_id = user_id)
             driver = answers8(driver = driver, df = p8, rta8a = rta8_a, rta8b = rta8_b, rta8c = rta8_c, user_id = user_id)
+            driver = answers19(driver = driver, df = p19, rta19a = rta19_a, user_id = user_id)
             driver = answers9(driver = driver, df = p9, rta9a = rta9_a, rta9b = rta9_b, rta9c = rta9_c, user_id = user_id)
             driver = answers10(driver = driver, df = p10, rta10a = rta10_a, rta10b = rta10_b,
                         rta10c = rta10_c, rta10d = rta10_d, rta10e = rta10_e, rta10f = rta10_f, user_id = user_id)
@@ -172,12 +181,14 @@ class Popups(FloatLayout):
             driver = answers16(driver = driver, df = p16, rta16a = rta16_a, user_id = user_id)
             driver = answers17(driver = driver, df = p17, rta17a = rta17_a, user_id = user_id)
             driver = answers18(driver = driver, df = p18, rta18a = rta18_a, user_id = user_id)
+            driver = answers20(driver = driver, df = p20, rta20a = rta20_a, user_id = user_id)
             driver = submit(driver = driver, element_class = submit_class)            
 
         driver.close() # cerramos el web driver
-        perfiles = ["perfil1.csv", "perfil2.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv", "perfil6.csv",
-                    "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
-                    "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv"]
+        perfiles = ["perfil1.csv", "perfil2.csv", "perfil2b.csv", "perfil2c.csv", "perfil3.csv", "perfil4.csv", "perfil5.csv",
+                    "perfil6.csv", "perfil7.csv", "perfil8.csv", "perfil9.csv", "perfil10.csv", "perfil11.csv", "perfil12.csv",
+                    "perfil13.csv", "perfil14.csv", "perfil15.csv", "perfil16.csv", "perfil17.csv", "perfil18.csv", "perfil19.csv",
+                    "perfil20.csv"]
         for perfil in perfiles:
             os.remove(perfil)
 

@@ -13,10 +13,12 @@ from selenium.webdriver.common.by import By
 #P1 Líder de Desarrollo / Proyect Manager (PM)
 rta1 = 'answer661992X506X16497SQ001_SQ001'
 rta2 = 'answer661992X506X16497SQ002_SQ001'
-def answers(driver, df, rta1, rta2, user_id):     
+rta3 = 'answer661992X506X16497SQ003_SQ001'
+def answers(driver, df, rta1, rta2, rta3, user_id):     
     #definimos las posibles respuestas a la pregunta
     x1_11 = df["x1_11"][user_id] #busqueda activa
     x1_12 = df["x1_12"][user_id] #busqueda activa
+    x1_13 = df["x1_13"][user_id] #busqueda activa
     
     #ingresamos los valores
     text_answers1 = str(x1_11) #send keys funciona con str, pero llegan al formulario como int
@@ -26,11 +28,16 @@ def answers(driver, df, rta1, rta2, user_id):
     #ingresamos los valores
     text_answers2 = str(x1_12) #send keys funciona con str, pero llegan al formulario como int
     text_questions2 = driver.find_element(By.ID,rta2)
-    text_questions2.send_keys(text_answers2)     
+    text_questions2.send_keys(text_answers2)
+
+    #ingresamos los valores
+    text_answers3 = str(x1_13) #send keys funciona con str, pero llegan al formulario como int
+    text_questions3 = driver.find_element(By.ID,rta3)
+    text_questions3.send_keys(text_answers3)     
     
     return driver
 
-#P2 Desarrollador de Software
+#P2 Desarrollador de Software Back End
 rta2_a = 'answer661992X506X16507SQ001_SQ001'
 rta2_b = 'answer661992X506X16507SQ002_SQ001'
 rta2_c = 'answer661992X506X16507SQ003_SQ001'
@@ -64,6 +71,76 @@ def answers2(driver, df, rta2a, rta2b, rta2c, rta2d, rta2e, user_id):
     text_questions5.send_keys(text_answers5)  
     
     return driver
+
+#P2 Desarrollador de Software Front End
+rta2b_a = 'answer661992X506X16507SQ001_SQ001'
+rta2b_b = 'answer661992X506X16507SQ002_SQ001'
+rta2b_c = 'answer661992X506X16507SQ003_SQ001'
+rta2b_d = 'answer661992X506X16507SQ004_SQ001'
+rta2b_e = 'answer661992X506X16507SQ005_SQ001'
+def answers2b(driver, df, rta2ba, rta2bb, rta2bc, rta2bd, rta2be, user_id):
+    x2b_11 = df["x2_11"][user_id] #busqueda activa
+    x2b_12 = df["x2_12"][user_id] #busqueda activa
+    x2b_13 = df["x2_13"][user_id] #busqueda activa
+    x2b_14 = df["x2_14"][user_id] #busqueda activa
+    x2b_15 = df["x2_15"][user_id] #busqueda activa
+    
+    text_answers1 = str(x2b_11) # following the order in the form
+    text_questions1 = driver.find_element(By.ID,rta2ba)
+    text_questions1.send_keys(text_answers1)        
+        
+    text_answers2 = str(x2b_12) # following the order in the form
+    text_questions2 = driver.find_element(By.ID,rta2bb)
+    text_questions2.send_keys(text_answers2)     
+    
+    text_answers3 = str(x2b_13) # following the order in the form
+    text_questions3 = driver.find_element(By.ID,rta2bc)
+    text_questions3.send_keys(text_answers3)        
+        
+    text_answers4 = str(x2b_14) # following the order in the form
+    text_questions4 = driver.find_element(By.ID,rta2bd)
+    text_questions4.send_keys(text_answers4)      
+
+    text_answers5 = str(x2b_15) # following the order in the form
+    text_questions5 = driver.find_element(By.ID,rta2be)
+    text_questions5.send_keys(text_answers5)  
+    
+    return driver
+
+#P2 Desarrollador de Software Full Stack
+rta2c_a = 'answer661992X506X16507SQ001_SQ001'
+rta2c_b = 'answer661992X506X16507SQ002_SQ001'
+rta2c_c = 'answer661992X506X16507SQ003_SQ001'
+rta2c_d = 'answer661992X506X16507SQ004_SQ001'
+rta2c_e = 'answer661992X506X16507SQ005_SQ001'
+def answers2c(driver, df, rta2ca, rta2cb, rta2cc, rta2cd, rta2ce, user_id):
+    x2c_11 = df["x2_11"][user_id] #busqueda activa
+    x2c_12 = df["x2_12"][user_id] #busqueda activa
+    x2c_13 = df["x2_13"][user_id] #busqueda activa
+    x2c_14 = df["x2_14"][user_id] #busqueda activa
+    x2c_15 = df["x2_15"][user_id] #busqueda activa
+    
+    text_answers1 = str(x2c_11) # following the order in the form
+    text_questions1 = driver.find_element(By.ID,rta2ca)
+    text_questions1.send_keys(text_answers1)        
+        
+    text_answers2 = str(x2c_12) # following the order in the form
+    text_questions2 = driver.find_element(By.ID,rta2cb)
+    text_questions2.send_keys(text_answers2)     
+    
+    text_answers3 = str(x2c_13) # following the order in the form
+    text_questions3 = driver.find_element(By.ID,rta2cc)
+    text_questions3.send_keys(text_answers3)        
+        
+    text_answers4 = str(x2c_14) # following the order in the form
+    text_questions4 = driver.find_element(By.ID,rta2cd)
+    text_questions4.send_keys(text_answers4)      
+
+    text_answers5 = str(x2c_15) # following the order in the form
+    text_questions5 = driver.find_element(By.ID,rta2ce)
+    text_questions5.send_keys(text_answers5)  
+    
+    return driver        
 
 #P3 Arquitecto de Software
 rta3_a = 'answer661992X506X16505SQ001_SQ001'
@@ -401,6 +478,33 @@ def answers18(driver, df, rta18a, user_id):
     text_questions1.send_keys(text_answers1)        
          
     return driver
+
+#P19 QA Automation
+rta19_a = 'answer661992X506X16511SQ001_SQ001'
+def answers19(driver, df, rta19a, user_id):
+    #definimos las posibles respuestas a la pregunta
+    x19_11 = df["x19_11"][user_id] #busqueda activa
+    
+    #ingresamos los valores
+    text_answers1 = str(x19_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta19a)
+    text_questions1.send_keys(text_answers1)        
+         
+    return driver
+
+#P20 DevOps
+rta20_a = 'answer661992X506X16511SQ001_SQ001'
+def answers20(driver, df, rta20a, user_id):
+    #definimos las posibles respuestas a la pregunta
+    x20_11 = df["x20_11"][user_id] #busqueda activa
+    
+    #ingresamos los valores
+    text_answers1 = str(x20_11) #send keys funciona con str, pero llegan al formulario como int
+    text_questions1 = driver.find_element(By.ID,rta20a)
+    text_questions1.send_keys(text_answers1)        
+         
+    return driver
+
 
 submit_class = 'button[id="ls-button-submit"]'
 def submit(driver, element_class):
