@@ -175,7 +175,7 @@ class Popups(FloatLayout):
         for user_id in range(len(urls)):
             driver.get(urls.links[user_id])
             driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, user_id = user_id)
-            driver = answers1b(driver = driver, df = p1, rta1ba = rta1b_a, user_id = user_id)
+            driver = answers1b(driver = driver, df = p1b, rta1ba = rta1b_a, user_id = user_id)
             driver = answers2(driver = driver, df = p2a, rta2a = rta2_a, rta2b = rta2_b,
                         rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
             driver = answers2b(driver = driver, df = p2b, rta2ba = rta2b_a, rta2bb = rta2b_b,
