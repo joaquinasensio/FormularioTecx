@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from kivy.app import App
 
 from kivy.app import App
@@ -17,6 +18,12 @@ Builder.load_string("""
  
     GridLayout:
         cols:1
+        canvas.before:
+            Color:
+                rgba:(0/255,51/255,102/255,1)
+            Rectangle:
+                pos:self.pos
+                size:self.size
         
         FloatLayout:
             size: root.width, root.height/2
@@ -58,7 +65,41 @@ Builder.load_string("""
             text: "Continuar"
             font_size: (root.width**2 + root.height**2) / 14**4 
             on_release:            
-                root.fechas()
-                root.manager.transition.direction = "left"                 
-                root.manager.current = 'Menu_Principal' 
+                root.archivos()
 """)
+
+class MainWindow(Screen):
+    def archivos(self):
+        empresas10 = ObjectProperty(None)
+        emp10 = int(empresas10.text)
+        empresas5 = ObjectProperty(None)
+        emp5 = int(empresas5.text)
+
+        links = pd.read_excel("links.xlsx")
+        links = links.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
+        links = links.to_frame() 
+
+        for i in range(0,emp10):
+            links.iloc[0:10].to_excel('links - empresa '+str(i+1)+'.xlsx')
+            links = links.iloc[10: , :]
+                        
+        for j in range(0,emp5):
+            links.iloc[0:5].to_excel('links - empresa '+str(j+1+emp10)+'.xlsx')
+            links = links.iloc[5: , :]
+
+class WindowManager(ScreenManager):
+    pass
+
+sm = WindowManager()
+screens = [MainWindow(name="main")]
+for screen in screens:
+    sm.add_widget(screen)
+
+sm.current = "main"
+
+class links_empresas(App):
+    def build(self):
+        return sm
+
+if __name__ == "__main__":
+    links_empresas().run()
