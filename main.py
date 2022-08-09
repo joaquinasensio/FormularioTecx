@@ -309,7 +309,7 @@ class Perfil2b(Screen): #Desarrollador de Software Front End
             x2b_15 = fragmentar(self.desar_sist_emb_b.text)
             sm.current = "main"
             
-            perfil2b_dict = {'x2_11':x2b_11, 'x2_12':x2b_12, 'x2_13':x2b_13, 'x2_14':x2b_14, 'x2_15':x2b_15}
+            perfil2b_dict = {'x2b_11':x2b_11, 'x2b_12':x2b_12, 'x2b_13':x2b_13, 'x2b_14':x2b_14, 'x2b_15':x2b_15}
             df_perfil2b = pd.DataFrame.from_dict(perfil2b_dict)
             df_perfil2b.to_csv("perfil2b.csv")
 
@@ -342,7 +342,7 @@ class Perfil2c(Screen): #Desarrollador de Software Full Stack
             x2c_15 = fragmentar(self.desar_sist_emb_c.text)
             sm.current = "main"
             
-            perfil2c_dict = {'x2_11':x2c_11, 'x2_12':x2c_12, 'x2_13':x2c_13, 'x2_14':x2c_14, 'x2_15':x2c_15}
+            perfil2c_dict = {'x2c_11':x2c_11, 'x2c_12':x2c_12, 'x2c_13':x2c_13, 'x2c_14':x2c_14, 'x2c_15':x2c_15}
             df_perfil2c = pd.DataFrame.from_dict(perfil2c_dict)
             df_perfil2c.to_csv("perfil2c.csv")
 

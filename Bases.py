@@ -31,7 +31,7 @@ def answers(driver, df, rta1, rta2, user_id):
     return driver
 
 #P1 Scrum Master / Agile Coach
-rta1b_a = 'answer661992X506X16497SQ001_SQ001'
+rta1b_a = 'answer661992X506X16497SQ003_SQ001'
 def answers1b(driver, df, rta1ba, user_id):     
     #definimos las posibles respuestas a la pregunta
     x1b_11 = df["x1b_11"][user_id] #busqueda activa
@@ -44,11 +44,11 @@ def answers1b(driver, df, rta1ba, user_id):
     return driver
 
 #P2 Desarrollador de Software Back End
-rta2_a = 'answer661992X506X16507SQ001_SQ001'
-rta2_b = 'answer661992X506X16507SQ002_SQ001'
-rta2_c = 'answer661992X506X16507SQ003_SQ001'
-rta2_d = 'answer661992X506X16507SQ004_SQ001'
-rta2_e = 'answer661992X506X16507SQ005_SQ001'
+rta2_a = 'answer661992X506X16563SQ001_SQ001'
+rta2_b = 'answer661992X506X16563SQ002_SQ001'
+rta2_c = 'answer661992X506X16563SQ003_SQ001'
+rta2_d = 'answer661992X506X16563SQ004_SQ001'
+rta2_e = 'answer661992X506X16563SQ005_SQ001'
 def answers2(driver, df, rta2a, rta2b, rta2c, rta2d, rta2e, user_id):
     x2_11 = df["x2_11"][user_id] #busqueda activa
     x2_12 = df["x2_12"][user_id] #busqueda activa
@@ -79,17 +79,17 @@ def answers2(driver, df, rta2a, rta2b, rta2c, rta2d, rta2e, user_id):
     return driver
 
 #P2 Desarrollador de Software Front End
-rta2b_a = 'answer661992X506X16507SQ001_SQ001'
-rta2b_b = 'answer661992X506X16507SQ002_SQ001'
-rta2b_c = 'answer661992X506X16507SQ003_SQ001'
-rta2b_d = 'answer661992X506X16507SQ004_SQ001'
-rta2b_e = 'answer661992X506X16507SQ005_SQ001'
+rta2b_a = 'answer661992X506X16570SQ001_SQ001'
+rta2b_b = 'answer661992X506X16570SQ002_SQ001'
+rta2b_c = 'answer661992X506X16570SQ003_SQ001'
+rta2b_d = 'answer661992X506X16570SQ004_SQ001'
+rta2b_e = 'answer661992X506X16570SQ005_SQ001'
 def answers2b(driver, df, rta2ba, rta2bb, rta2bc, rta2bd, rta2be, user_id):
-    x2b_11 = df["x2b_11"][user_id] #busqueda activa
-    x2b_12 = df["x2b_12"][user_id] #busqueda activa
-    x2b_13 = df["x2b_13"][user_id] #busqueda activa
-    x2b_14 = df["x2b_14"][user_id] #busqueda activa
-    x2b_15 = df["x2b_15"][user_id] #busqueda activa
+    x2b_11 = df["x2_11"][user_id] #busqueda activa
+    x2b_12 = df["x2_12"][user_id] #busqueda activa
+    x2b_13 = df["x2_13"][user_id] #busqueda activa
+    x2b_14 = df["x2_14"][user_id] #busqueda activa
+    x2b_15 = df["x2_15"][user_id] #busqueda activa
     
     text_answers1 = str(x2b_11) # following the order in the form
     text_questions1 = driver.find_element(By.ID,rta2ba)
@@ -120,11 +120,11 @@ rta2c_c = 'answer661992X506X16507SQ003_SQ001'
 rta2c_d = 'answer661992X506X16507SQ004_SQ001'
 rta2c_e = 'answer661992X506X16507SQ005_SQ001'
 def answers2c(driver, df, rta2ca, rta2cb, rta2cc, rta2cd, rta2ce, user_id):
-    x2c_11 = df["x2c_11"][user_id] #busqueda activa
-    x2c_12 = df["x2c_12"][user_id] #busqueda activa
-    x2c_13 = df["x2c_13"][user_id] #busqueda activa
-    x2c_14 = df["x2c_14"][user_id] #busqueda activa
-    x2c_15 = df["x2c_15"][user_id] #busqueda activa
+    x2c_11 = df["x2_11"][user_id] #busqueda activa
+    x2c_12 = df["x2_12"][user_id] #busqueda activa
+    x2c_13 = df["x2_13"][user_id] #busqueda activa
+    x2c_14 = df["x2_14"][user_id] #busqueda activa
+    x2c_15 = df["x2_15"][user_id] #busqueda activa
     
     text_answers1 = str(x2c_11) # following the order in the form
     text_questions1 = driver.find_element(By.ID,rta2ca)
@@ -486,7 +486,7 @@ def answers18(driver, df, rta18a, user_id):
     return driver
 
 #P19 QA Automation
-rta19_a = 'answer661992X506X16511SQ001_SQ001'
+rta19_a = 'answer661992X506X16578'
 def answers19(driver, df, rta19a, user_id):
     #definimos las posibles respuestas a la pregunta
     x19_11 = df["x19_11"][user_id] #busqueda activa
@@ -499,7 +499,7 @@ def answers19(driver, df, rta19a, user_id):
     return driver
 
 #P20 DevOps
-rta20_a = 'answer661992X506X16511SQ001_SQ001'
+rta20_a = 'answer661992X506X16579'
 def answers20(driver, df, rta20a, user_id):
     #definimos las posibles respuestas a la pregunta
     x20_11 = df["x20_11"][user_id] #busqueda activa
@@ -512,7 +512,7 @@ def answers20(driver, df, rta20a, user_id):
     return driver
 
 #P21 Experto en Machine Learning
-rta21_a = 'answer661992X506X16511SQ001_SQ001'
+rta21_a = 'answer661992X506X16577'
 def answers21(driver, df, rta21a, user_id):
     #definimos las posibles respuestas a la pregunta
     x21_11 = df["x21_11"][user_id] #busqueda activa
