@@ -215,7 +215,7 @@ class Popups(FloatLayout):
 
         FormularioTECx.get_running_app().stop()
        
-class Perfil1(Screen): #Líder de Desarrollo / ProjectManager (PM)
+class Perfil1(Screen): #Líder de Desarrollo / Project Manager (PM)
     pm = ObjectProperty(None)
     sdm = ObjectProperty(None)
     

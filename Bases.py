@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 # url = "https://economictrends.limequery.com/214733?token=1234&lang=es"
 # driver = webdriver.Chrome(ChromeDriverManager().install())
 
-#P1 Líder de Desarrollo / ProjectManager (PM)
+#P1 Líder de Desarrollo / Project Manager (PM)
 rta1 = 'answer661992X506X16497SQ001_SQ001'
 rta2 = 'answer661992X506X16497SQ002_SQ001'
 def answers(driver, df, rta1, rta2, user_id):     
