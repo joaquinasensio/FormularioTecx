@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from openpyxl import load_workbook
+import openpyxl
 from kivy.app import App
 
 from kivy.app import App
@@ -75,14 +77,20 @@ class MainWindow(Screen):
         emp10 = int(self.empresas10.text)
         emp5 = int(self.empresas5.text)
 
-        links = pd.read_excel("links.xlsx")
+        links = pd.read_excel("Libro1.xlsx")
         links = links.links.sample(frac = 1).reset_index(drop=True) #orden aleatorio de links
         links = links.to_frame() 
 
+
         for i in range(0,emp10):
-            links.iloc[0:10].to_excel('links - empresa '+str(i+1)+'.xlsx')
+            links.iloc[0:10].to_excel('links - empresa '+str(i+1)+'.xlsx', index = False) 
             links = links.iloc[10: , :]
-                        
+        
+        with pd.ExcelWriter('Distribución de Formularios para empresas.xlsx', engine='xlsxwriter') as writer:
+            for i in range(0,emp10):                    
+                # Write each dataframe to a different worksheet.
+                pd.read_excel('links - empresa '+str(i+1)+'.xlsx').to_excel(writer, sheet_name='links - empresa '+str(i+1), index = False) 
+
         for j in range(0,emp5):
             links.iloc[0:5].to_excel('links - empresa '+str(j+1+emp10)+'.xlsx')
             links = links.iloc[5: , :]
