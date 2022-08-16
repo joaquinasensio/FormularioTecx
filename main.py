@@ -33,10 +33,10 @@ class Introduccion(Screen):
     def perfil_csv(self):
     #Creamos .csv de perfiles
         #perfil 1a
-        data1 = {'x1_11':([0]*len(urls)), 'x1_12':([0]*len(urls))}
+        data1 = {'x1_11':([0]*len(urls)), 'x1_12':([0]*len(urls)),  'x1_13':([0]*len(urls))}
         df_data1 = pd.DataFrame.from_dict(data1)
         df_data1.to_csv("perfil1.csv")
-        #perfil 1b
+        #perfil 1b Cloud Engineer
         data1b = {'x1b_11':([0]*len(urls))}
         df_data1b = pd.DataFrame.from_dict(data1b)
         df_data1b.to_csv("perfil1b.csv")        
@@ -174,7 +174,7 @@ class Popups(FloatLayout):
         #loopeamos por la cantidad de respuestas en el df
         for user_id in range(len(urls)):
             driver.get(urls.links[user_id])
-            driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, user_id = user_id)
+            driver = answers(driver = driver, df = p1, rta1 = rta1, rta2 = rta2, rta3 = rta3, user_id = user_id)
             driver = answers1b(driver = driver, df = p1b, rta1ba = rta1b_a, user_id = user_id)
             driver = answers2(driver = driver, df = p2a, rta2a = rta2_a, rta2b = rta2_b,
                         rta2c = rta2_c, rta2d = rta2_d, rta2e = rta2_e, user_id = user_id)
@@ -218,15 +218,18 @@ class Popups(FloatLayout):
 class Perfil1(Screen): #Líder de Desarrollo / Project Manager (PM)
     pm = ObjectProperty(None)
     sdm = ObjectProperty(None)
+    scr = ObjectProperty(None)
     
     def submit(self):
-        if ((self.pm.text in y or self.pm.text.count("") == 1) and (self.sdm.text in y or self.sdm.text.count("") == 1)):
+        if ((self.pm.text in y or self.pm.text.count("") == 1) and (self.sdm.text in y or self.sdm.text.count("") == 1)
+        and (self.scr.text in y or self.scr.text.count("") == 1)):
             x1_11 = fragmentar(self.pm.text)
             x1_12 = fragmentar(self.sdm.text)
+            x1_13 = fragmentar(self.scr.text)
         
             sm.current = "main"        
           
-            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12}
+            perfil1_dict = {'x1_11':x1_11, 'x1_12':x1_12, 'x1_13':x1_13}
             df_perfil1 = pd.DataFrame.from_dict(perfil1_dict)
             df_perfil1.to_csv("perfil1.csv")
 
@@ -236,14 +239,15 @@ class Perfil1(Screen): #Líder de Desarrollo / Project Manager (PM)
             self.reset()
     def reset(self):
         self.pm.text = ""
-        self.sdm.text = ""     
+        self.sdm.text = ""
+        self.scr.text = ""     
 
-class Perfil1b(Screen): #Scrum Master
-    scr = ObjectProperty(None)
+class Perfil1b(Screen): #Cloud Engineer
+    ceng = ObjectProperty(None)
 
     def submit(self):
-        if ((self.scr.text in y or self.scr.text.count("") == 1)):
-            x1b_11 = fragmentar(self.scr.text)
+        if ((self.ceng.text in y or self.ceng.text.count("") == 1)):
+            x1b_11 = fragmentar(self.ceng.text)
         
             sm.current = "main"        
           
@@ -256,7 +260,7 @@ class Perfil1b(Screen): #Scrum Master
             sm.current = "perfil1b"
             self.reset() 
     def reset(self):
-        self.scr.text = ""
+        self.ceng.text = ""
 
 class Perfil2a(Screen): #Desarrollador de Software Back End
     app_cs = ObjectProperty(None)

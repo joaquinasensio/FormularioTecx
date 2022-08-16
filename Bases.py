@@ -13,10 +13,12 @@ from selenium.webdriver.common.by import By
 #P1 Líder de Desarrollo / Project Manager (PM)
 rta1 = 'answer661992X506X16497SQ001_SQ001'
 rta2 = 'answer661992X506X16497SQ002_SQ001'
-def answers(driver, df, rta1, rta2, user_id):     
+rta3 = 'answer661992X506X16497SQ003_SQ001'
+def answers(driver, df, rta1, rta2, rta3, user_id):     
     #definimos las posibles respuestas a la pregunta
     x1_11 = df["x1_11"][user_id] #busqueda activa
     x1_12 = df["x1_12"][user_id] #busqueda activa
+    x1_13 = df["x1_13"][user_id] #busqueda activa
     
     #ingresamos los valores
     text_answers1 = str(x1_11) #send keys funciona con str, pero llegan al formulario como int
@@ -28,9 +30,14 @@ def answers(driver, df, rta1, rta2, user_id):
     text_questions2 = driver.find_element(By.ID,rta2)
     text_questions2.send_keys(text_answers2)
 
+    #ingresamos los valores
+    text_answers3 = str(x1_13) #send keys funciona con str, pero llegan al formulario como int
+    text_questions3 = driver.find_element(By.ID,rta3)
+    text_questions3.send_keys(text_answers3)    
+
     return driver
 
-#P1 Scrum Master / Agile Coach
+#P1 Cloud Engineer
 rta1b_a = 'answer661992X506X16497SQ003_SQ001'
 def answers1b(driver, df, rta1ba, user_id):     
     #definimos las posibles respuestas a la pregunta
@@ -85,11 +92,11 @@ rta2b_c = 'answer661992X506X16570SQ003_SQ001'
 rta2b_d = 'answer661992X506X16570SQ004_SQ001'
 rta2b_e = 'answer661992X506X16570SQ005_SQ001'
 def answers2b(driver, df, rta2ba, rta2bb, rta2bc, rta2bd, rta2be, user_id):
-    x2b_11 = df["x2_11"][user_id] #busqueda activa
-    x2b_12 = df["x2_12"][user_id] #busqueda activa
-    x2b_13 = df["x2_13"][user_id] #busqueda activa
-    x2b_14 = df["x2_14"][user_id] #busqueda activa
-    x2b_15 = df["x2_15"][user_id] #busqueda activa
+    x2b_11 = df["x2b_11"][user_id] #busqueda activa
+    x2b_12 = df["x2b_12"][user_id] #busqueda activa
+    x2b_13 = df["x2b_13"][user_id] #busqueda activa
+    x2b_14 = df["x2b_14"][user_id] #busqueda activa
+    x2b_15 = df["x2b_15"][user_id] #busqueda activa
     
     text_answers1 = str(x2b_11) # following the order in the form
     text_questions1 = driver.find_element(By.ID,rta2ba)
@@ -120,11 +127,11 @@ rta2c_c = 'answer661992X506X16507SQ003_SQ001'
 rta2c_d = 'answer661992X506X16507SQ004_SQ001'
 rta2c_e = 'answer661992X506X16507SQ005_SQ001'
 def answers2c(driver, df, rta2ca, rta2cb, rta2cc, rta2cd, rta2ce, user_id):
-    x2c_11 = df["x2_11"][user_id] #busqueda activa
-    x2c_12 = df["x2_12"][user_id] #busqueda activa
-    x2c_13 = df["x2_13"][user_id] #busqueda activa
-    x2c_14 = df["x2_14"][user_id] #busqueda activa
-    x2c_15 = df["x2_15"][user_id] #busqueda activa
+    x2c_11 = df["x2c_11"][user_id] #busqueda activa
+    x2c_12 = df["x2c_12"][user_id] #busqueda activa
+    x2c_13 = df["x2c_13"][user_id] #busqueda activa
+    x2c_14 = df["x2c_14"][user_id] #busqueda activa
+    x2c_15 = df["x2c_15"][user_id] #busqueda activa
     
     text_answers1 = str(x2c_11) # following the order in the form
     text_questions1 = driver.find_element(By.ID,rta2ca)
