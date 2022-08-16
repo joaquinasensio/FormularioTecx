@@ -38,7 +38,7 @@ def answers(driver, df, rta1, rta2, rta3, user_id):
     return driver
 
 #P1 Cloud Engineer
-rta1b_a = 'answer661992X506X16497SQ003_SQ001'
+rta1b_a = 'answer661992X506X16580'
 def answers1b(driver, df, rta1ba, user_id):     
     #definimos las posibles respuestas a la pregunta
     x1b_11 = df["x1b_11"][user_id] #busqueda activa
