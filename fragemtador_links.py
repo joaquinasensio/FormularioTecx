@@ -35,37 +35,37 @@ Builder.load_string("""
                 text: "Ingrese los valores que desee"
                 size_hint: 0.8, 0.2
                 pos_hint: {"x":0.1, "top":1}
-                font_size: (root.width**2 + root.height**2) / 14**4
+                font_size: (root.width**2 + root.height**2) / 14**4  /2
                                                    
             Label:
                 text: "Empresas con 10 links"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0, "top":0.8-0.12}
-                font_size: (root.width**2 + root.height**2) / 16**4                
+                font_size: (root.width**2 + root.height**2) / 16**4      /2          
             TextInput:
                 id: empresas10
                 pos_hint: {"x":0.5, "top":0.8-0.12}
                 size_hint: 0.4, 0.12
                 multiline: False
-                font_size: (root.width**2 + root.height**2) / 14**4
+                font_size: (root.width**2 + root.height**2) / 14**4   /2
     
             Label:
                 text: "Empresas con 5 links"
                 size_hint: 0.4,0.08
                 pos_hint: {"x":0, "top":0.8-0.12*2}                
-                font_size: (root.width**2 + root.height**2) / 16**4
+                font_size: (root.width**2 + root.height**2) / 16**4  /2
             TextInput:
                 id: empresas5
                 size_hint: 0.4, 0.12
                 pos_hint: {"x":0.5, "top":0.8-0.12*2}                
                 multiline: False
-                font_size: (root.width**2 + root.height**2) / 14**4  
+                font_size: (root.width**2 + root.height**2) / 14**4    /2
 
         Button:
             pos_hint:{"x":0.2,"y":0.05}
             size_hint: 0.6, 0.15
             text: "Continuar"
-            font_size: (root.width**2 + root.height**2) / 14**4 
+            font_size: (root.width**2 + root.height**2) / 14**4    /2
             on_release:            
                 root.archivos()
 """)
